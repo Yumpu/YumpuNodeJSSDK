@@ -1,0 +1,19 @@
+{
+  "name": "nodejssdk",
+  "version": "1.0.0",
+  "description": "nodejssdk for yumpu",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Yumpu/YumpuNodeJSSDK.git"
+  },
+  "author": "Lukas Bals",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Yumpu/YumpuNodeJSSDK/issues"
+  },
+  "homepage": "https://github.com/Yumpu/YumpuNodeJSSDK#readme"
+}
