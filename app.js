@@ -1,9 +1,5 @@
 var yumpu = require('./yumpu');
-console.log("app.js");
+// console.log("app.js");
 
-
-yumpu.yumpuFunction();
-
-
-var app = "Blabla";
-module.exports = app;
+var y = new yumpu();
+y.yumpuFunction();
