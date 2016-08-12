@@ -1,1 +1,4 @@
+# .gitignore NodeJSSDK
+
 /npm-debug.log
+/node_modules/
