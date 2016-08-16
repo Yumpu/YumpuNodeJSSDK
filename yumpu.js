@@ -11,15 +11,24 @@ yumpu.prototype.getDocuments = function(data, callbackGetDocuments) {
     } else {
         var path = c.getYumpuEndpoints().documentsGet + '?offset=' + data.offset + '&limit=' + data.limit + '&sort=desc';
     }
-console.log(path);
-    this.executeRequest(host, path, function(data) {
+    this.executeGetRequest(host, path, function(data) {
 
         callbackGetDocuments(data);
         // this.return data;
     });
 }
 
-yumpu.prototype.executeRequest = function(host, path, callbackRequest) {
+yumpu.prototype.getDocument = function(data, callbackGetDocument) {
+    var host = c.getYumpuConfig().endpointDomain;
+    var path = c.getYumpuEndpoints().documentGet + '?id=' + data.id + '&return_fields=' + data.return_fields;
+    console.log(path);
+    this.executeGetRequest(host, path, function(data) {
+        callbackGetDocument(data);
+        // this.return data;
+    });
+}
+
+yumpu.prototype.executeGetRequest = function(host, path, callbackRequest) {
     var options = {
         host: host,
         path: path,
