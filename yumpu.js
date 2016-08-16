@@ -4,12 +4,18 @@ var c = new config();
 
 var yumpu = function() {}
 
-yumpu.prototype.getDocuments = function(callbackGetDocuments) {
+yumpu.prototype.getDocuments = function(data, callbackGetDocuments) {
     var host = c.getYumpuConfig().endpointDomain;
-    var path = c.getYumpuEndpoints().documentsGet;
-
+    if (!data) {
+        var path = c.getYumpuEndpoints().documentsGet;
+    } else {
+        var path = c.getYumpuEndpoints().documentsGet + '?offset=' + data.offset + '&limit=' + data.limit + '&sort=desc';
+    }
+console.log(path);
     this.executeRequest(host, path, function(data) {
-        callbackGetDocuments(data.toString());
+
+        callbackGetDocuments(data);
+        // this.return data;
     });
 }
 
@@ -25,8 +31,8 @@ yumpu.prototype.executeRequest = function(host, path, callbackRequest) {
     };
 
     callback = function(res) {
-        console.log('STATUS: ' + res.statusCode);
-        console.log('HEADERS: ' + JSON.stringify(res.headers));
+        // console.log('STATUS: ' + res.statusCode);
+        // console.log('HEADERS: ' + JSON.stringify(res.headers));
         var data = [];
 
         res.on('data', function(chunk) {
@@ -34,7 +40,7 @@ yumpu.prototype.executeRequest = function(host, path, callbackRequest) {
         });
         res.on('end', function() {
             var body = Buffer.concat(data).toString();
-            return callbackRequest(body);
+            return callbackRequest(JSON.parse(body));
         });
     }
     var req = http.request(options, callback).end();
