@@ -1,11 +1,11 @@
 var c = {
     token: 'bkIzYsUTS6Eun5ALZwfiD38hN1tlOVKF',
     returnFormat: 'array',
-    endpointDomain: 'http://api.yumpu.com/2.0/',
+    endpointDomain: 'api.yumpu.com',
     endpointSearchDomain: 'http://search.yumpu.com/2.0/',
     debug: 'FALSE',
     logFilePath: 'yumpu_log.txt',
-    uploadPath: 'xyz'
+    uploadPath: ''
 };
 var yumpuEndpoints = {
     userGet: c.endpointDomain + 'user.json',
@@ -15,7 +15,7 @@ var yumpuEndpoints = {
     documentPostFile: c.endpointDomain + 'document/file.json',
     documentPostUrl: c.endpointDomain + 'document/url.json',
     documentProgress: c.endpointDomain + 'document/progress.json',
-    documentsGet: c.endpointDomain + 'documents.json',
+    documentsGet: '/2.0/documents.json',
     documentDelete: c.endpointDomain + 'document.json',
     documentPut: c.endpointDomain + 'document.json',
     collectionGet: c.endpointDomain + 'collection.json',
