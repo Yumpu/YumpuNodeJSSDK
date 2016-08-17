@@ -1,3 +1,14 @@
+// config array
+// 
+// token - user token provided by yumpu;
+// returnFormat - the response data format: array or json; default is array;
+// endpointDomain - the yumpu domain for the api methods;
+// endpointSearchDomain - the yumpu domain for the search api method;
+// debug - wether to write requests logs ot not; default is FALSE;
+// useCurl - wether to use CURL method or non CURL methods for request to yumpu api; default is TRUE;
+// logFilePath - path to the log file ;
+// uploadPath - pdfs' path location;
+// yumpuEndpoints - full paths array for the yumpu api methods;
 var c = {
     token: 'bkIzYsUTS6Eun5ALZwfiD38hN1tlOVKF',
     returnFormat: 'array',
