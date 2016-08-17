@@ -12,6 +12,7 @@ yumpuFunctions.prototype.executeRequest = function(reqData, callbackRequest) {
         headers: reqData.headers
     };
 
+
     if (reqData.method == 'POST') {
         var reqForm = {
             title: reqData.body.title,
