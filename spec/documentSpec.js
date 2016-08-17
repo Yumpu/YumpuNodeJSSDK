@@ -1,4 +1,5 @@
-describe("DocumentTest", function() {
+// Test for the getDocument function
+describe("getDocument Test", function() {
 
     // include yumpu sdk
     var yumpu = require('../yumpu');

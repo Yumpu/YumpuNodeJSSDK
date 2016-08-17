@@ -7,11 +7,22 @@ var y = new yumpu();
 // get a document details
 // more details on : http://developers.yumpu.com/api/document/get-2/
 // PLEASE USE ONE OF YOUR DOCUMENTS IDS!!!
-var data = {
+var parameters = {
     id: 55834590,
     return_fields: 'id,create_date,update_date,url,image_small'
 };
-y.getDocument(data, function(document) {
+y.getDocument(parameters, function(statusCode, document) {
+    console.log('Status: ' + statusCode)
     console.log(document);
+});
 
+// document post file example without page_teaser_image; for file will be used full path
+// more details on : http://developers.yumpu.com/api/document/post-file/
+var parameters = {
+  title: 'MyDocument',
+  file: './example/media/yumpu.pdf'
+};
+y.postDocumentFile(parameters, function(statusCode, document){
+  console.log('Status: ' + statusCode)
+  console.log(document);
 });

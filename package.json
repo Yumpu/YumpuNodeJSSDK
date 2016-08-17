@@ -5,7 +5,7 @@
   "main": "app.js",
   "scripts": {
     "test": "jasmine-node spec",
-    "start": "node example/documents.js"
+    "start": "node app.js"
   },
   "repository": {
     "type": "git",

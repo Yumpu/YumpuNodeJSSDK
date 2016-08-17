@@ -1,3 +1,7 @@
-var yumpu = require('./yumpu');
 
-var y = new yumpu();
+
+
+
+// var documents = require('./example/documents');
+
+var document = require('./example/document');

@@ -23,7 +23,7 @@ var yumpuEndpoints = {
     userPost: c.endpointDomain + 'user.json',
     userPut: c.endpointDomain + 'user.json',
     documentGet: '/2.0/document.json',
-    documentPostFile: c.endpointDomain + 'document/file.json',
+    documentPostFile: '/2.0/document/file.json',
     documentPostUrl: c.endpointDomain + 'document/url.json',
     documentProgress: c.endpointDomain + 'document/progress.json',
     documentsGet: '/2.0/documents.json',
