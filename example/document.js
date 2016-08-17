@@ -13,4 +13,5 @@ var data = {
 };
 y.getDocument(data, function(document) {
     console.log(document);
+
 });

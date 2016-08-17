@@ -1,5 +1,5 @@
 // config array
-// 
+//
 // token - user token provided by yumpu;
 // returnFormat - the response data format: array or json; default is array;
 // endpointDomain - the yumpu domain for the api methods;

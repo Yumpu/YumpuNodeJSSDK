@@ -16,10 +16,10 @@ yumpu.prototype.getDocuments = function(data, callbackGetDocuments) {
     } else {
         var path = c.getYumpuEndpoints().documentsGet + '?offset=' + data.offset + '&limit=' + data.limit + '&sort=desc';
     }
-    this.executeGetRequest(host, path, function(data) {
-        callbackGetDocuments(data);
+    this.executeGetRequest(host, path, function(statusCode, data) {
+        callbackGetDocuments(statusCode, data);
     });
-    this.log('getDocuments - ' + path)
+    this.log('getDocuments - ' + host + path);
 }
 
 // get document details
@@ -27,11 +27,10 @@ yumpu.prototype.getDocuments = function(data, callbackGetDocuments) {
 yumpu.prototype.getDocument = function(data, callbackGetDocument) {
     var host = c.getYumpuConfig().endpointDomain;
     var path = c.getYumpuEndpoints().documentGet + '?id=' + data.id + '&return_fields=' + data.return_fields;
-    console.log(path);
-    this.executeGetRequest(host, path, function(data) {
-        callbackGetDocument(data);
+    this.executeGetRequest(host, path, function(statusCode, data) {
+        callbackGetDocument(statusCode, data);
     });
-    this.log('getDocument - ' + path);
+    this.log('getDocument - ' + host + path);
 }
 
 // execute a http request to Yumpu
@@ -55,7 +54,7 @@ yumpu.prototype.executeGetRequest = function(host, path, callbackRequest) {
         });
         res.on('end', function() {
             var body = Buffer.concat(data).toString();
-            return callbackRequest(JSON.parse(body));
+            return callbackRequest(res.statusCode, JSON.parse(body));
 
         });
     }
@@ -66,9 +65,7 @@ yumpu.prototype.executeGetRequest = function(host, path, callbackRequest) {
 yumpu.prototype.log = function(message) {
     fs.open('./yumpu_log.log', 'a', 666, function(e, id) {
         fs.write(id, '\n' + message, null, 'utf8', function() {
-            fs.close(id, function() {
-                // console.log('file closed');
-            });
+            fs.close(id, function() {});
         });
     });
 };
