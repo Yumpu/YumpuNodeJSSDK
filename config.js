@@ -24,7 +24,7 @@ var yumpuEndpoints = {
     userPut: c.endpointDomain + 'user.json',
     documentGet: '/2.0/document.json',
     documentPostFile: '/2.0/document/file.json',
-    documentPostUrl: c.endpointDomain + 'document/url.json',
+    documentPostUrl: '/2.0/document/url.json',
     documentProgress: c.endpointDomain + 'document/progress.json',
     documentsGet: '/2.0/documents.json',
     documentDelete: c.endpointDomain + 'document.json',

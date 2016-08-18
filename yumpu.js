@@ -1,3 +1,4 @@
+var fs = require('fs');
 var config = require("./config");
 var yumpuFunctions = require('./yumpuFunctions')
 var c = new config();
@@ -52,20 +53,42 @@ yumpu.prototype.getDocument = function(parameters, callbackGetDocument) {
 // more details on: http://developers.yumpu.com/api/document/post-file/
 yumpu.prototype.postDocumentFile = function(parameters, callbackPostDocumentFile) {
     var reqData = {
+        method: 'POST',
         host: c.getYumpuConfig().endpointDomain,
         path: c.getYumpuEndpoints().documentPostFile,
         headers: {
             'X-ACCESS-TOKEN': c.getYumpuConfig().token,
-            'Content-Type': 'multipart/form-data'
+            'Content-Type': 'application/x-www-form-urlencoded'
         },
-        method: 'POST',
         body: {
-            title: parameters.title,
-            file: parameters.file
+            'title': parameters.title,
+            'file': fs.createReadStream(parameters.file)
         }
     };
     yf.executeRequest(reqData, function(statusCode, data) {
         callbackPostDocumentFile(statusCode, data);
+    });
+    yf.log('postDocumetFile - ' + reqData.host + reqData.path);
+}
+
+// create a new document from a url
+// more details on: http://developers.yumpu.com/api/document/post-url/
+yumpu.prototype.postDocumentUrl = function(parameters, callbackPostDocumentUrl) {
+    var reqData = {
+        method: 'POST',
+        host: c.getYumpuConfig().endpointDomain,
+        path: c.getYumpuEndpoints().documentPostUrl,
+        headers: {
+            'X-ACCESS-TOKEN': c.getYumpuConfig().token,
+            'Content-Type': 'application/x-www-form-urlencoded'
+        },
+        body: {
+            'url': parameters.url,
+            'title': parameters.title
+        },
+    };
+    yf.executeRequest(reqData, function(statusCode, data) {
+        callbackPostDocumentUrl(statusCode, data);
     });
     yf.log('postDocumetFile - ' + reqData.host + reqData.path);
 }

@@ -22,7 +22,18 @@ var parameters = {
   title: 'MyDocument',
   file: './example/media/yumpu.pdf'
 };
-y.postDocumentFile(parameters, function(statusCode, document){
+// y.postDocumentFile(parameters, function(statusCode, document){
+//   console.log('Status: ' + statusCode)
+//   console.log(document);
+// });
+
+// document post url example without page_teaser_image
+// more details on : http://developers.yumpu.com/api/document/post-url/
+var parameters = {
+  'title': 'Sieggggggg',
+  'url': 'http://www.onlinemarketing-praxis.de/uploads/pdf/suchparameter-google-uebersicht.pdf'
+};
+y.postDocumentUrl(parameters, function(statusCode, document){
   console.log('Status: ' + statusCode)
   console.log(document);
 });

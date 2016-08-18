@@ -1,20 +1,18 @@
+// include yumpu sdk
+var yumpu = require('../yumpu');
+
 // Test for the getDocuments function without limit or offset
 describe("getDocuments Test without limit or offset", function() {
-
-    // include yumpu sdk
-    var yumpu = require('../yumpu');
-    var data = '';
+    var parameters = '';
     var status;
 
     beforeEach(function(done) {
         var y = new yumpu();
-        y.getDocuments(data, function(statusCode, documents) {
+        y.getDocuments(parameters, function(statusCode, documents) {
             status = statusCode;
             done();
         });
     });
-
-
     it(" ... return status schould be 200", function(done) {
         expect(status).toEqual(200);
         done();
@@ -23,10 +21,7 @@ describe("getDocuments Test without limit or offset", function() {
 
 // Test for the getDocuments function with limit and offset
 describe("getDocuments Test with limit and offset", function() {
-
-    // include yumpu sdk
-    var yumpu = require('../yumpu');
-    var data = {
+    var parameters = {
         limit: 1,
         offset: 0
     };
@@ -34,13 +29,11 @@ describe("getDocuments Test with limit and offset", function() {
 
     beforeEach(function(done) {
         var y = new yumpu();
-        y.getDocuments(data, function(statusCode, documents) {
-          status = statusCode;
-          done();
+        y.getDocuments(parameters, function(statusCode, documents) {
+            status = statusCode;
+            done();
         });
     });
-
-
     it(" ... return status schould be 200", function(done) {
         expect(status).toEqual(200);
         done();

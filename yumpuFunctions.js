@@ -1,42 +1,48 @@
 var fs = require('fs');
 var http = require("http");
+var qs = require('querystring');
 // initialize yumpuFunctions Class
 var yumpuFunctions = function() {}
 
 // execute a http request to Yumpu
 yumpuFunctions.prototype.executeRequest = function(reqData, callbackRequest) {
     var options = {
+        method: reqData.method,
         host: reqData.host,
         path: reqData.path,
-        method: reqData.method,
-        headers: reqData.headers
+        headers: reqData.headers,
     };
 
 
-    if (reqData.method == 'POST') {
-        var reqForm = {
-            title: reqData.body.title,
-            file: fs.createReadStream('example/media/yumpu.pdf')
-        }
-      options.form = reqForm;
-        // options.body = body;
-        console.log(options);
-    };
 
     callback = function(res) {
+        var data = [];
+        if (res.statusCode != 200 && res.statusCode != 202 && res.statusCode != 400) {
+            return callbackRequest(res.statusCode, options);
+        }
         // console.log('STATUS: ' + res.statusCode);
         // console.log('HEADERS: ' + JSON.stringify(res.headers));
-        var data = [];
+
         res.on('data', function(chunk) {
             data.push(chunk);
         });
+
         res.on('end', function() {
-            var body = Buffer.concat(data).toString();
-            return callbackRequest(res.statusCode, JSON.parse(body));
+            var body = JSON.parse(Buffer.concat(data).toString());
+            return callbackRequest(res.statusCode, body);
         });
     }
     var req = http.request(options, callback);
 
+    if (reqData.method == 'POST') {
+        var postData = qs.stringify(reqData.body);
+        // console.log(postData + '\n' + reqData.body.file);
+        req.write(postData);
+    };
+
+    // req.on('error', function(e) {
+    //     console.log('error is here');
+    // });
 
     req.end();
 }
