@@ -99,4 +99,23 @@ yumpu.prototype.getDocumentHotspots = function(parameters, callbackGetDocument) 
     yf.log('getDocument - ' + reqData.host + reqData.path);
 }
 
+// Get current document progress.
+// Note: The id you will get when using a create document method (document post file or document post url).
+// more details on: http://developers.yumpu.com/api/document-progress/get/
+yumpu.prototype.getDocumentProgress = function(parameters, callbackGetDocument) {
+    var reqData = {
+        method: 'GET',
+        host: c.getYumpuConfig().endpointDomain,
+        path: yf.buildUrl(parameters, c.getYumpuEndpoints().documentProgress),
+        headers: {
+            'X-ACCESS-TOKEN': c.getYumpuConfig().token,
+            'Content-Type': 'application/json'
+        },
+    };
+    yf.executeRequest(reqData, function(statusCode, data) {
+        callbackGetDocument(statusCode, data);
+    });
+    yf.log('getDocument - ' + reqData.host + reqData.path);
+}
+
 module.exports = yumpu;

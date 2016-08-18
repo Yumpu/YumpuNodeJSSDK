@@ -1,7 +1,7 @@
 // include yumpu sdk
 var yumpu = require('../yumpu');
 
-// Test for the getDocuments function with limit and offset
+// Test for the getDocuments function
 describe("getDocuments Test", function() {
     var parameters = {
         limit: 1,

@@ -1,19 +1,16 @@
 // include yumpu sdk
 var yumpu = require('../yumpu');
 
-// Test for the getDocumentHotspots function
-describe("getDocumentHotspots Test", function() {
+// Test for the getDocumentProgress function
+describe("getDocumentProgress Test", function() {
     var parameters = {
-        id: 55834590,
-        limit: 1,
-        sort: 'create_date_desc',
-        return_fields: 'id,page,type,settings'
+        id: 'f4c4d-afdc5-b7429-a83d6-48c4f-c39dc-1110b-34ba2'
     };
     var status;
 
     beforeEach(function(done) {
         var y = new yumpu();
-        y.getDocumentHotspots(parameters, function(statusCode, documents) {
+        y.getDocumentProgress(parameters, function(statusCode, documents) {
             status = statusCode;
             done();
         });
