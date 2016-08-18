@@ -16,7 +16,8 @@ y.getDocuments(parameters, function(statusCode, documents) {
 // get document from position 'offset' with limit 'limit'
 var parameters = {
     limit: 1,
-    offset: 0
+    offset: 0,
+    sort: 'desc'
 };
 y.getDocuments(parameters, function(statusCode, documents) {
   console.log('Status: ' + statusCode);

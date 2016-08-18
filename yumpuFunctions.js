@@ -1,6 +1,5 @@
 var fs = require('fs');
 var http = require("http");
-var qs = require('querystring');
 // initialize yumpuFunctions Class
 var yumpuFunctions = function() {}
 
@@ -35,8 +34,14 @@ yumpuFunctions.prototype.executeRequest = function(reqData, callbackRequest) {
     var req = http.request(options, callback);
 
     if (reqData.method == 'POST') {
-        var postData = qs.stringify(reqData.body);
-        // console.log(postData + '\n' + reqData.body.file);
+        if (reqData.body.file) {
+            var file = reqData.body.file;
+            reqData.body.file = ('data:application/pdf;base64, ', fs.createReadStream(file));
+            // req.pipe('@' + file);
+
+        }
+        var postData = JSON.stringify(reqData.body);
+        console.log(postData);
         req.write(postData);
     };
 
@@ -45,6 +50,15 @@ yumpuFunctions.prototype.executeRequest = function(reqData, callbackRequest) {
     // });
 
     req.end();
+}
+
+yumpuFunctions.prototype.buildUrl = function(parameters, yumpuEndpoints) {
+    var build = '';
+    for (var prop in parameters) {
+        build = build + prop + '=' + parameters[prop] + '&';
+    }
+    var url = yumpuEndpoints + '?' + build;
+    return url;
 }
 
 // write the yumpu_log.log file

@@ -29,6 +29,7 @@ var yumpuEndpoints = {
     documentsGet: '/2.0/documents.json',
     documentDelete: c.endpointDomain + 'document.json',
     documentPut: c.endpointDomain + 'document.json',
+    hotspotsGet: '/2.0/document/hotspots.json',
     collectionGet: c.endpointDomain + 'collection.json',
     collectionPost: c.endpointDomain + 'collection.json',
     collectionPut: c.endpointDomain + 'collection.json',

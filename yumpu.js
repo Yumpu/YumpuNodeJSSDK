@@ -1,4 +1,3 @@
-var fs = require('fs');
 var config = require("./config");
 var yumpuFunctions = require('./yumpuFunctions')
 var c = new config();
@@ -11,14 +10,9 @@ var yumpu = function() {
 // get list of documents
 // more details on: http://developers.yumpu.com/api/documents/get/
 yumpu.prototype.getDocuments = function(parameters, callbackGetDocuments) {
-    if (!parameters) {
-        var path = c.getYumpuEndpoints().documentsGet;
-    } else {
-        var path = c.getYumpuEndpoints().documentsGet + '?offset=' + parameters.offset + '&limit=' + parameters.limit + '&sort=desc';
-    };
     var reqData = {
         host: c.getYumpuConfig().endpointDomain,
-        path: path,
+        path: yf.buildUrl(parameters, c.getYumpuEndpoints().documentsGet),
         headers: {
             'X-ACCESS-TOKEN': c.getYumpuConfig().token,
             'Content-Type': 'application/json'
@@ -35,13 +29,13 @@ yumpu.prototype.getDocuments = function(parameters, callbackGetDocuments) {
 // more details on: http://developers.yumpu.com/api/document/get/
 yumpu.prototype.getDocument = function(parameters, callbackGetDocument) {
     var reqData = {
+        method: 'GET',
         host: c.getYumpuConfig().endpointDomain,
-        path: c.getYumpuEndpoints().documentGet + '?id=' + parameters.id + '&return_fields=' + parameters.return_fields,
+        path: yf.buildUrl(parameters, c.getYumpuEndpoints().documentGet),
         headers: {
             'X-ACCESS-TOKEN': c.getYumpuConfig().token,
             'Content-Type': 'application/json'
         },
-        method: 'GET',
     };
     yf.executeRequest(reqData, function(statusCode, data) {
         callbackGetDocument(statusCode, data);
@@ -58,12 +52,9 @@ yumpu.prototype.postDocumentFile = function(parameters, callbackPostDocumentFile
         path: c.getYumpuEndpoints().documentPostFile,
         headers: {
             'X-ACCESS-TOKEN': c.getYumpuConfig().token,
-            'Content-Type': 'application/x-www-form-urlencoded'
+            'Content-Type': 'multipart/form-data'
         },
-        body: {
-            'title': parameters.title,
-            'file': fs.createReadStream(parameters.file)
-        }
+        body: parameters
     };
     yf.executeRequest(reqData, function(statusCode, data) {
         callbackPostDocumentFile(statusCode, data);
@@ -80,17 +71,33 @@ yumpu.prototype.postDocumentUrl = function(parameters, callbackPostDocumentUrl) 
         path: c.getYumpuEndpoints().documentPostUrl,
         headers: {
             'X-ACCESS-TOKEN': c.getYumpuConfig().token,
-            'Content-Type': 'application/x-www-form-urlencoded'
+            'Content-Type': 'application/json'
         },
-        body: {
-            'url': parameters.url,
-            'title': parameters.title
-        },
+        body: parameters
     };
     yf.executeRequest(reqData, function(statusCode, data) {
         callbackPostDocumentUrl(statusCode, data);
     });
     yf.log('postDocumetFile - ' + reqData.host + reqData.path);
+}
+
+// get document hotspots
+// more details on: http://developers.yumpu.com/api/document/get/
+yumpu.prototype.getDocumentHotspots = function(parameters, callbackGetDocument) {
+  console.log(yf.buildUrl(parameters, c.getYumpuEndpoints().hotspotsGet));
+    var reqData = {
+        method: 'GET',
+        host: c.getYumpuConfig().endpointDomain,
+        path: yf.buildUrl(parameters, c.getYumpuEndpoints().hotspotsGet),
+        headers: {
+            'X-ACCESS-TOKEN': c.getYumpuConfig().token,
+            'Content-Type': 'application/json'
+        },
+    };
+    yf.executeRequest(reqData, function(statusCode, data) {
+        callbackGetDocument(statusCode, data);
+    });
+    yf.log('getDocument - ' + reqData.host + reqData.path);
 }
 
 module.exports = yumpu;
