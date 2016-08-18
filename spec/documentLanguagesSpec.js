@@ -1,13 +1,13 @@
 // include yumpu sdk
 var yumpu = require('../yumpu');
 
-// Test for the getDocumentCategories function
-describe("getDocumentCategories Test", function() {
+// Test for the getDocumentLanguages function
+describe("getDocumentLanguages Test", function() {
     var status;
 
     beforeEach(function(done) {
         var y = new yumpu();
-        y.getDocumentCategories(function(statusCode, documents) {
+        y.getDocumentLanguages(function(statusCode, documents) {
             status = statusCode;
             done();
         });

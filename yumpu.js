@@ -136,4 +136,22 @@ yumpu.prototype.getDocumentCategories = function(callbackGetDocument) {
     yf.log('getDocument - ' + reqData.host + reqData.path);
 }
 
+// retrieve all documents' possible languages
+// more details on: http://developers.yumpu.com/api/document-languages/get/
+yumpu.prototype.getDocumentLanguages = function(callbackGetDocument) {
+    var reqData = {
+        method: 'GET',
+        host: c.getYumpuConfig().endpointDomain,
+        path: c.getYumpuEndpoints().languagesGet,
+        headers: {
+            'X-ACCESS-TOKEN': c.getYumpuConfig().token,
+            'Content-Type': 'application/json'
+        },
+    };
+    yf.executeRequest(reqData, function(statusCode, data) {
+        callbackGetDocument(statusCode, data);
+    });
+    yf.log('getDocument - ' + reqData.host + reqData.path);
+}
+
 module.exports = yumpu;

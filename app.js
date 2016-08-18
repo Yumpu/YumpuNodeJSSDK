@@ -6,4 +6,6 @@
 
 // var documentProgress = require('./example/documentProgress.js');
 
-var documentCategories = require('./example/documentCategories.js');
+// var documentCategories = require('./example/documentCategories.js');
+
+var documentLanguages = require('./example/documentLanguages.js');
