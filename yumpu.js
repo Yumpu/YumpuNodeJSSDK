@@ -118,4 +118,22 @@ yumpu.prototype.getDocumentProgress = function(parameters, callbackGetDocument) 
     yf.log('getDocument - ' + reqData.host + reqData.path);
 }
 
+// retrieve all documents' possible categories
+// more details on: http://developers.yumpu.com/api/document-categories/get/
+yumpu.prototype.getDocumentCategories = function(callbackGetDocument) {
+    var reqData = {
+        method: 'GET',
+        host: c.getYumpuConfig().endpointDomain,
+        path: c.getYumpuEndpoints().categoriesGet,
+        headers: {
+            'X-ACCESS-TOKEN': c.getYumpuConfig().token,
+            'Content-Type': 'application/json'
+        },
+    };
+    yf.executeRequest(reqData, function(statusCode, data) {
+        callbackGetDocument(statusCode, data);
+    });
+    yf.log('getDocument - ' + reqData.host + reqData.path);
+}
+
 module.exports = yumpu;

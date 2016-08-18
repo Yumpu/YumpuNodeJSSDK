@@ -4,7 +4,7 @@ var yumpu = require('../yumpu');
 var y = new yumpu();
 
 // get the hotspots of a document
-// more details on : http://developers.yumpu.com/api/document/get-2/
+// more details on : http://developers.yumpu.com/api/document-hotspots/get/
 // PLEASE USE ONE OF YOUR DOCUMENTS IDS!!!
 var parameters = {
     id: 55834590,

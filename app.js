@@ -4,4 +4,6 @@
 //
 // var documentHotspots = require('./example/documentHotspots.js');
 
-var documentProgress = require('./example/documentProgress.js');
+// var documentProgress = require('./example/documentProgress.js');
+
+var documentCategories = require('./example/documentCategories.js');
