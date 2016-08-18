@@ -84,7 +84,6 @@ yumpu.prototype.postDocumentUrl = function(parameters, callbackPostDocumentUrl) 
 // get document hotspots
 // more details on: http://developers.yumpu.com/api/document/get/
 yumpu.prototype.getDocumentHotspots = function(parameters, callbackGetDocument) {
-  console.log(yf.buildUrl(parameters, c.getYumpuEndpoints().hotspotsGet));
     var reqData = {
         method: 'GET',
         host: c.getYumpuConfig().endpointDomain,

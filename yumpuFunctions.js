@@ -41,7 +41,7 @@ yumpuFunctions.prototype.executeRequest = function(reqData, callbackRequest) {
 
         }
         var postData = JSON.stringify(reqData.body);
-        console.log(postData);
+        // console.log(postData);
         req.write(postData);
     };
 

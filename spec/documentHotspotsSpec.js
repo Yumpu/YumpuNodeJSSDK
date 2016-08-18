@@ -2,16 +2,18 @@
 var yumpu = require('../yumpu');
 
 // Test for the getDocuments function with limit and offset
-describe("getDocuments Test", function() {
+describe("getDocumentHotspots Test", function() {
     var parameters = {
+        id: 55834590,
         limit: 1,
-        offset: 0
+        sort: 'create_date_desc',
+        return_fields: 'id,page,type,settings'
     };
     var status;
 
     beforeEach(function(done) {
         var y = new yumpu();
-        y.getDocuments(parameters, function(statusCode, documents) {
+        y.getDocumentHotspots(parameters, function(statusCode, documents) {
             status = statusCode;
             done();
         });
