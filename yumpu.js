@@ -243,4 +243,23 @@ yumpu.prototype.getMembers = function(parameters, callback) {
     });
     yf.log('getMembers - ' + reqData.host + reqData.path);
 }
+
+// retrieve all users' accessTags datas
+// more details on: http://developers.yumpu.com/api/access-tags/get/
+yumpu.prototype.getAccessTags = function(parameters, callback) {
+    var reqData = {
+        method: 'GET',
+        host: c.getYumpuConfig().endpointDomain,
+        path: yf.buildUrl(parameters, c.getYumpuEndpoints().accessTagsGet),
+        headers: {
+            'X-ACCESS-TOKEN': c.getYumpuConfig().token,
+            'Content-Type': 'application/json'
+        },
+    };
+    yf.executeRequest(reqData, function(statusCode, data) {
+        callback(statusCode, data);
+    });
+    yf.log('getAccessTags - ' + reqData.host + reqData.path);
+}
+
 module.exports = yumpu;

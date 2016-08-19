@@ -18,4 +18,4 @@
 
 // var embeds = require('./example/embeds.js');
 
-var members = require('./example/members.js');
+var accessTags = require('./example/accessTags.js');

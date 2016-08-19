@@ -56,7 +56,7 @@ var yumpuEndpoints = {
     subscriptionPut: c.endpointDomain + 'account/subscription.json',
     subscriptionPost: c.endpointDomain + 'account/subscription.json',
     subscriptionDelete: c.endpointDomain + 'account/subscription.json',
-    accessTagsGet: c.endpointDomain + 'account/access_tags.json',
+    accessTagsGet: '/2.0/account/access_tags.json',
     accessTagGet: c.endpointDomain + 'account/access_tag.json',
     accessTagPut: c.endpointDomain + 'account/access_tag.json',
     accessTagDelete: c.endpointDomain + 'account/access_tag.json',
