@@ -21,3 +21,34 @@ describe("getDocumentHotspot Test", function() {
         done();
     });
 });
+
+// Test for the postDocumentHotspot function
+describe("postDocumentHotspot Test", function() {
+    var parameters = {
+        document_id: 55858527,
+        page: 2,
+        type: 'link',
+        settings: {
+            x: 10,
+            y: 10,
+            w: 10,
+            h: 10,
+            name: 'MyHotspot',
+            tooltip: 'MyTooltipForHotspot',
+            link: 'http://www.facebook.com'
+        }
+    };
+    var status;
+
+    beforeEach(function(done) {
+        var y = new yumpu();
+        y.postDocumentHotspot(parameters, function(statusCode, documents) {
+            status = statusCode;
+            done();
+        });
+    });
+    it(" ... return status schould be 200", function(done) {
+        expect(status).toEqual(200);
+        done();
+    });
+});

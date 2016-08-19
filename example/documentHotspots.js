@@ -7,7 +7,7 @@ var y = new yumpu();
 // more details on : http://developers.yumpu.com/api/document-hotspots/get/
 // PLEASE USE ONE OF YOUR DOCUMENTS IDS!!!
 var parameters = {
-    id: 55834590,
+    id: 55858527,
     limit: 5,
     sort: 'create_date_desc',
     return_fields: 'id,page,type,settings'

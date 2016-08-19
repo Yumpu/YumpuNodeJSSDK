@@ -117,6 +117,25 @@ yumpu.prototype.getDocumentHotspot = function(parameters, callback) {
     yf.log('getDocumentHotspot - ' + reqData.host + reqData.path);
 }
 
+// create a new hotspot
+// more details on: http://developers.yumpu.com/api/document/post-url/
+yumpu.prototype.postDocumentHotspot = function(parameters, callback) {
+    var reqData = {
+        method: 'POST',
+        host: c.getYumpuConfig().endpointDomain,
+        path: c.getYumpuEndpoints().hotspotPost,
+        headers: {
+            'X-ACCESS-TOKEN': c.getYumpuConfig().token,
+            'Content-Type': 'application/json'
+        },
+        body: parameters
+    };
+    yf.executeRequest(reqData, function(statusCode, data) {
+        callback(statusCode, data);
+    });
+    yf.log('postDocumetUrl - ' + reqData.host + reqData.path);
+}
+
 // Get current document progress.
 // Note: The id you will get when using a create document method (document post file or document post url).
 // more details on: http://developers.yumpu.com/api/document-progress/get/
