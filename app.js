@@ -1,8 +1,10 @@
 // var documents = require('./example/documents');
 
 // var document = require('./example/document');
-//
-// var documentHotspots = require('./example/documentHotspots.js');
+
+var documentHotspots = require('./example/documentHotspots.js');
+
+var documentHotspot = require('./example/documentHotspot.js');
 
 // var documentProgress = require('./example/documentProgress.js');
 
@@ -20,4 +22,4 @@
 
 // var accessTags = require('./example/accessTags.js');
 
-var subscriptions = require('./example/subscriptions.js');
+// var subscriptions = require('./example/subscriptions.js');

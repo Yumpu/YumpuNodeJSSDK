@@ -82,7 +82,7 @@ yumpu.prototype.postDocumentUrl = function(parameters, callback) {
 }
 
 // get document hotspots
-// more details on: http://developers.yumpu.com/api/document/get/
+// more details on: http://developers.yumpu.com/api/document-hotspots/get/
 yumpu.prototype.getDocumentHotspots = function(parameters, callback) {
     var reqData = {
         method: 'GET',
@@ -97,6 +97,24 @@ yumpu.prototype.getDocumentHotspots = function(parameters, callback) {
         callback(statusCode, data);
     });
     yf.log('getDocumentHotspots - ' + reqData.host + reqData.path);
+}
+
+// get one hotspot
+// more details on: http://developers.yumpu.com/api/document-hotspot/get/
+yumpu.prototype.getDocumentHotspot = function(parameters, callback) {
+    var reqData = {
+        method: 'GET',
+        host: c.getYumpuConfig().endpointDomain,
+        path: yf.buildUrl(parameters, c.getYumpuEndpoints().hotspotGet),
+        headers: {
+            'X-ACCESS-TOKEN': c.getYumpuConfig().token,
+            'Content-Type': 'application/json'
+        },
+    };
+    yf.executeRequest(reqData, function(statusCode, data) {
+        callback(statusCode, data);
+    });
+    yf.log('getDocumentHotspot - ' + reqData.host + reqData.path);
 }
 
 // Get current document progress.

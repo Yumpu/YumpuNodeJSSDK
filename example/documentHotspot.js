@@ -3,16 +3,14 @@ var yumpu = require('../yumpu');
 // make an instance of the Yumpu sdk class;
 var y = new yumpu();
 
-// get the hotspots of a document
+// get one hotspot
 // more details on : http://developers.yumpu.com/api/document-hotspots/get/
-// PLEASE USE ONE OF YOUR DOCUMENTS IDS!!!
+// PLEASE USE ONE OF YOUR HOTSPOT IDS!!!
 var parameters = {
-    id: 55834590,
-    limit: 5,
-    sort: 'create_date_desc',
-    return_fields: 'id,page,type,settings'
+    id: 'b894ded0ozsm8TP6',
+    return_fields: 'id,document_id,page,type,settings,create_date,update_date'
 };
-y.getDocumentHotspots(parameters, function(statusCode, document) {
+y.getDocumentHotspot(parameters, function(statusCode, document) {
     console.log('Status: ' + statusCode)
     console.log(document);
 });
