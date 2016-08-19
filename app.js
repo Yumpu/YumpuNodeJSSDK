@@ -14,4 +14,6 @@
 
 // var collections = require('./example/collections.js');
 
-var search = require('./example/search.js');
+// var search = require('./example/search.js');
+
+var embeds = require('./example/embeds.js');

@@ -208,4 +208,21 @@ yumpu.prototype.search = function(parameters, callback) {
     yf.log('search - ' + reqData.host + reqData.path);
 }
 
+// retrieve all users' embeds datas
+// more details on: http://developers.yumpu.com/api/embeds/get/
+yumpu.prototype.getEmbeds = function(parameters, callback) {
+    var reqData = {
+        method: 'GET',
+        host: c.getYumpuConfig().endpointDomain,
+        path: yf.buildUrl(parameters, c.getYumpuEndpoints().embedsGet),
+        headers: {
+            'X-ACCESS-TOKEN': c.getYumpuConfig().token,
+            'Content-Type': 'application/json'
+        },
+    };
+    yf.executeRequest(reqData, function(statusCode, data) {
+        callback(statusCode, data);
+    });
+    yf.log('getEmbeds - ' + reqData.host + reqData.path);
+}
 module.exports = yumpu;

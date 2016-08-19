@@ -65,7 +65,7 @@ var yumpuEndpoints = {
     memberPut: c.endpointDomain + 'account/member.json',
     memberDelete: c.endpointDomain + 'account/member.json',
     memberPost: c.endpointDomain + 'account/member.json',
-    embedsGet: c.endpointDomain + 'embeds.json',
+    embedsGet: '/2.0/embeds.json',
     embedGet: c.endpointDomain + 'embed.json',
     embedPost: c.endpointDomain + 'embed.json',
     embedPut: c.endpointDomain + 'embed.json',
