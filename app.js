@@ -10,4 +10,6 @@
 
 // var documentLanguages = require('./example/documentLanguages.js');
 
-var countries = require('./example/countries.js');
+// var countries = require('./example/countries.js');
+
+var collections = require('./example/collections.js');

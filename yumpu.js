@@ -78,7 +78,7 @@ yumpu.prototype.postDocumentUrl = function(parameters, callback) {
     yf.executeRequest(reqData, function(statusCode, data) {
         callback(statusCode, data);
     });
-    yf.log('postDocumetFile - ' + reqData.host + reqData.path);
+    yf.log('postDocumetUrl - ' + reqData.host + reqData.path);
 }
 
 // get document hotspots
@@ -96,7 +96,7 @@ yumpu.prototype.getDocumentHotspots = function(parameters, callback) {
     yf.executeRequest(reqData, function(statusCode, data) {
         callback(statusCode, data);
     });
-    yf.log('getDocument - ' + reqData.host + reqData.path);
+    yf.log('getDocumentHotspots - ' + reqData.host + reqData.path);
 }
 
 // Get current document progress.
@@ -115,7 +115,7 @@ yumpu.prototype.getDocumentProgress = function(parameters, callback) {
     yf.executeRequest(reqData, function(statusCode, data) {
         callback(statusCode, data);
     });
-    yf.log('getDocument - ' + reqData.host + reqData.path);
+    yf.log('getDocumentProgress - ' + reqData.host + reqData.path);
 }
 
 // retrieve all documents' possible categories
@@ -133,7 +133,7 @@ yumpu.prototype.getDocumentCategories = function(callback) {
     yf.executeRequest(reqData, function(statusCode, data) {
         callback(statusCode, data);
     });
-    yf.log('getDocument - ' + reqData.host + reqData.path);
+    yf.log('getDocumentCategories - ' + reqData.host + reqData.path);
 }
 
 // retrieve all documents' possible languages
@@ -151,7 +151,7 @@ yumpu.prototype.getDocumentLanguages = function(callback) {
     yf.executeRequest(reqData, function(statusCode, data) {
         callback(statusCode, data);
     });
-    yf.log('getDocument - ' + reqData.host + reqData.path);
+    yf.log('getDocumentLanguages - ' + reqData.host + reqData.path);
 }
 
 // retrieve all  possible countries
@@ -169,7 +169,25 @@ yumpu.prototype.getCountries = function(callback) {
     yf.executeRequest(reqData, function(statusCode, data) {
         callback(statusCode, data);
     });
-    yf.log('getDocument - ' + reqData.host + reqData.path);
+    yf.log('getCountries - ' + reqData.host + reqData.path);
+}
+
+// retrieve all users' collections datas
+// more details on: http://developers.yumpu.com/api/collections/get-3/
+yumpu.prototype.getCollections = function(parameters, callback) {
+    var reqData = {
+        method: 'GET',
+        host: c.getYumpuConfig().endpointDomain,
+        path: yf.buildUrl(parameters, c.getYumpuEndpoints().collectionsGet),
+        headers: {
+            'X-ACCESS-TOKEN': c.getYumpuConfig().token,
+            'Content-Type': 'application/json'
+        },
+    };
+    yf.executeRequest(reqData, function(statusCode, data) {
+        callback(statusCode, data);
+    });
+    yf.log('getCollections - ' + reqData.host + reqData.path);
 }
 
 module.exports = yumpu;

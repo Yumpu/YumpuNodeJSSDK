@@ -14,7 +14,7 @@ yumpuFunctions.prototype.executeRequest = function(reqData, callbackRequest) {
 
     callback = function(res) {
         var data = [];
-        if (res.statusCode != 200 && res.statusCode != 202 && res.statusCode != 400) {
+        if (res.statusCode != 200 && res.statusCode != 202 && res.statusCode != 404 && res.statusCode != 400) {
             return callbackRequest(res.statusCode, options);
         }
         // console.log('STATUS: ' + res.statusCode);

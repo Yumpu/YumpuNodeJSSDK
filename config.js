@@ -34,7 +34,7 @@ var yumpuEndpoints = {
     collectionPost: c.endpointDomain + 'collection.json',
     collectionPut: c.endpointDomain + 'collection.json',
     collectionDelete: c.endpointDomain + 'collection.json',
-    collectionsGet: c.endpointDomain + 'collections.json',
+    collectionsGet: '/2.0/collections.json',
     sectionGet: c.endpointDomain + 'collection/section.json',
     sectionPost: c.endpointDomain + 'collection/section.json',
     sectionPut: c.endpointDomain + 'collection/section.json',
