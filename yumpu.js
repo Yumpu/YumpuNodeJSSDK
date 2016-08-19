@@ -133,7 +133,45 @@ yumpu.prototype.postDocumentHotspot = function(parameters, callback) {
     yf.executeRequest(reqData, function(statusCode, data) {
         callback(statusCode, data);
     });
-    yf.log('postDocumetUrl - ' + reqData.host + reqData.path);
+    yf.log('postDocumentHotspot - ' + reqData.host + reqData.path);
+}
+
+// update a hotspot
+// more details on: http://developers.yumpu.com/api/document/post-url/
+yumpu.prototype.putDocumentHotspot = function(parameters, callback) {
+    var reqData = {
+        method: 'PUT',
+        host: c.getYumpuConfig().endpointDomain,
+        path: c.getYumpuEndpoints().hotspotPut,
+        headers: {
+            'X-ACCESS-TOKEN': c.getYumpuConfig().token,
+            'Content-Type': 'application/json'
+        },
+        body: parameters
+    };
+    yf.executeRequest(reqData, function(statusCode, data) {
+        callback(statusCode, data);
+    });
+    yf.log('putDocumentHotspot - ' + reqData.host + reqData.path);
+}
+
+// delete a hotspot
+// more details on: http://developers.yumpu.com/api/document/post-url/
+yumpu.prototype.deleteDocumentHotspot = function(parameters, callback) {
+    var reqData = {
+        method: 'DELETE',
+        host: c.getYumpuConfig().endpointDomain,
+        path: c.getYumpuEndpoints().hotspotDelete,
+        headers: {
+            'X-ACCESS-TOKEN': c.getYumpuConfig().token,
+            'Content-Type': 'application/json'
+        },
+        body: parameters
+    };
+    yf.executeRequest(reqData, function(statusCode, data) {
+        callback(statusCode, data);
+    });
+    yf.log('deleteDocumentHotspot - ' + reqData.host + reqData.path);
 }
 
 // Get current document progress.

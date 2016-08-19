@@ -52,3 +52,33 @@ describe("postDocumentHotspot Test", function() {
         done();
     });
 });
+
+// Test for the putDocumentHotspot function
+describe("putDocumentHotspot Test", function() {
+  var parameters = {
+      id: '7c7cd96f6YgDzdH3',
+      type: 'link',
+      settings: {
+          x: 20,
+          y: 20,
+          w: 10,
+          h: 10,
+          name: 'MyHotspot',
+          tooltip: 'MyTooltipForHotspot',
+          link: 'http://www.apple.com'
+      }
+  };
+    var status;
+
+    beforeEach(function(done) {
+        var y = new yumpu();
+        y.putDocumentHotspot(parameters, function(statusCode, documents) {
+            status = statusCode;
+            done();
+        });
+    });
+    it(" ... return status schould be 200", function(done) {
+        expect(status).toEqual(200);
+        done();
+    });
+});

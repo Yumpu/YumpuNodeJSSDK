@@ -7,7 +7,7 @@ var y = new yumpu();
 // more details on : http://developers.yumpu.com/api/document-hotspots/get/
 // PLEASE USE ONE OF YOUR HOTSPOT IDS!!!
 var parameters = {
-    id: '93eea88eMCt0RGwA',
+    id: '7c7cd96f6YgDzdH3',
     return_fields: 'id,document_id,page,type,settings,create_date,update_date'
 };
 y.getDocumentHotspot(parameters, function(statusCode, document) {
@@ -32,7 +32,39 @@ var parameters = {
         link: 'http://www.facebook.com'
     }
 };
-y.postDocumentHotspot(parameters, function(statusCode, document) {
+// y.postDocumentHotspot(parameters, function(statusCode, document) {
+//     console.log('Status: ' + statusCode)
+//     console.log(document);
+// });
+
+// update a hotspot
+// more details on : http://developers.yumpu.com/api/document-hotspots/get/
+// PLEASE USE ONE OF YOUR HOTSPOT IDS!!!
+var parameters = {
+    id: '7c7cd96f6YgDzdH3',
+    type: 'link',
+    settings: {
+        x: 20,
+        y: 20,
+        w: 10,
+        h: 10,
+        name: 'MyHotspot',
+        tooltip: 'MyTooltipForHotspot',
+        link: 'http://www.apple.com'
+    }
+};
+y.putDocumentHotspot(parameters, function(statusCode, document) {
+    console.log('Status: ' + statusCode)
+    console.log(document);
+});
+
+// delete a hotspot
+// more details on : http://developers.yumpu.com/api/document-hotspots/get/
+// PLEASE USE ONE OF YOUR HOTSPOT IDS!!!
+var parameters = {
+    id: '2dff0597vPEO4Qqp'
+};
+y.deleteDocumentHotspot(parameters, function(statusCode, document) {
     console.log('Status: ' + statusCode)
     console.log(document);
 });
