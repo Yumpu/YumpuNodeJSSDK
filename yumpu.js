@@ -9,7 +9,7 @@ var yumpu = function() {
 
 // get list of documents
 // more details on: http://developers.yumpu.com/api/documents/get/
-yumpu.prototype.getDocuments = function(parameters, callbackGetDocuments) {
+yumpu.prototype.getDocuments = function(parameters, callback) {
     var reqData = {
         host: c.getYumpuConfig().endpointDomain,
         path: yf.buildUrl(parameters, c.getYumpuEndpoints().documentsGet),
@@ -20,14 +20,14 @@ yumpu.prototype.getDocuments = function(parameters, callbackGetDocuments) {
         method: 'GET',
     };
     yf.executeRequest(reqData, function(statusCode, data) {
-        callbackGetDocuments(statusCode, data);
+        callback(statusCode, data);
     });
     yf.log('getDocuments - ' + reqData.host + reqData.path);
 }
 
 // get document details
 // more details on: http://developers.yumpu.com/api/document/get/
-yumpu.prototype.getDocument = function(parameters, callbackGetDocument) {
+yumpu.prototype.getDocument = function(parameters, callback) {
     var reqData = {
         method: 'GET',
         host: c.getYumpuConfig().endpointDomain,
@@ -38,14 +38,14 @@ yumpu.prototype.getDocument = function(parameters, callbackGetDocument) {
         },
     };
     yf.executeRequest(reqData, function(statusCode, data) {
-        callbackGetDocument(statusCode, data);
+        callback(statusCode, data);
     });
     yf.log('getDocument - ' + reqData.host + reqData.path);
 }
 
 // create a new document from a file
 // more details on: http://developers.yumpu.com/api/document/post-file/
-yumpu.prototype.postDocumentFile = function(parameters, callbackPostDocumentFile) {
+yumpu.prototype.postDocumentFile = function(parameters, callback) {
     var reqData = {
         method: 'POST',
         host: c.getYumpuConfig().endpointDomain,
@@ -57,14 +57,14 @@ yumpu.prototype.postDocumentFile = function(parameters, callbackPostDocumentFile
         body: parameters
     };
     yf.executeRequest(reqData, function(statusCode, data) {
-        callbackPostDocumentFile(statusCode, data);
+        callback(statusCode, data);
     });
     yf.log('postDocumetFile - ' + reqData.host + reqData.path);
 }
 
 // create a new document from a url
 // more details on: http://developers.yumpu.com/api/document/post-url/
-yumpu.prototype.postDocumentUrl = function(parameters, callbackPostDocumentUrl) {
+yumpu.prototype.postDocumentUrl = function(parameters, callback) {
     var reqData = {
         method: 'POST',
         host: c.getYumpuConfig().endpointDomain,
@@ -76,14 +76,14 @@ yumpu.prototype.postDocumentUrl = function(parameters, callbackPostDocumentUrl) 
         body: parameters
     };
     yf.executeRequest(reqData, function(statusCode, data) {
-        callbackPostDocumentUrl(statusCode, data);
+        callback(statusCode, data);
     });
     yf.log('postDocumetFile - ' + reqData.host + reqData.path);
 }
 
 // get document hotspots
 // more details on: http://developers.yumpu.com/api/document/get/
-yumpu.prototype.getDocumentHotspots = function(parameters, callbackGetDocument) {
+yumpu.prototype.getDocumentHotspots = function(parameters, callback) {
     var reqData = {
         method: 'GET',
         host: c.getYumpuConfig().endpointDomain,
@@ -94,7 +94,7 @@ yumpu.prototype.getDocumentHotspots = function(parameters, callbackGetDocument) 
         },
     };
     yf.executeRequest(reqData, function(statusCode, data) {
-        callbackGetDocument(statusCode, data);
+        callback(statusCode, data);
     });
     yf.log('getDocument - ' + reqData.host + reqData.path);
 }
@@ -102,7 +102,7 @@ yumpu.prototype.getDocumentHotspots = function(parameters, callbackGetDocument) 
 // Get current document progress.
 // Note: The id you will get when using a create document method (document post file or document post url).
 // more details on: http://developers.yumpu.com/api/document-progress/get/
-yumpu.prototype.getDocumentProgress = function(parameters, callbackGetDocument) {
+yumpu.prototype.getDocumentProgress = function(parameters, callback) {
     var reqData = {
         method: 'GET',
         host: c.getYumpuConfig().endpointDomain,
@@ -113,14 +113,14 @@ yumpu.prototype.getDocumentProgress = function(parameters, callbackGetDocument) 
         },
     };
     yf.executeRequest(reqData, function(statusCode, data) {
-        callbackGetDocument(statusCode, data);
+        callback(statusCode, data);
     });
     yf.log('getDocument - ' + reqData.host + reqData.path);
 }
 
 // retrieve all documents' possible categories
 // more details on: http://developers.yumpu.com/api/document-categories/get/
-yumpu.prototype.getDocumentCategories = function(callbackGetDocument) {
+yumpu.prototype.getDocumentCategories = function(callback) {
     var reqData = {
         method: 'GET',
         host: c.getYumpuConfig().endpointDomain,
@@ -131,14 +131,14 @@ yumpu.prototype.getDocumentCategories = function(callbackGetDocument) {
         },
     };
     yf.executeRequest(reqData, function(statusCode, data) {
-        callbackGetDocument(statusCode, data);
+        callback(statusCode, data);
     });
     yf.log('getDocument - ' + reqData.host + reqData.path);
 }
 
 // retrieve all documents' possible languages
 // more details on: http://developers.yumpu.com/api/document-languages/get/
-yumpu.prototype.getDocumentLanguages = function(callbackGetDocument) {
+yumpu.prototype.getDocumentLanguages = function(callback) {
     var reqData = {
         method: 'GET',
         host: c.getYumpuConfig().endpointDomain,
@@ -149,7 +149,25 @@ yumpu.prototype.getDocumentLanguages = function(callbackGetDocument) {
         },
     };
     yf.executeRequest(reqData, function(statusCode, data) {
-        callbackGetDocument(statusCode, data);
+        callback(statusCode, data);
+    });
+    yf.log('getDocument - ' + reqData.host + reqData.path);
+}
+
+// retrieve all  possible countries
+// more details on: http://developers.yumpu.com/api/countries/get/
+yumpu.prototype.getCountries = function(callback) {
+    var reqData = {
+        method: 'GET',
+        host: c.getYumpuConfig().endpointDomain,
+        path: c.getYumpuEndpoints().countriesGet,
+        headers: {
+            'X-ACCESS-TOKEN': c.getYumpuConfig().token,
+            'Content-Type': 'application/json'
+        },
+    };
+    yf.executeRequest(reqData, function(statusCode, data) {
+        callback(statusCode, data);
     });
     yf.log('getDocument - ' + reqData.host + reqData.path);
 }

@@ -42,7 +42,7 @@ var yumpuEndpoints = {
     sectionDocumentPost: c.endpointDomain + 'collection/section/document.json',
     sectionDocumentDelete: c.endpointDomain + 'collection/section/document.json',
     categoriesGet: '/2.0/document/categories.json',
-    countriesGet: c.endpointDomain + 'countries.json',
+    countriesGet: '/2.0/countries.json',
     languagesGet: '/2.0/document/languages.json',
     searchGet: c.endpointSearchDomain + 'search.json',
     mediaGet: c.endpointDomain + 'media.json',

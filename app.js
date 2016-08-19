@@ -8,4 +8,6 @@
 
 // var documentCategories = require('./example/documentCategories.js');
 
-var documentLanguages = require('./example/documentLanguages.js');
+// var documentLanguages = require('./example/documentLanguages.js');
+
+var countries = require('./example/countries.js');

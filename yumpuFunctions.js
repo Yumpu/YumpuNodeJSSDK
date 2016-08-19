@@ -12,8 +12,6 @@ yumpuFunctions.prototype.executeRequest = function(reqData, callbackRequest) {
         headers: reqData.headers,
     };
 
-
-
     callback = function(res) {
         var data = [];
         if (res.statusCode != 200 && res.statusCode != 202 && res.statusCode != 400) {
@@ -32,23 +30,15 @@ yumpuFunctions.prototype.executeRequest = function(reqData, callbackRequest) {
         });
     }
     var req = http.request(options, callback);
-
     if (reqData.method == 'POST') {
         if (reqData.body.file) {
             var file = reqData.body.file;
             reqData.body.file = ('data:application/pdf;base64, ', fs.createReadStream(file));
-            // req.pipe('@' + file);
-
         }
         var postData = JSON.stringify(reqData.body);
         // console.log(postData);
         req.write(postData);
     };
-
-    // req.on('error', function(e) {
-    //     console.log('error is here');
-    // });
-
     req.end();
 }
 
