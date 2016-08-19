@@ -13,7 +13,7 @@ var c = {
     token: 'bkIzYsUTS6Eun5ALZwfiD38hN1tlOVKF',
     returnFormat: 'array',
     endpointDomain: 'api.yumpu.com',
-    endpointSearchDomain: 'http://search.yumpu.com/2.0/',
+    endpointSearchDomain: 'search.yumpu.com',
     debug: 'FALSE',
     logFilePath: 'yumpu_log.txt',
     uploadPath: ''
@@ -44,7 +44,7 @@ var yumpuEndpoints = {
     categoriesGet: '/2.0/document/categories.json',
     countriesGet: '/2.0/countries.json',
     languagesGet: '/2.0/document/languages.json',
-    searchGet: c.endpointSearchDomain + 'search.json',
+    searchGet: '/2.0/search.json',
     mediaGet: c.endpointDomain + 'media.json',
     mediaPut: c.endpointDomain + 'media.json',
     mediaDelete: c.endpointDomain + 'media.json',

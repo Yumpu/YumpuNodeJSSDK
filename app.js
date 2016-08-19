@@ -12,4 +12,6 @@
 
 // var countries = require('./example/countries.js');
 
-var collections = require('./example/collections.js');
+// var collections = require('./example/collections.js');
+
+var search = require('./example/search.js');

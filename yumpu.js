@@ -190,4 +190,22 @@ yumpu.prototype.getCollections = function(parameters, callback) {
     yf.log('getCollections - ' + reqData.host + reqData.path);
 }
 
+// Search documents taking into consideration different criterias; q param is required;
+// more details on: http://developers.yumpu.com/api/search/get/
+yumpu.prototype.search = function(parameters, callback) {
+    var reqData = {
+        method: 'GET',
+        host: c.getYumpuConfig().endpointSearchDomain,
+        path: yf.buildUrl(parameters, c.getYumpuEndpoints().searchGet),
+        headers: {
+            'X-ACCESS-TOKEN': c.getYumpuConfig().token,
+            'Content-Type': 'application/json'
+        },
+    };
+    yf.executeRequest(reqData, function(statusCode, data) {
+        callback(statusCode, data);
+    });
+    yf.log('search - ' + reqData.host + reqData.path);
+}
+
 module.exports = yumpu;

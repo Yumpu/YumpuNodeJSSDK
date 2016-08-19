@@ -17,6 +17,7 @@ yumpuFunctions.prototype.executeRequest = function(reqData, callbackRequest) {
         if (res.statusCode != 200 && res.statusCode != 202 && res.statusCode != 404 && res.statusCode != 400) {
             return callbackRequest(res.statusCode, options);
         }
+
         // console.log('STATUS: ' + res.statusCode);
         // console.log('HEADERS: ' + JSON.stringify(res.headers));
 
@@ -28,6 +29,7 @@ yumpuFunctions.prototype.executeRequest = function(reqData, callbackRequest) {
             var body = JSON.parse(Buffer.concat(data).toString());
             return callbackRequest(res.statusCode, body);
         });
+
     }
     var req = http.request(options, callback);
     if (reqData.method == 'POST') {
