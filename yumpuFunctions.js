@@ -14,7 +14,7 @@ yumpuFunctions.prototype.executeRequest = function(reqData, callbackRequest) {
 
     callback = function(res) {
         var data = [];
-        if (res.statusCode != 200 && res.statusCode != 202 && res.statusCode != 404 && res.statusCode != 400) {
+        if (res.statusCode != 200 && res.statusCode != 202 && res.statusCode != 400 && res.statusCode != 401 && res.statusCode != 404) {
             return callbackRequest(res.statusCode, options);
         }
 
@@ -44,6 +44,7 @@ yumpuFunctions.prototype.executeRequest = function(reqData, callbackRequest) {
     req.end();
 }
 
+// build URL for a get request
 yumpuFunctions.prototype.buildUrl = function(parameters, yumpuEndpoints) {
     var build = '';
     for (var prop in parameters) {

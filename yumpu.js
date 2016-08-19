@@ -225,4 +225,22 @@ yumpu.prototype.getEmbeds = function(parameters, callback) {
     });
     yf.log('getEmbeds - ' + reqData.host + reqData.path);
 }
+
+// retrieve all users' members datas
+// more details on: http://developers.yumpu.com/api/members/get/
+yumpu.prototype.getMembers = function(parameters, callback) {
+    var reqData = {
+        method: 'GET',
+        host: c.getYumpuConfig().endpointDomain,
+        path: yf.buildUrl(parameters, c.getYumpuEndpoints().membersGet),
+        headers: {
+            'X-ACCESS-TOKEN': c.getYumpuConfig().token,
+            'Content-Type': 'application/json'
+        },
+    };
+    yf.executeRequest(reqData, function(statusCode, data) {
+        callback(statusCode, data);
+    });
+    yf.log('getMembers - ' + reqData.host + reqData.path);
+}
 module.exports = yumpu;

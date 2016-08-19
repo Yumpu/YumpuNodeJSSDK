@@ -16,4 +16,6 @@
 
 // var search = require('./example/search.js');
 
-var embeds = require('./example/embeds.js');
+// var embeds = require('./example/embeds.js');
+
+var members = require('./example/members.js');
