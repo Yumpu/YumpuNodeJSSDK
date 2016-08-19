@@ -262,4 +262,22 @@ yumpu.prototype.getAccessTags = function(parameters, callback) {
     yf.log('getAccessTags - ' + reqData.host + reqData.path);
 }
 
+// retrieve all users' subscriptions datas
+// more details on: http://developers.yumpu.com/api/subscriptions/get/
+yumpu.prototype.getSubscriptions = function(parameters, callback) {
+    var reqData = {
+        method: 'GET',
+        host: c.getYumpuConfig().endpointDomain,
+        path: yf.buildUrl(parameters, c.getYumpuEndpoints().subscriptionsGet),
+        headers: {
+            'X-ACCESS-TOKEN': c.getYumpuConfig().token,
+            'Content-Type': 'application/json'
+        },
+    };
+    yf.executeRequest(reqData, function(statusCode, data) {
+        callback(statusCode, data);
+    });
+    yf.log('getSubscriptions - ' + reqData.host + reqData.path);
+}
+
 module.exports = yumpu;

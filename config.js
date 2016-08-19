@@ -51,7 +51,7 @@ var yumpuEndpoints = {
     mediaPost: c.endpointDomain + 'media.json',
     mediasGet: c.endpointDomain + 'medias.json',
     membersGet: '/2.0/account/members.json',
-    subscriptionsGet: c.endpointDomain + 'account/subscriptions.json',
+    subscriptionsGet: '/2.0/account/subscriptions.json',
     subscriptionGet: c.endpointDomain + 'account/subscription.json',
     subscriptionPut: c.endpointDomain + 'account/subscription.json',
     subscriptionPost: c.endpointDomain + 'account/subscription.json',

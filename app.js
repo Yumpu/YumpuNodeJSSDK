@@ -18,4 +18,6 @@
 
 // var embeds = require('./example/embeds.js');
 
-var accessTags = require('./example/accessTags.js');
+// var accessTags = require('./example/accessTags.js');
+
+var subscriptions = require('./example/subscriptions.js');

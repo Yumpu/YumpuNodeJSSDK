@@ -1,19 +1,19 @@
 // include yumpu sdk
 var yumpu = require('../yumpu');
 
-// Test for the getMembers function
-describe("getMembers Test", function() {
+// Test for the getSubscriptions function
+describe("getSubscriptions Test", function() {
     var parameters = {
-        limit: 5,
+        limit: 10,
         offset: 0,
-        return_fields: 'id,username,access_tags,kiosks',
-        sort: 'create_date_desc'
+        return_fields: 'id,itc_product_id,name,description,duration,create_date',
+        sort: 'name_asc'
     };
     var status;
 
     beforeEach(function(done) {
         var y = new yumpu();
-        y.getMembers(parameters, function(statusCode, documents) {
+        y.getSubscriptions(parameters, function(statusCode, documents) {
             status = statusCode;
             if (status == 404 || status == 401) {
                 status = 200;
