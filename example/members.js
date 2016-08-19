@@ -4,6 +4,7 @@ var yumpu = require('../yumpu');
 var y = new yumpu();
 
 // get members from position 'offset' with limit 'limit' and sort the result in descending (by create date) order and return fields (id,username,access_tags,kiosks)
+// you have to be premium user
 // more details on : http://developers.yumpu.com/api/members/get/
 var parameters = {
     limit: 5,
