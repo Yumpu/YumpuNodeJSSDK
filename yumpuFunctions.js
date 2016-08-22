@@ -40,8 +40,8 @@ yumpuFunctions.prototype.executeRequest = function(reqData, callbackRequest) {
         // }
         var postData = JSON.stringify(reqData.body);
         options.headers['Content-Length'] = postData.length;
-        console.log(options);
-        console.log(postData);
+        // console.log(options);
+        // console.log(postData);
         req.write(postData);
     // } else if (reqData.method == 'DELETE') {
     //     var postData = JSON.stringify(reqData.body);

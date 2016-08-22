@@ -14,7 +14,7 @@ y.getUser(parameters, function(statusCode, document) {
 // OR
 // use another token that the one set in config
 var parameters = {
-    token: 'plbhzBor9sTicnJf51CVZuOEY2aqe7Kv'
+    token: 'anytoken'
 };
 y.getUser(parameters, function(statusCode, document) {
     console.log('Status: ' + statusCode)
