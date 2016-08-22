@@ -1,5 +1,6 @@
 var fs = require('fs');
 var http = require("http");
+var qs = require("querystring");
 // initialize yumpuFunctions Class
 var yumpuFunctions = function() {}
 
@@ -32,14 +33,24 @@ yumpuFunctions.prototype.executeRequest = function(reqData, callbackRequest) {
 
     }
     var req = http.request(options, callback);
-    if ((reqData.method == 'POST') || (reqData.method =='PUT') || (reqData.method == 'DELETE')) {
+    if ((reqData.method == 'POST') || (reqData.method == 'PUT') || (reqData.method == 'DELETE')) {
         // if (reqData.body.file) {
         //     var file = reqData.body.file;
         //     reqData.body.file = ('data:application/pdf;base64, ', fs.createReadStream(file));
         // }
         var postData = JSON.stringify(reqData.body);
+        options.headers['Content-Length'] = postData.length;
+        console.log(options);
         console.log(postData);
         req.write(postData);
+    // } else if (reqData.method == 'DELETE') {
+    //     var postData = JSON.stringify(reqData.body);
+    //     options.headers['Content-Length'] = postData.length;
+    //     console.log('querystring: ');
+    //     console.log(options);
+    //     console.log(postData);
+    //     req.write(postData);
+
     };
     req.end();
 }

@@ -2,7 +2,7 @@
 
 // var document = require('./example/document');
 
-// var documentHotspots = require('./example/documentHotspots.js');
+var documentHotspots = require('./example/documentHotspots.js');
 
 var documentHotspot = require('./example/documentHotspot.js');
 

@@ -7,7 +7,7 @@ var y = new yumpu();
 // more details on : http://developers.yumpu.com/api/document-hotspots/get/
 // PLEASE USE ONE OF YOUR HOTSPOT IDS!!!
 var parameters = {
-    id: '7c7cd96f6YgDzdH3',
+    id: '46624bf0XojP4Acx',
     return_fields: 'id,document_id,page,type,settings,create_date,update_date'
 };
 y.getDocumentHotspot(parameters, function(statusCode, document) {
@@ -32,10 +32,10 @@ var parameters = {
         link: 'http://www.facebook.com'
     }
 };
-// y.postDocumentHotspot(parameters, function(statusCode, document) {
-//     console.log('Status: ' + statusCode)
-//     console.log(document);
-// });
+y.postDocumentHotspot(parameters, function(statusCode, document) {
+    console.log('Status: ' + statusCode)
+    console.log(document);
+});
 
 // update a hotspot
 // more details on : http://developers.yumpu.com/api/document-hotspots/get/
@@ -62,9 +62,9 @@ y.putDocumentHotspot(parameters, function(statusCode, document) {
 // more details on : http://developers.yumpu.com/api/document-hotspots/get/
 // PLEASE USE ONE OF YOUR HOTSPOT IDS!!!
 var parameters = {
-    id: '2dff0597vPEO4Qqp'
+    id: '46624bf0XojP4Acx'
 };
-y.deleteDocumentHotspot(parameters, function(statusCode, document) {
-    console.log('Status: ' + statusCode)
-    console.log(document);
-});
+// y.deleteDocumentHotspot(parameters, function(statusCode, document) {
+//     console.log('Status: ' + statusCode)
+//     console.log(document);
+// });
