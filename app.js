@@ -26,6 +26,8 @@
 
 // var embeds = require('./example/embeds.js');
 
+// var embed = require('./example/embed.js');
+
 // var accessTags = require('./example/accessTags.js');
 
 // var subscriptions = require('./example/subscriptions.js');

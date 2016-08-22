@@ -70,10 +70,10 @@ var yumpuEndpoints = {
     memberDelete: c.endpointDomain + 'account/member.json',
     memberPost: c.endpointDomain + 'account/member.json',
     embedsGet: '/2.0/embeds.json',
-    embedGet: c.endpointDomain + 'embed.json',
-    embedPost: c.endpointDomain + 'embed.json',
-    embedPut: c.endpointDomain + 'embed.json',
-    embedDelete: c.endpointDomain + 'embed.json'
+    embedGet: '/2.0/embed.json',
+    embedPost: '/2.0/embed.json',
+    embedPut: '/2.0/embed.json',
+    embedDelete: '/2.0/embed.json'
 };
 var config = function() {}
 config.prototype.getYumpuConfig = function() {

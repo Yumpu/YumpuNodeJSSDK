@@ -398,6 +398,53 @@ yumpu.prototype.getEmbeds = function(parameters, callback) {
     yf.log('getEmbeds - ' + reqData.host + reqData.path);
 }
 
+// retrieve all users' embeds datas
+// more details on: http://developers.yumpu.com/api/embeds/get/
+yumpu.prototype.getEmbed = function(parameters, callback) {
+    var reqData = {
+        method: 'GET',
+        host: c.getYumpuConfig().endpointDomain,
+        path: yf.buildUrl(parameters, c.getYumpuEndpoints().embedGet),
+        headers: yf.setHeaders(c.getYumpuConfig().token),
+    };
+    yf.executeRequest(reqData, function(statusCode, data) {
+        callback(statusCode, data);
+    });
+    yf.log('getEmbed - ' + reqData.host + reqData.path);
+}
+
+// post embed
+// more details on: http://developers.yumpu.com/api/embed/post/
+yumpu.prototype.postEmbed = function(parameters, callback) {
+    var reqData = {
+        method: 'POST',
+        host: c.getYumpuConfig().endpointDomain,
+        path: c.getYumpuEndpoints().embedPost,
+        headers: yf.setHeaders(c.getYumpuConfig().token),
+        body: parameters
+    };
+    yf.executeRequest(reqData, function(statusCode, data) {
+        callback(statusCode, data);
+    });
+    yf.log('postEmbed - ' + reqData.host + reqData.path);
+}
+
+// put embed
+// more details on: http:/developers.yumpu.com/api/user/put
+yumpu.prototype.putEmbed = function(parameters, callback) {
+    var reqData = {
+        method: 'PUT',
+        host: c.getYumpuConfig().endpointDomain,
+        path: c.getYumpuEndpoints().embedPut,
+        headers: yf.setHeaders(c.getYumpuConfig().token),
+        body: parameters
+    };
+    yf.executeRequest(reqData, function(statusCode, data) {
+        callback(statusCode, data);
+    });
+    yf.log('putEmbed - ' + reqData.host + reqData.path);
+}
+
 // retrieve all users' members datas
 // more details on: http://developers.yumpu.com/api/members/get/
 yumpu.prototype.getMembers = function(parameters, callback) {
