@@ -265,6 +265,62 @@ yumpu.prototype.getCollections = function(parameters, callback) {
     yf.log('getCollections - ' + reqData.host + reqData.path);
 }
 
+// retrived all datas for the collection with id $id
+// more details on: http://developers.yumpu.com/api/collection/get-4/
+yumpu.prototype.getCollection = function(parameters, callback) {
+    var reqData = {
+        method: 'GET',
+        host: c.getYumpuConfig().endpointDomain,
+        path: yf.buildUrl(parameters, c.getYumpuEndpoints().collectionGet),
+        headers: {
+            'X-ACCESS-TOKEN': c.getYumpuConfig().token,
+            'Content-Type': 'application/json'
+        },
+    };
+    yf.executeRequest(reqData, function(statusCode, data) {
+        callback(statusCode, data);
+    });
+    yf.log('getCollection - ' + reqData.host + reqData.path);
+}
+
+// create a new collection
+// more details on : http://developers.yumpu.com/api/collection/post/
+yumpu.prototype.postCollection = function(parameters, callback) {
+    var reqData = {
+        method: 'POST',
+        host: c.getYumpuConfig().endpointDomain,
+        path: c.getYumpuEndpoints().collectionPost,
+        headers: {
+            'X-ACCESS-TOKEN': c.getYumpuConfig().token,
+            'Content-Type': 'application/json'
+        },
+        body: parameters
+    };
+    yf.executeRequest(reqData, function(statusCode, data) {
+        callback(statusCode, data);
+    });
+    yf.log('postCollection - ' + reqData.host + reqData.path);
+}
+
+// update a collection
+// more details on : http://developers.yumpu.com/api/collection/put-2/
+yumpu.prototype.putCollection = function(parameters, callback) {
+    var reqData = {
+        method: 'PUT',
+        host: c.getYumpuConfig().endpointDomain,
+        path: c.getYumpuEndpoints().collectionPut,
+        headers: {
+            'X-ACCESS-TOKEN': c.getYumpuConfig().token,
+            'Content-Type': 'application/json'
+        },
+        body: parameters
+    };
+    yf.executeRequest(reqData, function(statusCode, data) {
+        callback(statusCode, data);
+    });
+    yf.log('putCollection - ' + reqData.host + reqData.path);
+}
+
 // Search documents taking into consideration different criterias; q param is required;
 // more details on: http://developers.yumpu.com/api/search/get/
 yumpu.prototype.search = function(parameters, callback) {
