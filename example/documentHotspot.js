@@ -41,7 +41,7 @@ y.postDocumentHotspot(parameters, function(statusCode, document) {
 // more details on : http://developers.yumpu.com/api/document-hotspots/get/
 // PLEASE USE ONE OF YOUR HOTSPOT IDS!!!
 var parameters = {
-    id: '7c7cd96f6YgDzdH3',
+    id: '46624bf0XojP4Acx',
     type: 'link',
     settings: {
         x: 20,

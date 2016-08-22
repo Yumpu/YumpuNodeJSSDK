@@ -28,6 +28,7 @@ yumpuFunctions.prototype.executeRequest = function(reqData, callbackRequest) {
         });
 
         res.on('end', function() {
+            // var body = Buffer.concat(data).toString();
             var body = JSON.parse(Buffer.concat(data).toString());
             return callbackRequest(res.statusCode, body);
         });
@@ -44,24 +45,17 @@ yumpuFunctions.prototype.executeRequest = function(reqData, callbackRequest) {
         // console.log(options);
         // console.log(postData);
         req.write(postData);
-    // } else if (reqData.method == 'DELETE') {
-    //     var postData = JSON.stringify(reqData.body);
-    //     options.headers['Content-Length'] = postData.length;
-    //     console.log('querystring: ');
-    //     console.log(options);
-    //     console.log(postData);
-    //     req.write(postData);
 
     };
     req.end();
 }
 
-yumpuFunctions.prototype.setHeaders = function(token){
-  var headers = {
+yumpuFunctions.prototype.setHeaders = function(token) {
+    var headers = {
         'X-ACCESS-TOKEN': token,
         'Content-Type': 'application/json'
-  };
-  return headers;
+    };
+    return headers;
 }
 
 // build URL for a get request

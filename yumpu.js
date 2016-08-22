@@ -270,6 +270,53 @@ yumpu.prototype.putCollection = function(parameters, callback) {
     yf.log('putCollection - ' + reqData.host + reqData.path);
 }
 
+// retrived all datas for the collection with $data['id']; reutrn field can be specified in $data['return_fields']
+// more details on: http://developers.yumpu.com/api/section/get-5/
+yumpu.prototype.getSection = function(parameters, callback) {
+    var reqData = {
+        method: 'GET',
+        host: c.getYumpuConfig().endpointDomain,
+        path: yf.buildUrl(parameters, c.getYumpuEndpoints().sectionGet),
+        headers: yf.setHeaders(c.getYumpuConfig().token),
+    };
+    yf.executeRequest(reqData, function(statusCode, data) {
+        callback(statusCode, data);
+    });
+    yf.log('getSection - ' + reqData.host + reqData.path);
+}
+
+// create a new Section
+// more details on : http://developers.yumpu.com/api/section/post-2/
+yumpu.prototype.postSection = function(parameters, callback) {
+    var reqData = {
+        method: 'POST',
+        host: c.getYumpuConfig().endpointDomain,
+        path: c.getYumpuEndpoints().sectionPost,
+        headers: yf.setHeaders(c.getYumpuConfig().token),
+        body: parameters
+    };
+    yf.executeRequest(reqData, function(statusCode, data) {
+        callback(statusCode, data);
+    });
+    yf.log('postSection - ' + reqData.host + reqData.path);
+}
+
+// update a section
+// more details on : http://developers.yumpu.com/api/section/put-3/
+yumpu.prototype.putSection = function(parameters, callback) {
+    var reqData = {
+        method: 'PUT',
+        host: c.getYumpuConfig().endpointDomain,
+        path: c.getYumpuEndpoints().sectionPut,
+        headers: yf.setHeaders(c.getYumpuConfig().token),
+        body: parameters
+    };
+    yf.executeRequest(reqData, function(statusCode, data) {
+        callback(statusCode, data);
+    });
+    yf.log('putSection - ' + reqData.host + reqData.path);
+}
+
 // Search documents taking into consideration different criterias; q param is required;
 // more details on: http://developers.yumpu.com/api/search/get/
 yumpu.prototype.search = function(parameters, callback) {
