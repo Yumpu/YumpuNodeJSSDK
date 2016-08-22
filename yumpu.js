@@ -522,6 +522,55 @@ yumpu.prototype.getAccessTags = function(parameters, callback) {
     yf.log('getAccessTags - ' + reqData.host + reqData.path);
 }
 
+// retrived all datas for the Access-Tag with id $id
+// more details on: http://developers.yumpu.com/api/access-tags/get/
+yumpu.prototype.getAccessTag = function(parameters, callback) {
+    var reqData = {
+        method: 'GET',
+        host: c.getYumpuConfig().endpointDomain,
+        path: yf.buildUrl(parameters, c.getYumpuEndpoints().accessTagGet),
+        headers: yf.setHeaders(c.getYumpuConfig().token),
+    };
+    yf.executeRequest(reqData, function(statusCode, data) {
+        callback(statusCode, data);
+    });
+    yf.log('getAccessTag - ' + reqData.host + reqData.path);
+}
+
+// create a new access-tag
+// An example of an update array is $data = array('name' => 'my-accesstag');
+// more details on : http://developers.yumpu.com/api/access-tag/post/
+yumpu.prototype.postAccessTag = function(parameters, callback) {
+    var reqData = {
+        method: 'POST',
+        host: c.getYumpuConfig().endpointDomain,
+        path: c.getYumpuEndpoints().accessTagPost,
+        headers: yf.setHeaders(c.getYumpuConfig().token),
+        body: parameters
+    };
+    yf.executeRequest(reqData, function(statusCode, data) {
+        callback(statusCode, data);
+    });
+    yf.log('postAccessTag - ' + reqData.host + reqData.path);
+}
+
+// update a access-tag
+// An example of an update array is $data = array('id' => 'collectionId', 'name' => 'mynewAccesTagName');
+// more details on : http://developers.yumpu.com/api/access-tag/put/
+yumpu.prototype.putAccessTag = function(parameters, callback) {
+    var reqData = {
+        method: 'PUT',
+        host: c.getYumpuConfig().endpointDomain,
+        path: c.getYumpuEndpoints().accessTagPut,
+        headers: yf.setHeaders(c.getYumpuConfig().token),
+        body: parameters
+    };
+    yf.executeRequest(reqData, function(statusCode, data) {
+        callback(statusCode, data);
+    });
+    yf.log('putAccessTag - ' + reqData.host + reqData.path);
+}
+
 // retrieve all users' subscriptions datas
 // more details on: http://developers.yumpu.com/api/subscriptions/get/
 yumpu.prototype.getSubscriptions = function(parameters, callback) {
