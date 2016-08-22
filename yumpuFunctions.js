@@ -1,6 +1,7 @@
 var fs = require('fs');
 var http = require("http");
 var qs = require("querystring");
+
 // initialize yumpuFunctions Class
 var yumpuFunctions = function() {}
 
@@ -53,6 +54,14 @@ yumpuFunctions.prototype.executeRequest = function(reqData, callbackRequest) {
 
     };
     req.end();
+}
+
+yumpuFunctions.prototype.setHeaders = function(token){
+  var headers = {
+        'X-ACCESS-TOKEN': token,
+        'Content-Type': 'application/json'
+  };
+  return headers;
 }
 
 // build URL for a get request

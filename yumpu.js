@@ -11,13 +11,10 @@ var yumpu = function() {
 // more details on: http://developers.yumpu.com/api/documents/get/
 yumpu.prototype.getDocuments = function(parameters, callback) {
     var reqData = {
+        method: 'GET',
         host: c.getYumpuConfig().endpointDomain,
         path: yf.buildUrl(parameters, c.getYumpuEndpoints().documentsGet),
-        headers: {
-            'X-ACCESS-TOKEN': c.getYumpuConfig().token,
-            'Content-Type': 'application/json'
-        },
-        method: 'GET',
+        headers: yf.setHeaders(c.getYumpuConfig().token),
     };
     yf.executeRequest(reqData, function(statusCode, data) {
         callback(statusCode, data);
@@ -32,10 +29,7 @@ yumpu.prototype.getDocument = function(parameters, callback) {
         method: 'GET',
         host: c.getYumpuConfig().endpointDomain,
         path: yf.buildUrl(parameters, c.getYumpuEndpoints().documentGet),
-        headers: {
-            'X-ACCESS-TOKEN': c.getYumpuConfig().token,
-            'Content-Type': 'application/json'
-        },
+        headers: yf.setHeaders(c.getYumpuConfig().token),
     };
     yf.executeRequest(reqData, function(statusCode, data) {
         callback(statusCode, data);
@@ -50,10 +44,7 @@ yumpu.prototype.postDocumentFile = function(parameters, callback) {
         method: 'POST',
         host: c.getYumpuConfig().endpointDomain,
         path: c.getYumpuEndpoints().documentPostFile,
-        headers: {
-            'X-ACCESS-TOKEN': c.getYumpuConfig().token,
-            'Content-Type': 'multipart/form-data'
-        },
+        headers: yf.setHeaders(c.getYumpuConfig().token),
         body: parameters
     };
     yf.executeRequest(reqData, function(statusCode, data) {
@@ -69,10 +60,7 @@ yumpu.prototype.postDocumentUrl = function(parameters, callback) {
         method: 'POST',
         host: c.getYumpuConfig().endpointDomain,
         path: c.getYumpuEndpoints().documentPostUrl,
-        headers: {
-            'X-ACCESS-TOKEN': c.getYumpuConfig().token,
-            'Content-Type': 'application/json'
-        },
+        headers: yf.setHeaders(c.getYumpuConfig().token),
         body: parameters
     };
     yf.executeRequest(reqData, function(statusCode, data) {
@@ -88,10 +76,7 @@ yumpu.prototype.getDocumentHotspots = function(parameters, callback) {
         method: 'GET',
         host: c.getYumpuConfig().endpointDomain,
         path: yf.buildUrl(parameters, c.getYumpuEndpoints().hotspotsGet),
-        headers: {
-            'X-ACCESS-TOKEN': c.getYumpuConfig().token,
-            'Content-Type': 'application/json'
-        },
+        headers: yf.setHeaders(c.getYumpuConfig().token),
     };
     yf.executeRequest(reqData, function(statusCode, data) {
         callback(statusCode, data);
@@ -106,10 +91,7 @@ yumpu.prototype.getDocumentHotspot = function(parameters, callback) {
         method: 'GET',
         host: c.getYumpuConfig().endpointDomain,
         path: yf.buildUrl(parameters, c.getYumpuEndpoints().hotspotGet),
-        headers: {
-            'X-ACCESS-TOKEN': c.getYumpuConfig().token,
-            'Content-Type': 'application/json'
-        },
+        headers: yf.setHeaders(c.getYumpuConfig().token),
     };
     yf.executeRequest(reqData, function(statusCode, data) {
         callback(statusCode, data);
@@ -124,10 +106,7 @@ yumpu.prototype.postDocumentHotspot = function(parameters, callback) {
         method: 'POST',
         host: c.getYumpuConfig().endpointDomain,
         path: c.getYumpuEndpoints().hotspotPost,
-        headers: {
-            'X-ACCESS-TOKEN': c.getYumpuConfig().token,
-            'Content-Type': 'application/json'
-        },
+        headers: yf.setHeaders(c.getYumpuConfig().token),
         body: parameters
     };
     yf.executeRequest(reqData, function(statusCode, data) {
@@ -143,10 +122,7 @@ yumpu.prototype.putDocumentHotspot = function(parameters, callback) {
         method: 'PUT',
         host: c.getYumpuConfig().endpointDomain,
         path: c.getYumpuEndpoints().hotspotPut,
-        headers: {
-            'X-ACCESS-TOKEN': c.getYumpuConfig().token,
-            'Content-Type': 'application/json'
-        },
+        headers: yf.setHeaders(c.getYumpuConfig().token),
         body: parameters
     };
     yf.executeRequest(reqData, function(statusCode, data) {
@@ -162,10 +138,7 @@ yumpu.prototype.deleteDocumentHotspot = function(parameters, callback) {
         method: 'DELETE',
         host: c.getYumpuConfig().endpointDomain,
         path: c.getYumpuEndpoints().hotspotDelete,
-        headers: {
-            'X-ACCESS-TOKEN': c.getYumpuConfig().token,
-            'Content-Type': 'application/json'
-        },
+        headers: yf.setHeaders(c.getYumpuConfig().token),
         body: parameters
     };
     yf.executeRequest(reqData, function(statusCode, data) {
@@ -182,10 +155,7 @@ yumpu.prototype.getDocumentProgress = function(parameters, callback) {
         method: 'GET',
         host: c.getYumpuConfig().endpointDomain,
         path: yf.buildUrl(parameters, c.getYumpuEndpoints().documentProgress),
-        headers: {
-            'X-ACCESS-TOKEN': c.getYumpuConfig().token,
-            'Content-Type': 'application/json'
-        },
+        headers: yf.setHeaders(c.getYumpuConfig().token),
     };
     yf.executeRequest(reqData, function(statusCode, data) {
         callback(statusCode, data);
@@ -200,10 +170,7 @@ yumpu.prototype.getDocumentCategories = function(callback) {
         method: 'GET',
         host: c.getYumpuConfig().endpointDomain,
         path: c.getYumpuEndpoints().categoriesGet,
-        headers: {
-            'X-ACCESS-TOKEN': c.getYumpuConfig().token,
-            'Content-Type': 'application/json'
-        },
+        headers: yf.setHeaders(c.getYumpuConfig().token),
     };
     yf.executeRequest(reqData, function(statusCode, data) {
         callback(statusCode, data);
@@ -218,10 +185,7 @@ yumpu.prototype.getDocumentLanguages = function(callback) {
         method: 'GET',
         host: c.getYumpuConfig().endpointDomain,
         path: c.getYumpuEndpoints().languagesGet,
-        headers: {
-            'X-ACCESS-TOKEN': c.getYumpuConfig().token,
-            'Content-Type': 'application/json'
-        },
+        headers: yf.setHeaders(c.getYumpuConfig().token),
     };
     yf.executeRequest(reqData, function(statusCode, data) {
         callback(statusCode, data);
@@ -236,10 +200,7 @@ yumpu.prototype.getCountries = function(callback) {
         method: 'GET',
         host: c.getYumpuConfig().endpointDomain,
         path: c.getYumpuEndpoints().countriesGet,
-        headers: {
-            'X-ACCESS-TOKEN': c.getYumpuConfig().token,
-            'Content-Type': 'application/json'
-        },
+        headers: yf.setHeaders(c.getYumpuConfig().token),
     };
     yf.executeRequest(reqData, function(statusCode, data) {
         callback(statusCode, data);
@@ -254,10 +215,7 @@ yumpu.prototype.getCollections = function(parameters, callback) {
         method: 'GET',
         host: c.getYumpuConfig().endpointDomain,
         path: yf.buildUrl(parameters, c.getYumpuEndpoints().collectionsGet),
-        headers: {
-            'X-ACCESS-TOKEN': c.getYumpuConfig().token,
-            'Content-Type': 'application/json'
-        },
+        headers: yf.setHeaders(c.getYumpuConfig().token),
     };
     yf.executeRequest(reqData, function(statusCode, data) {
         callback(statusCode, data);
@@ -272,10 +230,7 @@ yumpu.prototype.getCollection = function(parameters, callback) {
         method: 'GET',
         host: c.getYumpuConfig().endpointDomain,
         path: yf.buildUrl(parameters, c.getYumpuEndpoints().collectionGet),
-        headers: {
-            'X-ACCESS-TOKEN': c.getYumpuConfig().token,
-            'Content-Type': 'application/json'
-        },
+        headers: yf.setHeaders(c.getYumpuConfig().token),
     };
     yf.executeRequest(reqData, function(statusCode, data) {
         callback(statusCode, data);
@@ -290,10 +245,7 @@ yumpu.prototype.postCollection = function(parameters, callback) {
         method: 'POST',
         host: c.getYumpuConfig().endpointDomain,
         path: c.getYumpuEndpoints().collectionPost,
-        headers: {
-            'X-ACCESS-TOKEN': c.getYumpuConfig().token,
-            'Content-Type': 'application/json'
-        },
+        headers: yf.setHeaders(c.getYumpuConfig().token),
         body: parameters
     };
     yf.executeRequest(reqData, function(statusCode, data) {
@@ -309,10 +261,7 @@ yumpu.prototype.putCollection = function(parameters, callback) {
         method: 'PUT',
         host: c.getYumpuConfig().endpointDomain,
         path: c.getYumpuEndpoints().collectionPut,
-        headers: {
-            'X-ACCESS-TOKEN': c.getYumpuConfig().token,
-            'Content-Type': 'application/json'
-        },
+        headers: yf.setHeaders(c.getYumpuConfig().token),
         body: parameters
     };
     yf.executeRequest(reqData, function(statusCode, data) {
@@ -328,10 +277,7 @@ yumpu.prototype.search = function(parameters, callback) {
         method: 'GET',
         host: c.getYumpuConfig().endpointSearchDomain,
         path: yf.buildUrl(parameters, c.getYumpuEndpoints().searchGet),
-        headers: {
-            'X-ACCESS-TOKEN': c.getYumpuConfig().token,
-            'Content-Type': 'application/json'
-        },
+        headers: yf.setHeaders(c.getYumpuConfig().token),
     };
     yf.executeRequest(reqData, function(statusCode, data) {
         callback(statusCode, data);
@@ -350,10 +296,7 @@ yumpu.prototype.getUser = function(parameters, callback) {
         method: 'GET',
         host: c.getYumpuConfig().endpointDomain,
         path: c.getYumpuEndpoints().userGet,
-        headers: {
-            'X-ACCESS-TOKEN': token,
-            'Content-Type': 'application/json'
-        },
+        headers: yf.setHeaders(token),
     };
     yf.executeRequest(reqData, function(statusCode, data) {
         callback(statusCode, data);
@@ -368,10 +311,7 @@ yumpu.prototype.postUser = function(parameters, callback) {
         method: 'POST',
         host: c.getYumpuConfig().endpointDomain,
         path: c.getYumpuEndpoints().userPost,
-        headers: {
-            'X-ACCESS-TOKEN': c.getYumpuConfig().token,
-            'Content-Type': 'application/json'
-        },
+        headers: yf.setHeaders(c.getYumpuConfig().token),
         body: parameters
     };
     yf.executeRequest(reqData, function(statusCode, data) {
@@ -387,10 +327,7 @@ yumpu.prototype.putUser = function(parameters, callback) {
         method: 'PUT',
         host: c.getYumpuConfig().endpointDomain,
         path: c.getYumpuEndpoints().userPut,
-        headers: {
-            'X-ACCESS-TOKEN': c.getYumpuConfig().token,
-            'Content-Type': 'application/json'
-        },
+        headers: yf.setHeaders(c.getYumpuConfig().token),
         body: parameters
     };
     yf.executeRequest(reqData, function(statusCode, data) {
@@ -406,10 +343,7 @@ yumpu.prototype.getEmbeds = function(parameters, callback) {
         method: 'GET',
         host: c.getYumpuConfig().endpointDomain,
         path: yf.buildUrl(parameters, c.getYumpuEndpoints().embedsGet),
-        headers: {
-            'X-ACCESS-TOKEN': c.getYumpuConfig().token,
-            'Content-Type': 'application/json'
-        },
+        headers: yf.setHeaders(c.getYumpuConfig().token),
     };
     yf.executeRequest(reqData, function(statusCode, data) {
         callback(statusCode, data);
@@ -424,10 +358,7 @@ yumpu.prototype.getMembers = function(parameters, callback) {
         method: 'GET',
         host: c.getYumpuConfig().endpointDomain,
         path: yf.buildUrl(parameters, c.getYumpuEndpoints().membersGet),
-        headers: {
-            'X-ACCESS-TOKEN': c.getYumpuConfig().token,
-            'Content-Type': 'application/json'
-        },
+        headers: yf.setHeaders(c.getYumpuConfig().token),
     };
     yf.executeRequest(reqData, function(statusCode, data) {
         callback(statusCode, data);
@@ -442,10 +373,7 @@ yumpu.prototype.getAccessTags = function(parameters, callback) {
         method: 'GET',
         host: c.getYumpuConfig().endpointDomain,
         path: yf.buildUrl(parameters, c.getYumpuEndpoints().accessTagsGet),
-        headers: {
-            'X-ACCESS-TOKEN': c.getYumpuConfig().token,
-            'Content-Type': 'application/json'
-        },
+        headers: yf.setHeaders(c.getYumpuConfig().token),
     };
     yf.executeRequest(reqData, function(statusCode, data) {
         callback(statusCode, data);
@@ -460,10 +388,7 @@ yumpu.prototype.getSubscriptions = function(parameters, callback) {
         method: 'GET',
         host: c.getYumpuConfig().endpointDomain,
         path: yf.buildUrl(parameters, c.getYumpuEndpoints().subscriptionsGet),
-        headers: {
-            'X-ACCESS-TOKEN': c.getYumpuConfig().token,
-            'Content-Type': 'application/json'
-        },
+        headers: yf.setHeaders(c.getYumpuConfig().token),
     };
     yf.executeRequest(reqData, function(statusCode, data) {
         callback(statusCode, data);

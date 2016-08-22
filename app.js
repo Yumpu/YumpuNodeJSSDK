@@ -1,4 +1,4 @@
-// var documents = require('./example/documents');
+var documents = require('./example/documents');
 
 // var document = require('./example/document');
 
@@ -16,7 +16,7 @@
 
 // var collections = require('./example/collections.js');
 
-var collection = require('./example/collection.js');
+// var collection = require('./example/collection.js');
 
 // var search = require('./example/search.js');
 
