@@ -19,9 +19,9 @@ var c = {
     uploadPath: ''
 };
 var yumpuEndpoints = {
-    userGet: c.endpointDomain + 'user.json',
-    userPost: c.endpointDomain + 'user.json',
-    userPut: c.endpointDomain + 'user.json',
+    userGet: '/2.0/user.json',
+    userPost: '/2.0/user.json',
+    userPut: '/2.0/user.json',
     documentGet: '/2.0/document.json',
     documentPostFile: '/2.0/document/file.json',
     documentPostUrl: '/2.0/document/url.json',

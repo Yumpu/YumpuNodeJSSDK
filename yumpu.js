@@ -283,6 +283,66 @@ yumpu.prototype.search = function(parameters, callback) {
     yf.log('search - ' + reqData.host + reqData.path);
 }
 
+// Retrieve $token's user profile data
+// more details on: http://developers.yumpu.com/api/user/get/
+yumpu.prototype.getUser = function(parameters, callback) {
+    var token = c.getYumpuConfig().token;
+    if (parameters) {
+        token = parameters.token;
+    }
+    var reqData = {
+        method: 'GET',
+        host: c.getYumpuConfig().endpointDomain,
+        path: c.getYumpuEndpoints().userGet,
+        headers: {
+            'X-ACCESS-TOKEN': token,
+            'Content-Type': 'application/json'
+        },
+    };
+    yf.executeRequest(reqData, function(statusCode, data) {
+        callback(statusCode, data);
+    });
+    yf.log('getUser - ' + reqData.host + reqData.path);
+}
+
+// Create a new user profile
+// more details on: http://developers.yumpu.com/api/user/post/
+yumpu.prototype.postUser = function(parameters, callback) {
+    var reqData = {
+        method: 'POST',
+        host: c.getYumpuConfig().endpointDomain,
+        path: c.getYumpuEndpoints().userPost,
+        headers: {
+            'X-ACCESS-TOKEN': c.getYumpuConfig().token,
+            'Content-Type': 'application/json'
+        },
+        body: parameters
+    };
+    yf.executeRequest(reqData, function(statusCode, data) {
+        callback(statusCode, data);
+    });
+    yf.log('postUser - ' + reqData.host + reqData.path);
+}
+
+// update an existing user informations
+// more details on: http:/developers.yumpu.com/api/user/put
+yumpu.prototype.putUser = function(parameters, callback) {
+    var reqData = {
+        method: 'PUT',
+        host: c.getYumpuConfig().endpointDomain,
+        path: c.getYumpuEndpoints().userPut,
+        headers: {
+            'X-ACCESS-TOKEN': c.getYumpuConfig().token,
+            'Content-Type': 'application/json'
+        },
+        body: parameters
+    };
+    yf.executeRequest(reqData, function(statusCode, data) {
+        callback(statusCode, data);
+    });
+    yf.log('putUser - ' + reqData.host + reqData.path);
+}
+
 // retrieve all users' embeds datas
 // more details on: http://developers.yumpu.com/api/embeds/get/
 yumpu.prototype.getEmbeds = function(parameters, callback) {
