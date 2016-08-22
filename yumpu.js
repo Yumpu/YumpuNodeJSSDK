@@ -586,4 +586,51 @@ yumpu.prototype.getSubscriptions = function(parameters, callback) {
     yf.log('getSubscriptions - ' + reqData.host + reqData.path);
 }
 
+// get subscription details
+// more details on: http://developers.yumpu.com/api/subscription/get/
+yumpu.prototype.getSubscription = function(parameters, callback) {
+    var reqData = {
+        method: 'GET',
+        host: c.getYumpuConfig().endpointDomain,
+        path: yf.buildUrl(parameters, c.getYumpuEndpoints().subscriptionGet),
+        headers: yf.setHeaders(c.getYumpuConfig().token),
+    };
+    yf.executeRequest(reqData, function(statusCode, data) {
+        callback(statusCode, data);
+    });
+    yf.log('getSubscription - ' + reqData.host + reqData.path);
+}
+
+// post subscription
+// more details on: http://developers.yumpu.com/api/subscription/post/
+yumpu.prototype.postSubscription = function(parameters, callback) {
+    var reqData = {
+        method: 'POST',
+        host: c.getYumpuConfig().endpointDomain,
+        path: c.getYumpuEndpoints().subscriptionPost,
+        headers: yf.setHeaders(c.getYumpuConfig().token),
+        body: parameters
+    };
+    yf.executeRequest(reqData, function(statusCode, data) {
+        callback(statusCode, data);
+    });
+    yf.log('postSubscription - ' + reqData.host + reqData.path);
+}
+
+// put subscription
+// more details on: http://developers.yumpu.com/api/subscription/put/
+yumpu.prototype.putSubscription = function(parameters, callback) {
+    var reqData = {
+        method: 'PUT',
+        host: c.getYumpuConfig().endpointDomain,
+        path: c.getYumpuEndpoints().subscriptionPut,
+        headers: yf.setHeaders(c.getYumpuConfig().token),
+        body: parameters
+    };
+    yf.executeRequest(reqData, function(statusCode, data) {
+        callback(statusCode, data);
+    });
+    yf.log('putSubscription - ' + reqData.host + reqData.path);
+}
+
 module.exports = yumpu;

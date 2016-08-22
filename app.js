@@ -34,6 +34,8 @@
 
 // var accessTags = require('./example/accessTags.js');
 
-var accessTag = require('./example/accessTag.js');
+// var accessTag = require('./example/accessTag.js');
 
 // var subscriptions = require('./example/subscriptions.js');
+
+var subscription = require('./example/subscription.js');
