@@ -460,6 +460,53 @@ yumpu.prototype.getMembers = function(parameters, callback) {
     yf.log('getMembers - ' + reqData.host + reqData.path);
 }
 
+// get member details
+// more details on: http://developers.yumpu.com/api/member/get/
+yumpu.prototype.getMember = function(parameters, callback) {
+    var reqData = {
+        method: 'GET',
+        host: c.getYumpuConfig().endpointDomain,
+        path: yf.buildUrl(parameters, c.getYumpuEndpoints().memberGet),
+        headers: yf.setHeaders(c.getYumpuConfig().token),
+    };
+    yf.executeRequest(reqData, function(statusCode, data) {
+        callback(statusCode, data);
+    });
+    yf.log('getMember - ' + reqData.host + reqData.path);
+}
+
+// post member
+// more details on: http://developers.yumpu.com/api/member/post/
+yumpu.prototype.postMember = function(parameters, callback) {
+    var reqData = {
+        method: 'POST',
+        host: c.getYumpuConfig().endpointDomain,
+        path: c.getYumpuEndpoints().memberPost,
+        headers: yf.setHeaders(c.getYumpuConfig().token),
+        body: parameters
+    };
+    yf.executeRequest(reqData, function(statusCode, data) {
+        callback(statusCode, data);
+    });
+    yf.log('postMember - ' + reqData.host + reqData.path);
+}
+
+// put member
+// more details on: http://developers.yumpu.com/api/member/post/
+yumpu.prototype.putMember = function(parameters, callback) {
+    var reqData = {
+        method: 'PUT',
+        host: c.getYumpuConfig().endpointDomain,
+        path: c.getYumpuEndpoints().memberPut,
+        headers: yf.setHeaders(c.getYumpuConfig().token),
+        body: parameters
+    };
+    yf.executeRequest(reqData, function(statusCode, data) {
+        callback(statusCode, data);
+    });
+    yf.log('putMember - ' + reqData.host + reqData.path);
+}
+
 // retrieve all users' accessTags datas
 // more details on: http://developers.yumpu.com/api/access-tags/get/
 yumpu.prototype.getAccessTags = function(parameters, callback) {

@@ -28,6 +28,10 @@
 
 // var embed = require('./example/embed.js');
 
+// var members = require('./example/members.js');
+
+var member = require('./example/member.js');
+
 // var accessTags = require('./example/accessTags.js');
 
 // var subscriptions = require('./example/subscriptions.js');
