@@ -1,6 +1,6 @@
 // var documents = require('./example/documents');
 
-// var document = require('./example/document');
+var document = require('./example/document');
 
 // var documentHotspots = require('./example/documentHotspots.js');
 
@@ -20,7 +20,7 @@
 
 // var section = require('./example/section.js');
 
-var sectionDocument = require('./example/sectionDocument.js');
+// var sectionDocument = require('./example/sectionDocument.js');
 
 // var search = require('./example/search.js');
 
@@ -41,3 +41,8 @@ var sectionDocument = require('./example/sectionDocument.js');
 // var subscriptions = require('./example/subscriptions.js');
 
 // var subscription = require('./example/subscription.js');
+
+// include yumpu sdk
+var yumpu = require('./yumpu');
+// make an instance of the Yumpu sdk class;
+module.exports = new yumpu();

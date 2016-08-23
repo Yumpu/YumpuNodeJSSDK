@@ -1,5 +1,5 @@
 {
-  "name": "nodejssdk",
+  "name": "yumpu",
   "version": "1.0.0",
   "description": "nodejssdk for yumpu",
   "main": "app.js",
@@ -20,6 +20,7 @@
   "dependencies": {
     "file-system": "2.2.1",
     "http": "0.0.0",
-    "jasmine-node": "^1.14.5"
+    "jasmine-node": "^1.14.5",
+    "pdf-util": "^0.2.0"
   }
 }

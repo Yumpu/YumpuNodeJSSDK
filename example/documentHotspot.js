@@ -29,7 +29,7 @@ var parameters = {
         h: 10,
         name: 'MyHotspot',
         tooltip: 'MyTooltipForHotspot',
-        link: 'http://www.facebook.com'
+        link: 'https://www.yumpu.com'
     }
 };
 y.postDocumentHotspot(parameters, function(statusCode, document) {
@@ -50,7 +50,7 @@ var parameters = {
         h: 10,
         name: 'MyHotspot',
         tooltip: 'MyTooltipForHotspot',
-        link: 'http://www.apple.com'
+        link: 'https://www.yumpu.com'
     }
 };
 y.putDocumentHotspot(parameters, function(statusCode, document) {

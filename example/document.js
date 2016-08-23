@@ -18,13 +18,13 @@ y.getDocument(parameters, function(statusCode, document) {
 // document post file example without page_teaser_image; for file will be used full path
 // more details on : http://developers.yumpu.com/api/document/post-file/
 var parameters = {
-    file: './example/media/yumpu.pdf',
-    title: 'MyDocument'
+    title: 'MyDocument',
+    file: './example/media/yumpu.pdf'
 };
-// y.postDocumentFile(parameters, function(statusCode, document) {
-//     console.log('Status: ' + statusCode)
-//     console.log(document);
-// });
+y.postDocumentFile(parameters, function(statusCode, document) {
+    console.log('Status: ' + statusCode)
+    console.log(document);
+});
 
 // document post url example without page_teaser_image
 // more details on : http://developers.yumpu.com/api/document/post-url/

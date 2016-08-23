@@ -1,6 +1,7 @@
 var fs = require('fs');
 var http = require("http");
 var qs = require("querystring");
+var FormData = require("form-data");
 
 // initialize yumpuFunctions Class
 var yumpuFunctions = function() {}
@@ -37,16 +38,50 @@ yumpuFunctions.prototype.executeRequest = function(reqData, callbackRequest) {
     var req = http.request(options, callback);
 
     if ((reqData.method == 'POST') || (reqData.method == 'PUT')) {
-        // if (reqData.body.file) {
-        //     var file = reqData.body.file;
-        //     reqData.body.file = ('data:application/pdf;base64, ', fs.createReadStream(file));
-        // }
-        var postData = JSON.stringify(reqData.body);
-        options.headers['Content-Length'] = postData.length;
-        // console.log(options);
-        // console.log(postData);
-        // req.write(postData);
-        req.end(postData);
+        if (reqData.body.file) {
+            // var form = new FormData();
+            // form.append("title", "MyDocument");
+            // form.append("file", fs.createReadStream('./example/media/yumpu.pdf'));
+            // options.data = form;
+            // options.async = true;
+            // options.crossDomain = true;
+            // options.mimeType = 'multipart/form-data';
+            // options.contentType = false;
+            // options.processData = false;
+
+
+
+            // var p = pdf.PdfToJson('/example/media/yumpu.pdf');
+            // console.log(p);
+            // fs.readFile('./example/media/yumpu.pdf', function(error, content) {
+            //     if (error) {
+            //         console.log(error);
+            //     } else {
+            //         console.log('File: ');
+            //         console.log(content);
+            //         reqData.body.file = content;
+            //                             console.log(reqData.body);
+            //         var postData = JSON.stringify(reqData.body);
+            //
+            //         options.headers['Content-Length'] = postData.length;
+            //         // console.log(options);
+            //
+            //
+            //         req.end(postData);
+            //     }
+            // });
+            // var testData = JSON.stringify({
+            //     title: reqData.body.title,
+            //     file: 'This is the File'
+            // });
+
+            console.log(options);
+            req.end();
+        } else {
+            var postData = JSON.stringify(reqData.body);
+            options.headers['Content-Length'] = postData.length;
+            req.end(postData);
+        }
     } else if (reqData.method == "DELETE") {
         // var postData = qs.stringify(reqData.body);
         // options.headers['Content-Length'] = postData.length;
