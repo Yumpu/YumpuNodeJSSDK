@@ -35,7 +35,8 @@ yumpuFunctions.prototype.executeRequest = function(reqData, callbackRequest) {
 
     }
     var req = http.request(options, callback);
-    if ((reqData.method == 'POST') || (reqData.method == 'PUT') || (reqData.method == 'DELETE')) {
+
+    if ((reqData.method == 'POST') || (reqData.method == 'PUT')) {
         // if (reqData.body.file) {
         //     var file = reqData.body.file;
         //     reqData.body.file = ('data:application/pdf;base64, ', fs.createReadStream(file));
@@ -44,10 +45,22 @@ yumpuFunctions.prototype.executeRequest = function(reqData, callbackRequest) {
         options.headers['Content-Length'] = postData.length;
         // console.log(options);
         // console.log(postData);
-        req.write(postData);
-
+        // req.write(postData);
+        req.end(postData);
+    } else if (reqData.method == "DELETE") {
+        // var postData = qs.stringify(reqData.body);
+        // options.headers['Content-Length'] = postData.length;
+        //
+        // req.end(postData);
+        // // options.path = reqData.path + "?id=" + reqData.body.id + "&documents=" + reqData.body.documents;
+        console.log(postData);
+        console.log(options);
+    } else if (reqData.method == 'GET') {
+        req.end();
+    } else {
+        return callbackRequest(405, options);
     };
-    req.end();
+
 }
 
 yumpuFunctions.prototype.setHeaders = function(token) {

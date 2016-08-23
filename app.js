@@ -20,7 +20,7 @@
 
 // var section = require('./example/section.js');
 
-// var sectionDocument = require('./example/sectionDocument.js');
+var sectionDocument = require('./example/sectionDocument.js');
 
 // var search = require('./example/search.js');
 
