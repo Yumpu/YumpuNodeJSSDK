@@ -20,6 +20,8 @@
 
 // var section = require('./example/section.js');
 
+// var sectionDocument = require('./example/sectionDocument.js');
+
 // var search = require('./example/search.js');
 
 // var user = require('./example/user.js');
@@ -38,4 +40,4 @@
 
 // var subscriptions = require('./example/subscriptions.js');
 
-var subscription = require('./example/subscription.js');
+// var subscription = require('./example/subscription.js');

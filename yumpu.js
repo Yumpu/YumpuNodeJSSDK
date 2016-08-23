@@ -317,6 +317,23 @@ yumpu.prototype.putSection = function(parameters, callback) {
     yf.log('putSection - ' + reqData.host + reqData.path);
 }
 
+// create a new section document
+// An example of an create section document array is $data = array('id' => 'mySectionId', 'documents'=> '1,2,3' );
+// more details on :http://developers.yumpu.com/api/section-document/post-3/
+yumpu.prototype.postSectionDocument = function(parameters, callback) {
+    var reqData = {
+        method: 'POST',
+        host: c.getYumpuConfig().endpointDomain,
+        path: c.getYumpuEndpoints().sectionDocumentPost,
+        headers: yf.setHeaders(c.getYumpuConfig().token),
+        body: parameters
+    };
+    yf.executeRequest(reqData, function(statusCode, data) {
+        callback(statusCode, data);
+    });
+    yf.log('postSectionDocument - ' + reqData.host + reqData.path);
+}
+
 // Search documents taking into consideration different criterias; q param is required;
 // more details on: http://developers.yumpu.com/api/search/get/
 yumpu.prototype.search = function(parameters, callback) {
