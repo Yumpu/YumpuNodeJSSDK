@@ -62,7 +62,7 @@ y.putDocumentHotspot(parameters, function(statusCode, document) {
 // more details on : http://developers.yumpu.com/api/document-hotspots/get/
 // PLEASE USE ONE OF YOUR HOTSPOT IDS!!!
 var parameters = {
-    id: '46624bf0XojP4Acx'
+    id: '8c4d8dceAqyc3D60',
 };
 // y.deleteDocumentHotspot(parameters, function(statusCode, document) {
 //     console.log('Status: ' + statusCode)

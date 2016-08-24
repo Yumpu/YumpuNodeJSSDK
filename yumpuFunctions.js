@@ -1,7 +1,7 @@
 var fs = require('fs');
 var http = require("http");
 var qs = require("querystring");
-var FormData = require("form-data");
+// var FormData = require("form-data");
 
 // initialize yumpuFunctions Class
 var yumpuFunctions = function() {}
@@ -83,13 +83,26 @@ yumpuFunctions.prototype.executeRequest = function(reqData, callbackRequest) {
             req.end(postData);
         }
     } else if (reqData.method == "DELETE") {
-        // var postData = qs.stringify(reqData.body);
-        // options.headers['Content-Length'] = postData.length;
-        //
-        // req.end(postData);
-        // // options.path = reqData.path + "?id=" + reqData.body.id + "&documents=" + reqData.body.documents;
+        // var form = new FormData();
+        // form.append("id", reqData.body.id);
+        // options.data = form;
+        // options.async = true;
+        // options.crossDomain = true;
+        // options.mimeType = 'multipart/form-data';
+        // options.contentType = false;
+        // options.processData = false;
+        // req.end();
+
+        // options.data = {
+        //     "id": reqData.body.id
+        // };
+
+        var postData = JSON.stringify(reqData.body);
+        options.headers['Content-Length'] = postData.length;
+
         console.log(postData);
         console.log(options);
+        req.end();
     } else if (reqData.method == 'GET') {
         req.end();
     } else {
