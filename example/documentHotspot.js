@@ -7,7 +7,7 @@ var y = new yumpu();
 // more details on : http://developers.yumpu.com/api/document-hotspots/get/
 // PLEASE USE ONE OF YOUR HOTSPOT IDS!!!
 var parameters = {
-    id: '46624bf0XojP4Acx',
+    id: 'e100aca8Sy9uirNb',
     return_fields: 'id,document_id,page,type,settings,create_date,update_date'
 };
 y.getDocumentHotspot(parameters, function(statusCode, document) {
@@ -19,7 +19,7 @@ y.getDocumentHotspot(parameters, function(statusCode, document) {
 // more details on : http://developers.yumpu.com/api/document-hotspots/get/
 // PLEASE USE ONE OF YOUR DOCUMENT IDS!!!
 var parameters = {
-    document_id: 55858527,
+    document_id: 10665,
     page: 2,
     type: 'link',
     settings: {
@@ -32,16 +32,16 @@ var parameters = {
         link: 'https://www.yumpu.com'
     }
 };
-y.postDocumentHotspot(parameters, function(statusCode, document) {
-    console.log('Status: ' + statusCode)
-    console.log(document);
-});
+// y.postDocumentHotspot(parameters, function(statusCode, document) {
+//     console.log('Status: ' + statusCode)
+//     console.log(document);
+// });
 
 // update a hotspot
 // more details on : http://developers.yumpu.com/api/document-hotspots/get/
 // PLEASE USE ONE OF YOUR HOTSPOT IDS!!!
 var parameters = {
-    id: '46624bf0XojP4Acx',
+    id: 'e100aca8Sy9uirNb',
     type: 'link',
     settings: {
         x: 20,
@@ -62,9 +62,9 @@ y.putDocumentHotspot(parameters, function(statusCode, document) {
 // more details on : http://developers.yumpu.com/api/document-hotspots/get/
 // PLEASE USE ONE OF YOUR HOTSPOT IDS!!!
 var parameters = {
-    id: '8c4d8dceAqyc3D60',
+    id: '7ac601749Or5nse0',
 };
-// y.deleteDocumentHotspot(parameters, function(statusCode, document) {
-//     console.log('Status: ' + statusCode)
-//     console.log(document);
-// });
+y.deleteDocumentHotspot(parameters, function(statusCode, document) {
+    console.log('Status: ' + statusCode)
+    console.log(document);
+});

@@ -6,7 +6,7 @@ var document = require('./example/document');
 
 // var documentHotspot = require('./example/documentHotspot.js');
 
-var documentProgress = require('./example/documentProgress.js');
+// var documentProgress = require('./example/documentProgress.js');
 
 // var documentCategories = require('./example/documentCategories.js');
 

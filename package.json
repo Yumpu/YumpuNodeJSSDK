@@ -1,26 +1,35 @@
 {
-  "name": "yumpu",
-  "version": "1.0.0",
-  "description": "nodejssdk for yumpu",
-  "main": "app.js",
-  "scripts": {
-    "test": "jasmine-node spec",
-    "start": "node app.js"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Yumpu/YumpuNodeJSSDK.git"
-  },
-  "author": "Lukas Bals",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/Yumpu/YumpuNodeJSSDK/issues"
-  },
-  "homepage": "https://github.com/Yumpu/YumpuNodeJSSDK#readme",
-  "dependencies": {
-    "file-system": "2.2.1",
-    "http": "0.0.0",
-    "jasmine-node": "^1.14.5",
-    "pdf-util": "^0.2.0"
-  }
+    "name": "yumpu",
+    "version": "1.0.0",
+    "description": "Node.js SDK for yumpu",
+    "main": "app.js",
+    "scripts": {
+        "test": "jasmine-node spec",
+        "start": "node app.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/Yumpu/YumpuNodeJSSDK.git"
+    },
+    "author": "Lukas Bals",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/Yumpu/YumpuNodeJSSDK/issues"
+    },
+    "homepage": "https://github.com/Yumpu/YumpuNodeJSSDK#readme",
+    "dependencies": {
+        "file-system": "2.2.1",
+        "http": "0.0.0",
+        "jasmine-node": "^1.14.5",
+        "pdf-util": "^0.2.0"
+    },
+    "apidoc": {
+        "name": "Yumpu",
+        "title": "Yumpu",
+        "url": "https://api.yumpu.com/2.0",
+        "options": {
+            "excludeFilters": ["node_modules/"]
+        }
+    }
+
 }

@@ -7,7 +7,7 @@ var y = new yumpu();
 // more details on : http://developers.yumpu.com/api/document/get-2/
 // PLEASE USE ONE OF YOUR DOCUMENTS IDS!!!
 var parameters = {
-    id: 10665,
+    id: 10670,
     return_fields: 'id,url,create_date,update_date,url,image_small'
 };
 y.getDocument(parameters, function(statusCode, document) {
@@ -59,7 +59,7 @@ var parameters = {
 var parameters = {
     id: 10667
   };
-y.deleteDocument(parameters, function(statusCode, document) {
-    console.log('Status: ' + statusCode)
-    console.log(document);
-});
+// y.deleteDocument(parameters, function(statusCode, document) {
+//     console.log('Status: ' + statusCode)
+//     console.log(document);
+// });
