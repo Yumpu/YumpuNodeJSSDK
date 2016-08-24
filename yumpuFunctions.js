@@ -82,28 +82,7 @@ yumpuFunctions.prototype.executeRequest = function(reqData, callbackRequest) {
             options.headers['Content-Length'] = postData.length;
             req.end(postData);
         }
-    } else if (reqData.method == "DELETE") {
-        // var form = new FormData();
-        // form.append("id", reqData.body.id);
-        // options.data = form;
-        // options.async = true;
-        // options.crossDomain = true;
-        // options.mimeType = 'multipart/form-data';
-        // options.contentType = false;
-        // options.processData = false;
-        // req.end();
-
-        // options.data = {
-        //     "id": reqData.body.id
-        // };
-
-        var postData = JSON.stringify(reqData.body);
-        options.headers['Content-Length'] = postData.length;
-
-        console.log(postData);
-        console.log(options);
-        req.end();
-    } else if (reqData.method == 'GET') {
+    } else if (reqData.method == 'GET' || reqData.method == 'DELETE') {
         req.end();
     } else {
         return callbackRequest(405, options);

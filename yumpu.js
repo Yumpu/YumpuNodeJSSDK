@@ -69,6 +69,22 @@ yumpu.prototype.postDocumentUrl = function(parameters, callback) {
     yf.log('postDocumetUrl - ' + reqData.host + reqData.path);
 }
 
+// delete a document
+// more details on: http://developers.yumpu.com/api/document/post-url/
+yumpu.prototype.deleteDocument = function(parameters, callback) {
+    var reqData = {
+        method: 'DELETE',
+        host: c.getYumpuConfig().endpointDomain,
+        path: yf.buildUrl(parameters, c.getYumpuEndpoints().documentDelete),
+        headers: yf.setHeaders(c.getYumpuConfig().token),
+        body: parameters
+    };
+    yf.executeRequest(reqData, function(statusCode, data) {
+        callback(statusCode, data);
+    });
+    yf.log('deleteDocument - ' + reqData.host + reqData.path);
+}
+
 // get document hotspots
 // more details on: http://developers.yumpu.com/api/document-hotspots/get/
 yumpu.prototype.getDocumentHotspots = function(parameters, callback) {

@@ -7,7 +7,7 @@ var y = new yumpu();
 // more details on : http://developers.yumpu.com/api/document-progress/get/
 // PLEASE USE ONE OF YOUR PROGRESS IDS
 var parameters = {
-    id: 'f4c4d-afdc5-b7429-a83d6-48c4f-c39dc-1110b-34ba2'
+    id: 'e2a33-b5453-8a493-0bedc-b97ee-e7cbd-596c2-55347'
 };
 y.getDocumentProgress(parameters, function(statusCode, document) {
     console.log('Status: ' + statusCode)
