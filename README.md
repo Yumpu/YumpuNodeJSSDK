@@ -22,6 +22,7 @@ Get started
 ===========
 
 http://developers.yumpu.com/
+
 http://developers.yumpu.com/api/getting-started/
 
 Impressum
