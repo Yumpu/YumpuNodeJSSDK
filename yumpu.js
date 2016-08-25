@@ -7,57 +7,8 @@ var yumpu = function() {
     yf.log('Yumpu class initialized');
 }
 
-/**
- * @api {get} /documents.json getDocuments()
- * @apiVersion 1.0.0
- * @apiName Documents get
- * @apiGroup Documents
- *
- * @apiHeaderExample {js} Function-Example:
- *  var parameters = '{
- *     offset: 0,
- *     limit: 1
- *  }';
- *  yumpu.getDocuments(parameters, function(statusCode, document){
- *     console.log('Status: ' + statusCode);
- *     console.log(document);
- *  });
- *
- * @apiParam {Integer} [offset] Retrieve rows at position X (min. 0).
-      <br/><br/><b>Default:</b> 0
- * @apiParam {Integer} [limit] Retrieve X rows (min. 0 and max. 100).
-      <br/><br/><b>Default:</b> 10
- * @apiParam {String} [sort] Sort results ascending or descendening (asc or desc).
-      <br/><br/><b>Default:</b> desc
- * @apiParam {String} [return_fields] Customize the responses by setting the return fields (id, create_date, update_date, url, short_url, image_small, image_medium, image_big, language, title, description, tags, embed_code, settings).
-      <br/><br/><b>Default:</b> id, url, short_url, image_small, image_medium, image_big, language, title, description, tags, embed_code
- *
- * @apiSuccessExample Success-Response:
- *     HTTP/1.1 200 OK
- *       {
- *         "total": 16,
- *         "documents": [
- *           {
- *             "id": "20327012",
- *             "image": {
- *               "small": "http://images001.yumpu.com/yumpu.com/000/020/459/915/1379668840_5873/thumb/WINDROSE_AdriaWindjammer_000001.jpg"
- *             },
- *             "embed_code": "iframe"
- *           }
- *         ],
- *         "state": "success"
- *       }
- *
- * @apiError 404_not_found No documents found.
- * @apiError 403_forbidden Invalid API Key.
- *
- * @apiErrorExample Error-Response:
- *     HTTP/1.1 404 Not Found
- *      { state: 'failed',
- *        errors: [ { message: 'No documents found' } ],
- *        completed_in: '0.2725'
- *      }
- */
+// get all documents from one user
+// more details on: http://developers.yumpu.com/api/documents/get/
 yumpu.prototype.getDocuments = function(parameters, callback) {
     var reqData = {
         method: 'GET',
@@ -71,39 +22,8 @@ yumpu.prototype.getDocuments = function(parameters, callback) {
     yf.log('getDocuments - ' + reqData.host + reqData.path);
 }
 
-/**
- * @api {get} /document.json getDocument()
- * @apiVersion 1.0.0
- * @apiName Document get
- * @apiGroup Document
- *
- * @apiHeaderExample {js} Function-Example:
- *  var parameters = {
- *     id: 20327033
- *  };
- *  yumpu.getDocument(parameters, function(statusCode, document){
- *     console.log('Status: ' + statusCode);
- *     console.log(document);
- *  });
- *
- * @apiParam {Integer} id One of your document ids
- * @apiParam {String} [return_fields] Customize the responses by setting the return fields (id, create_date, update_date, url, short_url, image_small, image_medium, image_big, language, title, description, tags, embed_code, settings).
-      <br/><br/><b>Default:</b> id, url, short_url, image_small, image_medium, image_big, language, title, description, tags, embed_code
- *
- * @apiSuccessExample Success-Response:
- *     HTTP/1.1 200 OK
- *       {
- *         "document": [
- *           {
- *             "id": "20327033",
- *             "image": {
- *               "big": "http://images001.yumpu.com/yumpu.com/000/020/459/910/1379668843_8906/zoom/TOUROPA_AllgaeuKleinwalse000001.jpg"
- *             }
- *           }
- *         ],
- *         "state": "success"
- *       }
- */
+// get one document by id
+// more details on: http://developers.yumpu.com/api/document/get/
 yumpu.prototype.getDocument = function(parameters, callback) {
     var reqData = {
         method: 'GET',
@@ -117,57 +37,8 @@ yumpu.prototype.getDocument = function(parameters, callback) {
     yf.log('getDocument - ' + reqData.host + reqData.path);
 }
 
-/**
- * @api {post} /document.json postDocumentFile()
- * @apiVersion 1.0.0
- * @apiName Document post
- * @apiGroup Document
- *
- * @apiHeaderExample {js} Function-Example:
- *  var parameters = {
- *     title: 'My document title',
- *     file: './example/media/yumpu.pdf'
- *  };
- *  yumpu.postDocumentFile(parameters, function(statusCode, document){
- *     console.log('Status: ' + statusCode);
- *     console.log(document);
- *  });
- *
- * @apiParam {Integer} file File data
- * @apiParam {String} title A title for your document. Min. length 5 characters, max. length 255 characters
- * @apiParam {String} [description] A description for your document. Min. length 5 characters, max. length 2500 characters
- * @apiParam {String} [category] 1, 2 or … (A list of valid category ids: Document categories)
-    <br/><br/><b>Default:</b> 0 = None
- * @apiParam {String} [language] en, de or … (A list of valid languages: Document languages)
-    <br/><br/><b>Default:</b> en
- * @apiParam {String} [tags] A list of words seperated by comma (house,garden,balcony). Min. length 3 characters, max. length 30 characters. Allowed characters a-z and a space.
-    <br/><br/><b>Default:</b> Autogenerated by tag service
- * @apiParam {String} [visibility] public, private, rprotected, pprotected, dprotected, webkiosk, appkiosk or webappkiosk (rprotected = protected by referrer, pprotected = protected by password, dprotected = protected by domain(s))
-    <br/><br/><b>Default:</b> public
- * @apiParam {String} [domains] A list of domains seperated by a comma (Note: Visibility must be set to dprotected)
-    <br/><br/><b>Examples:</b>
-    <br/>yumpu.com,blog.yumpu.com,developers.yumpu.com
-    <br/>yumpu.com
- *
- *
- * @apiSuccessExample Success-Response:
- *     HTTP/1.1 200 OK
- *       {
- *          "file": {
- *            "client_name": "yumpu.pdf",
- *            "server_name": "812373127ee7a372a5130f9096545b5e524940f77e4d06.24583099.pdf",
- *            "size": "23.1 MB",
- *            "mime_type": "application/pdf",
- *            "sha1_checksum": "d5666133b4a909a6506aeb09d57956a12a97e0e4"
- *          },
- *          "document": {
- *            "title": "My document title"
- *          },
- *          "progress_id": "XXXXX-XXXXX-XXXXX-XXXXX-XXXXX-XXXXX-XXXXX-XXXXX",
- *          "state": "success"
- *        }
- *
- */
+// upload a local file
+// more details on: http://developers.yumpu.com/api/document/post-file/
 yumpu.prototype.postDocumentFile = function(parameters, callback) {
     var reqData = {
         method: 'POST',
@@ -214,55 +85,8 @@ yumpu.prototype.deleteDocument = function(parameters, callback) {
     yf.log('deleteDocument - ' + reqData.host + reqData.path);
 }
 
-/**
- * @api {get} /document/hotspots.json getDocumentHotspots()
- * @apiVersion 1.0.0
- * @apiName Document hotspots get
- * @apiGroup Document hotspots
- *
- *
- * @apiHeaderExample {js} Function-Example:
- *  var parameters = '{
- *    id: 27109037,
- *    offset: 0,
- *    limit: 1
- *  }';
- *  yumpu.getDocuments(parameters, function(statusCode, document){
- *     console.log('Status: ' + statusCode);
- *     console.log(document);
- *  });
- *
- * @apiParam {Integer} id One of your document hotspot ids
- * @apiParam {String} [return_fields] Customize the responses by setting the return fields (id, document_id, page, type, settings, create_date, update_date).
-      <br/><br/><b>Default:</b> id, document_id, page, type, settings, create_date, update_date
- *
- * @apiSuccessExample Success-Response:
- *     HTTP/1.1 200 OK
- *        {
- *          "hotspot": [
- *            {
- *              "id": "18414788HxIRKIoB",
- *              "document_id": "27109085",
- *              "page": "1",
- *              "type": "link",
- *              "settings": {
- *                "x": "0",
- *                "y": "0",
- *                "w": "400",
- *                "h": "100",
- *                "name": "hotspot_put",
- *                "tooltip": "hotspot_put",
- *                "link": "http:\/\/www.google.com"
- *              },
- *              "create_date": "2014-09-23 07:17:39",
- *              "update_date": "2014-09-23 07:20:21"
- *            }
- *          ],
- *          "state": "success",
- *          "completed_in": "0.1853"
- *        }
- *
- */
+// get all hotspots from one document
+// more details on: http://developers.yumpu.com/api/document-hotspots/get/
 yumpu.prototype.getDocumentHotspots = function(parameters, callback) {
     var reqData = {
         method: 'GET',
@@ -276,53 +100,8 @@ yumpu.prototype.getDocumentHotspots = function(parameters, callback) {
     yf.log('getDocumentHotspots - ' + reqData.host + reqData.path);
 }
 
-/**
- * @api {get} /document/hotspot.json getDocumentHotspot()
- * @apiVersion 1.0.0
- * @apiName Document hotspot get
- * @apiGroup Document hotspot
- *
- *
- * @apiHeaderExample {js} Function-Example:
- *  var parameters = {
-       id: '18414788HxIRKIoB'
- *  };
- *  yumpu.getDocumentHotspot(parameters, function(statusCode, document){
- *     console.log('Status: ' + statusCode);
- *     console.log(document);
- *  });
- *
- * @apiParam {Integer} id One of your document hotspot ids
- * @apiParam {String} [return_fields] Customize the responses by setting the return fields (id, document_id, page, type, settings, create_date, update_date).
-      <br/><br/><b>Default:</b> id, document_id, page, type, settings, create_date, update_date
- *
- * @apiSuccessExample Success-Response:
- *     HTTP/1.1 200 OK
- *        {
- *          "hotspot": [
- *            {
- *              "id": "18414788HxIRKIoB",
- *              "document_id": "27109085",
- *              "page": "1",
- *              "type": "link",
- *              "settings": {
- *                "x": "0",
- *                "y": "0",
- *                "w": "400",
- *                "h": "100",
- *                "name": "hotspot_put",
- *                "tooltip": "hotspot_put",
- *                "link": "http:\/\/www.google.com"
- *              },
- *              "create_date": "2014-09-23 07:17:39",
- *              "update_date": "2014-09-23 07:20:21"
- *            }
- *          ],
- *          "state": "success",
- *          "completed_in": "0.1853"
- *        }
- *
- */
+// get one hotspot
+// more details on: http://developers.yumpu.com/api/document-hotspot/get/
 yumpu.prototype.getDocumentHotspot = function(parameters, callback) {
     var reqData = {
         method: 'GET',

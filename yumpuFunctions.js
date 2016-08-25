@@ -1,7 +1,5 @@
 var fs = require('fs');
 var http = require("http");
-// var qs = require("querystring");
-// var FormData = require("form-data");
 
 // initialize yumpuFunctions Class
 var yumpuFunctions = function() {}
