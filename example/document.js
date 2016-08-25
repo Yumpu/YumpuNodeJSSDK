@@ -7,13 +7,13 @@ var y = new yumpu();
 // more details on : http://developers.yumpu.com/api/document/get-2/
 // PLEASE USE ONE OF YOUR DOCUMENTS IDS!!!
 var parameters = {
-    id: 10670,
+    id: 10672,
     return_fields: 'id,url,create_date,update_date,url,image_small'
 };
-y.getDocument(parameters, function(statusCode, document) {
-    console.log('Status: ' + statusCode)
-    console.log(document);
-});
+// y.getDocument(parameters, function(statusCode, document) {
+//     console.log('Status: ' + statusCode)
+//     console.log(document);
+// });
 
 // document post file example without page_teaser_image; for file will be used full path
 // more details on : http://developers.yumpu.com/api/document/post-file/
@@ -30,14 +30,14 @@ var parameters = {
 // more details on : http://developers.yumpu.com/api/document/post-url/
 var parameters = {
     'title': 'Sieggggggg',
-    'url': 'https://s3-eu-west-1.amazonaws.com/yumpu/api/yumpu_sdk_example_pdf.pdf',
+    'url': 'http://www.pdf995.com/samples/pdf.pdf',
     'description': 'Thats my description'
         // write optional parameters here
 };
-// y.postDocumentUrl(parameters, function(statusCode, document){
-//   console.log('Status: ' + statusCode)
-//   console.log(document);
-// });
+y.postDocumentUrl(parameters, function(statusCode, document){
+  console.log('Status: ' + statusCode)
+  console.log(document);
+});
 
 // document post url example with page_teaser_image
 // more details on : http://developers.yumpu.com/api/document/post-url/
@@ -57,7 +57,7 @@ var parameters = {
 // document delete
 // more details on : http://developers.yumpu.com/api/document/post-url/
 var parameters = {
-    id: 10667
+    id: 10672
   };
 // y.deleteDocument(parameters, function(statusCode, document) {
 //     console.log('Status: ' + statusCode)
