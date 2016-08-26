@@ -20,6 +20,11 @@ var y = new yumpu();
  *     console.log(document);
  *  });
  *
+ * @apiHeaderExample {java} Java-Example:
+ * Yumpu y = new Yumpu();
+ * String documents = "55875794,55875934";
+ * JSONObject json = new JSONObject(y.postSectionDocument("SyQPxIYetzpAhOgK_Vc7jXD3BEeqPto0S", documents));
+ *
  * @apiParam {String} id 	One or more document ids
  * @apiParam {String/Integer} documents One or more document ids
  *
