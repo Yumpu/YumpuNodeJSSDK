@@ -94,3 +94,47 @@ y.putEmbed(parameters, function(statusCode, document) {
     console.log('Status: ' + statusCode)
     console.log(document);
 });
+
+/**
+ * @api {delete} /embed.json deleteEmbed()
+ * @apiVersion 1.0.0
+ * @apiName Embed delete
+ * @apiGroup Embed
+ *
+ *
+ * @apiHeaderExample {js} Java-Script-Example:
+ *  var yumpu = require('yumpu.js');
+ *  var parameters = '{
+ *    id: 'ygCbHF6N2XK0iNjO'
+ *  }';
+ *  yumpu.deleteEmbed(parameters, function(statusCode, document){
+ *     console.log('Status: ' + statusCode);
+ *     console.log(document);
+ *  });
+ *
+ *
+ * @apiParam {String} id One of your embed ids
+ * @apiParam {String} [return_fields] Customize the responses by setting the return fields (‚id‘, ‚user_id‘, ‚document_id‘, ‚type‘, ‚create_date‘, ‚code‘, ’settings‘).
+      <br/><br/><b>Default:</b> ‚id‘, ‚user_id‘, ‚document_id‘, ‚type‘, ‚create_date‘, ‚code‘, ’settings‘
+ *
+ * @apiSuccessExample Success-Response:
+ *     HTTP/1.1 200 OK
+ *     {
+      "state": "success",
+      "completed_in": "0.8208"
+    }
+ *
+ */
+var parameters = {
+    id: 'viNn5QAeXWDYryt4',
+    document_id: '55865141',
+    type: 2,
+    width: 300,
+    background_shape: 'square',
+    color: 'grey',
+    destination: 'magazinePage'
+};
+y.deleteEmbed(parameters, function(statusCode, document) {
+    console.log('Status: ' + statusCode)
+    console.log(document);
+});
