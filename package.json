@@ -77,7 +77,19 @@
           "Member_get",
           "Member_post",
           "Member_put",
-          "Member_delete"
+          "Member_delete",
+          "AccessTags",
+          "AccessTag",
+          "AccessTag_get",
+          "AccessTag_post",
+          "AccessTag_put",
+          "AccessTag_delete",
+          "Subscriptions",
+          "Subscription",
+          "Subscription_get",
+          "Subscription_post",
+          "Subscription_put",
+          "Subscription_delete"
         ]
     }
 
