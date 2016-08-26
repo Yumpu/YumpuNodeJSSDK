@@ -69,8 +69,67 @@ y.getEmbed(parameters, function(statusCode, document) {
     console.log(document);
 });
 
-// post/create a new embed
-// more details on : http://developers.yumpu.com/api/embed/post/
+/**
+ * @api {post} /embed.json postEmbed()
+ * @apiVersion 1.0.0
+ * @apiName Embed post
+ * @apiGroup Embed
+ *
+ *
+ * @apiHeaderExample {js} Java-Script-Example:
+ *  var yumpu = require('yumpu.js');
+ *  var parameters = '{
+ *    id: 'zKtHE23d6R0qT1rf',
+ *    document_id: '11199',
+ *    type: 2,
+ *    width: 500,
+ *    background_shape: 'square',
+ *    color: 'grey',
+ *    destination: 'magazinePage'
+ *  }';
+ *  yumpu.postEmbed(parameters, function(statusCode, document){
+ *     console.log('Status: ' + statusCode);
+ *     console.log(document);
+ *  });
+ *
+ * @apiHeaderExample {java} Java-Example:
+ * Yumpu y = new Yumpu();
+ * String[] body = {"document_id=55875854", "type=1", "start_page=2", "width=619"};
+ * JSONObject json = new JSONObject(y.postEmbed(body));
+ *
+ * @apiParam {String} document_id One of your document ids or a public document id from the Yumpu Users
+ * @apiParam {String} type 1 (player), 2 (logo), 3 (link), 4 (button), 5 (cover) or 7 (player_preset)
+ * @apiParam {Link} types <a href="http://developers.yumpu.com/api/embed/post/" target="_blank">Link to yumpu</a>
+ *
+ * @apiSuccessExample Success-Response:
+ *     HTTP/1.1 200 OK
+ *     {
+      "embed": {
+        "id": "zKtHE23d6R0qT1rf",
+        "user_id": 10000,
+        "document_id": "11199",
+        "type": "4",
+        "create_date": "2014-12-03 10:57:49",
+        "code": "iframe",
+        "settings": {
+          "background_color": 253139,
+          "destination": "http:\/\/www.yumpu.com",
+          "download_pdf_enabled": 1,
+          "height": "100",
+          "start_page": 1,
+          "text_font_color": "0082b2",
+          "text_font_family": "ABeeZee:regular:latin",
+          "text_font_size": 14,
+          "text_font_style": "off",
+          "text_font_weight": "off",
+          "width": "100"
+        }
+      },
+      "state": "success",
+      "completed_in": "0.0665"
+    }
+ *
+ */
 var parameters = {
     document_id: '55865141',
     type: 2,
@@ -84,9 +143,83 @@ y.postEmbed(parameters, function(statusCode, document) {
     console.log(document);
 });
 
-// put/update an existing embed
-// more details on : http://developers.yumpu.com/api/embed/put/
-// PLEASE USE ONE OF YOUR EMBED IDS!!!
+/**
+ * @api {put} /embed.json putEmbed()
+ * @apiVersion 1.0.0
+ * @apiName Embed put
+ * @apiGroup Embed
+ *
+ *
+ * @apiHeaderExample {js} Java-Script-Example:
+ *  var yumpu = require('yumpu.js');
+ *  var parameters = '{
+ *    id: 'zKtHE23d6R0qT1rf',
+ *    document_id: '11199',
+ *    type: 1,
+ *    width: 800,
+ *    outline_enabled: 'y',
+ *    outline_size: '5',
+ *    outline_color: '0000000',
+ *    title_font_color: '0000000',
+ *    background_color: 'CCCCCC',
+ *  }';
+ *  yumpu.putEmbed(parameters, function(statusCode, document){
+ *     console.log('Status: ' + statusCode);
+ *     console.log(document);
+ *  });
+ *
+ * @apiHeaderExample {java} Java-Example:
+ * Yumpu y = new Yumpu();
+ * Yumpu y = new Yumpu();
+ * JSONObject json = new JSONObject(y.putEmbed("lrQUW1EPLz5ey8bO", "55869263", "1"));
+ *
+ * @apiParam {String} document_id One of your document ids or a public document id from the Yumpu Users
+ * @apiParam {String} type 1 (player), 2 (logo), 3 (link), 4 (button), 5 (cover) or 7 (player_preset)
+ * @apiParam {Link} types <a href="http://developers.yumpu.com/api/embed/post/" target="_blank">Link to yumpu</a>
+ *
+ * @apiSuccessExample Success-Response:
+ *     HTTP/1.1 200 OK
+ *     {
+      "embed": {
+        "id": "zKtHE23d6R0qT1rf",
+        "user_id": 10000,
+        "document_id": "11199",
+        "type": "1",
+        "create_date": "2014-12-03 10:57:49",
+        "code": "iframe",
+        "settings": {
+            "background_color": "CCCCCC",
+            "fullscreen_background_color": "253139",
+            "height": "580",
+            "outline_color": "000000",
+            "outline_enabled": "1",
+            "outline_size": "5",
+            "page_view": "double_page",
+            "player_autoflip_enabled": "2",
+            "player_c2r_destination": "fullscreen",
+            "player_c2r_enabled": "1",
+            "player_c2r_text": "Click to read",
+            "player_c2r_type": "buttonClassic",
+            "player_mobile_enabled": "1",
+            "player_type": "2",
+            "start_page": "1",
+            "text_font_style": "off",
+            "text_font_weight": "off",
+            "title_font_color": "000000",
+            "title_font_family": "ABeeZee:regular:latin",
+            "title_font_size": "14",
+            "title_font_style": "off",
+            "title_font_weight": "off",
+            "username_enabled": "1",
+            "width": "800"
+          },
+      "update_date": "2014-12-16 11:28:37"
+      },
+      "state": "success",
+      "completed_in": "0.4333"
+  }
+ *
+ */
 var parameters = {
     id: 'viNn5QAeXWDYryt4',
     document_id: '55865141',
