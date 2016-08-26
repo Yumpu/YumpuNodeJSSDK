@@ -24,6 +24,12 @@ var y = new yumpu();
  *     console.log(document);
  *  });
  *
+ * @apiHeaderExample {java} Java-Example:
+ * Yumpu y = new Yumpu();
+ * String[] params = {};
+ * String[] returnFields = { "id,name" };
+ * JSONObject json = new JSONObject(y.getSection("9RDnBITHpkxwc3s7_HxcT6zFO9Z1nmaEL", params, returnFields));
+ *
  * @apiParam {String} id 	One of your section ids
  * @apiParam {String} [return_fields]	Customize the responses by setting the return fields (id, create_date, update_date, name, description, sorting, order, documents)
       <br/><br/><b>Default:</b> id, create_date, update_date, name, description, sorting, order, documents
@@ -97,6 +103,11 @@ y.getSection(parameters, function(statusCode, document) {
  *     console.log(document);
  *  });
  *
+ * @apiHeaderExample {java} Java-Example:
+ * Yumpu y = new Yumpu();
+ * String[]  body = {"id=SyQPxIYetzpAhOgK_e1a8grt3i0FPMklT", "name=sasdfd", "description=aösldasdöjd"};
+ * JSONObject json = new JSONObject(y.postSection(body));
+ *
  * @apiParam {String} id 	One of your collection ids
  * @apiParam {String} name 	One of your section ids
  * @apiParam {String} [description]	A description for your new section
@@ -148,6 +159,11 @@ var parameters = {
  *     console.log('Status: ' + statusCode);
  *     console.log(document);
  *  });
+ *
+ * @apiHeaderExample {java} Java-Example:
+ * Yumpu y = new Yumpu();
+ * String[]  body = {"id=SyQPxIYetzpAhOgK_e1a8grt3i0FPMklT", "name=newname", "description=new desc"};
+ * JSONObject json = new JSONObject(y.putSection(body));
  *
  * @apiParam {String} id 	One of your collection ids
  * @apiParam {String} name 	One of your section ids
