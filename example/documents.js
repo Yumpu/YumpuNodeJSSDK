@@ -12,10 +12,10 @@ var y = new yumpu();
  *
  * @apiHeaderExample {js} Java-Script-Example:
  *  var yumpu = require('yumpu.js');
- *  var parameters = '{
+ *  var parameters = {
  *     offset: 0,
  *     limit: 1
- *  }';
+ *  };
  *  yumpu.getDocuments(parameters, function(statusCode, document){
  *     console.log('Status: ' + statusCode);
  *     console.log(document);
