@@ -34,6 +34,9 @@
         "order": [
           "Documents",
           "Document",
+          "Document_get",
+          "Document_post",
+          "Document_put",
           "Document_hotspots",
           "Document_hotspot",
           "Document_progress",
@@ -43,7 +46,9 @@
           "Collections",
           "Collection",
           "Section",
-          "Section_document"
+          "Section_document",
+          "Search",
+          "User"
         ]
     }
 
