@@ -216,6 +216,10 @@ var parameters = {
  *     console.log(document);
  *  });
  *
+ * @apiHeaderExample {java} Java-Example:
+ * Yumpu y = new Yumpu();
+ * JSONObject json = new JSONObject(y.deleteSection("SyQPxIYetzpAhOgK_e1a8grt3i0FPMklT"));
+ *
  * @apiParam {String} id 	One of your section ids
  *
  * @apiSuccessExample Success-Response:

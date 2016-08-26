@@ -261,6 +261,10 @@ var parameters = {
  *     console.log(document);
  *  });
  *
+ * @apiHeaderExample {java} Java-Example:
+ * Yumpu y = new Yumpu();	
+ * JSONObject json = new JSONObject(y.deleteDocumentHotspot("35936979C40pnPVD"));
+ *
  * @apiParam {String} id One of your document hotspot ids
  *
  * @apiSuccessExample Success-Response:
