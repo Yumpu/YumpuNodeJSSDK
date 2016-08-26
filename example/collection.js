@@ -169,3 +169,34 @@ var parameters = {
 //     console.log('Status: ' + statusCode)
 //     console.log(document);
 // });
+
+/**
+ * @api {delete} /collection.json deleteCollection()
+ * @apiVersion 1.0.0
+ * @apiName Collection delete
+ * @apiGroup Collection
+ *
+ * @apiHeaderExample {js} Java-Script-Example:
+ *  var yumpu = require('yumpu.js');
+ *  var parameters = '{
+ *    id: 'omkYGduXowlyx9WF'
+ *  }';
+ *  yumpu.deleteCollection(parameters, function(statusCode, document){
+ *     console.log('Status: ' + statusCode);
+ *     console.log(document);
+ *  });
+ *
+ * @apiParam {String} id One of your collection ids
+ *
+ * @apiSuccessExample Success-Response:
+ *     HTTP/1.1 200 OK
+ *     {"state":"success"}
+ *
+ */
+ var parameters = {
+     id: 'IjCASOos9NBgQqtb'
+ };
+ // y.deleteCollection(parameters, function(statusCode, document) {
+ //     console.log('Status: ' + statusCode)
+ //     console.log(document);
+ // });
