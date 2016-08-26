@@ -29,6 +29,7 @@ var y = new yumpu();
  * @apiParam {String} id One of your embed ids
  * @apiParam {String} [return_fields] Customize the responses by setting the return fields (‚id‘, ‚user_id‘, ‚document_id‘, ‚type‘, ‚create_date‘, ‚code‘, ’settings‘).
       <br/><br/><b>Default:</b> ‚id‘, ‚user_id‘, ‚document_id‘, ‚type‘, ‚create_date‘, ‚code‘, ’settings‘
+ * @apiParam {Link} types <a href="http://developers.yumpu.com/api/embed/post/" target="_blank">Link to yumpu</a>
  *
  * @apiSuccessExample Success-Response:
  *     HTTP/1.1 200 OK
