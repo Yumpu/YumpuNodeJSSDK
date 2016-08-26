@@ -66,12 +66,18 @@
           "User_get",
           "User_post",
           "User_put",
+          "Embeds",
           "Embed",
           "Embed_get",
           "Embed_post",
           "Embed_put",
           "Embed_delete",
-          "Member"
+          "Members",
+          "Member",
+          "Member_get",
+          "Member_post",
+          "Member_put",
+          "Member_delete"
         ]
     }
 
