@@ -21,6 +21,11 @@ var y = new yumpu();
  *     console.log(document);
  *  });
  *
+ * @apiHeaderExample {java} Java-Example:
+ * Yumpu y = new Yumpu();
+ * String[] params = {};
+ * String[] returnFields = { "id,name" };
+ * JSONObject json = new JSONObject(y.getAccessTag("pWDAKmcyUHR2o04T", params, returnFields));
  *
  * @apiParam {Integer} id One of your access tag ids
  * @apiParam {String} [return_fields] Customize the responses by setting the return fields (id,name,description,default,iap,kiosks,create_date,update_date)	.
@@ -78,6 +83,10 @@ y.getAccessTag(parameters, function(statusCode, document) {
  *     console.log(document);
  *  });
  *
+ * @apiHeaderExample {java} Java-Example:
+ * Yumpu y = new Yumpu();
+ * String[] body = {"name=newTag", "description=new tag", "default=y"};
+ * JSONObject json = new JSONObject(y.postAccessTag(body));
  *
  * @apiParam {String} name min. 1 characters, max. 50 characters
  * @apiParam {String} description min. 1 characters, max. 255 characters
@@ -142,6 +151,10 @@ y.postAccessTag(parameters, function(statusCode, document) {
  *     console.log(document);
  *  });
  *
+ * @apiHeaderExample {java} Java-Example:
+ * Yumpu y = new Yumpu();
+ * String[] body = {"id=BVinDRHKNhl1ev56", "name=newTagName"};
+ * JSONObject json = new JSONObject(y.putAccessTag(body));
  *
  * @apiParam {String} id One of your access tag ids
  * @apiParam {String} name min. 1 characters, max. 50 characters
@@ -205,6 +218,9 @@ y.putAccessTag(parameters, function(statusCode, document) {
  *     console.log(document);
  *  });
  *
+ * @apiHeaderExample {java} Java-Example:
+ * Yumpu y = new Yumpu();
+ * JSONObject json = new JSONObject(y.deleteAccessTag("BVinDRHKNhl1ev56"));
  *
  * @apiParam {String} id One of your access tag ids
  *

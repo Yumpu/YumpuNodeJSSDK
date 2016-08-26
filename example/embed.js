@@ -186,7 +186,7 @@ y.postEmbed(parameters, function(statusCode, document) {
         "document_id": "11199",
         "type": "1",
         "create_date": "2014-12-03 10:57:49",
-        "code": "<iframe width=\"800px\" height=\"580px\" src=\"https:\/\/www.yumpu.com\/en\/embed\/view\/zKtHE23d6R0qT1rf\" frameborder=\"0\" allowfullscreen=\"true\" allowtransparency=\"true\"><\/iframe>",
+        "code": "iframe",
         "settings": {
             "background_color": "CCCCCC",
             "fullscreen_background_color": "253139",
