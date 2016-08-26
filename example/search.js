@@ -20,6 +20,10 @@ var y = new yumpu();
  *     console.log(document);
  *  });
  *
+ * @apiHeaderExample {java} Java-Example:
+ * Yumpu y = new Yumpu();
+ * JSONObject json = new JSONObject(y.search("q=sports&in=title,description&views=1000-5000&language=en"));
+ *
  * @apiParam {String} q A keyword to search for
  * @apiParam {String} [in] Search keyword in fields author, title, description or tags
       <br/><br/><b>Default:</b> author, title, description, tags
