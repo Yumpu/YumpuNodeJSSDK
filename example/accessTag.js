@@ -12,10 +12,10 @@ var y = new yumpu();
  *
  * @apiHeaderExample {js} Java-Script-Example:
  *  var yumpu = require('yumpu.js');
- *  var parameters = '{
+ *  var parameters = {
  *    limit: 2,
  *    offset: 0
- *  }';
+ *  };
  *  yumpu.getAccessTag(parameters, function(statusCode, document){
  *     console.log('Status: ' + statusCode);
  *     console.log(document);
@@ -66,13 +66,13 @@ y.getAccessTag(parameters, function(statusCode, document) {
  *
  * @apiHeaderExample {js} Java-Script-Example:
  *  var yumpu = require('yumpu.js');
- *  var parameters = '{
+ *  var parameters = {
  *    name: 'accesstag7',
  *    description: 'accesstag7',
  *    default: 'y',
  *    iap: 'y',
  *    kiosks: 'webkiosk_25'
- *  }';
+ *  };
  *  yumpu.postAccessTag(parameters, function(statusCode, document){
  *     console.log('Status: ' + statusCode);
  *     console.log(document);
@@ -129,14 +129,14 @@ y.postAccessTag(parameters, function(statusCode, document) {
  *
  * @apiHeaderExample {js} Java-Script-Example:
  *  var yumpu = require('yumpu.js');
- *  var parameters = '{
+ *  var parameters = {
  *    id: 'pR0VV9tCh5q4ZrEx',
  *    name: 'accesstag7',
  *    description: 'accesstag7',
  *    default: 'n',
  *    iap: 'n',
  *    kiosks: 'webkiosk_25,webkiosk_1572'
- *  }';
+ *  };
  *  yumpu.putAccessTag(parameters, function(statusCode, document){
  *     console.log('Status: ' + statusCode);
  *     console.log(document);
@@ -197,9 +197,9 @@ y.putAccessTag(parameters, function(statusCode, document) {
  *
  * @apiHeaderExample {js} Java-Script-Example:
  *  var yumpu = require('yumpu.js');
- *  var parameters = '{
+ *  var parameters = {
  *    id: 'pR0VV9tCh5q4ZrEx'
- *  }';
+ *  };
  *  yumpu.deleteAccessTag(parameters, function(statusCode, document){
  *     console.log('Status: ' + statusCode);
  *     console.log(document);
