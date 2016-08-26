@@ -69,6 +69,22 @@ yumpu.prototype.postDocumentUrl = function(parameters, callback) {
     yf.log('postDocumetUrl - ' + reqData.host + reqData.path);
 }
 
+// update a document
+// more details on: http://developers.yumpu.com/api/document/post-url/
+yumpu.prototype.putDocumentUrl = function(parameters, callback) {
+    var reqData = {
+        method: 'PUT',
+        host: c.getYumpuConfig().endpointDomain,
+        path: c.getYumpuEndpoints().documentPut,
+        headers: yf.setHeaders(c.getYumpuConfig().token),
+        body: parameters
+    };
+    yf.executeRequest(reqData, function(statusCode, data) {
+        callback(statusCode, data);
+    });
+    yf.log('putDocumetUrl - ' + reqData.host + reqData.path);
+}
+
 // delete a document
 // more details on: http://developers.yumpu.com/api/document/post-url/
 yumpu.prototype.deleteDocument = function(parameters, callback) {
@@ -286,6 +302,22 @@ yumpu.prototype.putCollection = function(parameters, callback) {
     yf.log('putCollection - ' + reqData.host + reqData.path);
 }
 
+// delete a collection
+// more details on : http://developers.yumpu.com/api/collection/put-2/
+yumpu.prototype.deleteCollection = function(parameters, callback) {
+    var reqData = {
+        method: 'DELETE',
+        host: c.getYumpuConfig().endpointDomain,
+        path: yf.buildUrl(parameters, c.getYumpuEndpoints().collectionDelete),
+        headers: yf.setHeaders(c.getYumpuConfig().token),
+        body: parameters
+    };
+    yf.executeRequest(reqData, function(statusCode, data) {
+        callback(statusCode, data);
+    });
+    yf.log('deleteCollection - ' + reqData.host + reqData.path);
+}
+
 // retrived all datas for the collection with $data['id']; reutrn field can be specified in $data['return_fields']
 // more details on: http://developers.yumpu.com/api/section/get-5/
 yumpu.prototype.getSection = function(parameters, callback) {
@@ -331,6 +363,22 @@ yumpu.prototype.putSection = function(parameters, callback) {
         callback(statusCode, data);
     });
     yf.log('putSection - ' + reqData.host + reqData.path);
+}
+
+// delete a section
+// more details on : http://developers.yumpu.com/api/collection/put-2/
+yumpu.prototype.deleteSection = function(parameters, callback) {
+    var reqData = {
+        method: 'DELETE',
+        host: c.getYumpuConfig().endpointDomain,
+        path: yf.buildUrl(parameters, c.getYumpuEndpoints().sectionDelete),
+        headers: yf.setHeaders(c.getYumpuConfig().token),
+        body: parameters
+    };
+    yf.executeRequest(reqData, function(statusCode, data) {
+        callback(statusCode, data);
+    });
+    yf.log('deleteSection - ' + reqData.host + reqData.path);
 }
 
 // create a new section document
@@ -447,8 +495,8 @@ yumpu.prototype.getEmbeds = function(parameters, callback) {
     yf.log('getEmbeds - ' + reqData.host + reqData.path);
 }
 
-// retrieve all users' embeds datas
-// more details on: http://developers.yumpu.com/api/embeds/get/
+// retrieve a embed
+// more details on: http://developers.yumpu.com/api/embed/get/
 yumpu.prototype.getEmbed = function(parameters, callback) {
     var reqData = {
         method: 'GET',
@@ -492,6 +540,22 @@ yumpu.prototype.putEmbed = function(parameters, callback) {
         callback(statusCode, data);
     });
     yf.log('putEmbed - ' + reqData.host + reqData.path);
+}
+
+// delete a embed
+// more details on : http://developers.yumpu.com/api/collection/put-2/
+yumpu.prototype.deleteEmbed = function(parameters, callback) {
+    var reqData = {
+        method: 'DELETE',
+        host: c.getYumpuConfig().endpointDomain,
+        path: yf.buildUrl(parameters, c.getYumpuEndpoints().embedDelete),
+        headers: yf.setHeaders(c.getYumpuConfig().token),
+        body: parameters
+    };
+    yf.executeRequest(reqData, function(statusCode, data) {
+        callback(statusCode, data);
+    });
+    yf.log('deleteEmbed - ' + reqData.host + reqData.path);
 }
 
 // retrieve all users' members datas
@@ -554,6 +618,22 @@ yumpu.prototype.putMember = function(parameters, callback) {
         callback(statusCode, data);
     });
     yf.log('putMember - ' + reqData.host + reqData.path);
+}
+
+// delete a member
+// more details on : http://developers.yumpu.com/api/collection/put-2/
+yumpu.prototype.deleteMember = function(parameters, callback) {
+    var reqData = {
+        method: 'DELETE',
+        host: c.getYumpuConfig().endpointDomain,
+        path: yf.buildUrl(parameters, c.getYumpuEndpoints().memberDelete),
+        headers: yf.setHeaders(c.getYumpuConfig().token),
+        body: parameters
+    };
+    yf.executeRequest(reqData, function(statusCode, data) {
+        callback(statusCode, data);
+    });
+    yf.log('deleteMember - ' + reqData.host + reqData.path);
 }
 
 // retrieve all users' accessTags datas
@@ -620,6 +700,22 @@ yumpu.prototype.putAccessTag = function(parameters, callback) {
     yf.log('putAccessTag - ' + reqData.host + reqData.path);
 }
 
+// delete a access tag
+// more details on : http://developers.yumpu.com/api/collection/put-2/
+yumpu.prototype.deleteAccessTag = function(parameters, callback) {
+    var reqData = {
+        method: 'DELETE',
+        host: c.getYumpuConfig().endpointDomain,
+        path: yf.buildUrl(parameters, c.getYumpuEndpoints().accessTagDelete),
+        headers: yf.setHeaders(c.getYumpuConfig().token),
+        body: parameters
+    };
+    yf.executeRequest(reqData, function(statusCode, data) {
+        callback(statusCode, data);
+    });
+    yf.log('deleteAccessTag - ' + reqData.host + reqData.path);
+}
+
 // retrieve all users' subscriptions datas
 // more details on: http://developers.yumpu.com/api/subscriptions/get/
 yumpu.prototype.getSubscriptions = function(parameters, callback) {
@@ -680,6 +776,22 @@ yumpu.prototype.putSubscription = function(parameters, callback) {
         callback(statusCode, data);
     });
     yf.log('putSubscription - ' + reqData.host + reqData.path);
+}
+
+// delete a subscription
+// more details on : http://developers.yumpu.com/api/collection/put-2/
+yumpu.prototype.deleteSubscription = function(parameters, callback) {
+    var reqData = {
+        method: 'DELETE',
+        host: c.getYumpuConfig().endpointDomain,
+        path: yf.buildUrl(parameters, c.getYumpuEndpoints().subscriptionDelete),
+        headers: yf.setHeaders(c.getYumpuConfig().token),
+        body: parameters
+    };
+    yf.executeRequest(reqData, function(statusCode, data) {
+        callback(statusCode, data);
+    });
+    yf.log('deleteSubscription - ' + reqData.host + reqData.path);
 }
 
 module.exports = yumpu;
