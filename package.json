@@ -62,7 +62,16 @@
           "Section_document_post",
           "Section_document_delete",
           "Search",
-          "User"
+          "User",
+          "User_get",
+          "User_post",
+          "User_put",
+          "Embed",
+          "Embed_get",
+          "Embed_post",
+          "Embed_put",
+          "Embed_delete",
+          "Member"
         ]
     }
 
