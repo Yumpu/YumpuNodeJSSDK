@@ -19,6 +19,12 @@ var y = new yumpu();
  *     console.log(document);
  *  });
  *
+ * @apiHeaderExample {java} Java-Example:
+ * Yumpu y = new Yumpu();
+ * String[] params = {};
+ * String returnFields[] = { "id,name" };
+ * JSONObject json = new JSONObject(y.getUser(params, returnFields));
+ *
  * @apiParam {String} [return_fields] Customize the responses by setting the return fields (id, create_date, activate_date, last_login_date, username, email, gender, name, firstname, lastname, birth_date, address, zip_code, city, country, description, website, blog, language).
       <br/><br/><b>Default:</b> id, create_date, activate_date, last_login_date, username, email, gender, name, firstname, lastname, birth_date, address, zip_code, city, country, description, website, blog, languge
  *
@@ -92,6 +98,11 @@ y.getUser(parameters, function(statusCode, document) {
  *     console.log('Status: ' + statusCode);
  *     console.log(document);
  *  });
+ *
+ * @apiHeaderExample {java} Java-Example:
+ * Yumpu y = new Yumpu();
+ * String[] body = {"gender=male", "firstname=username"};
+ * JSONObject json = new JSONObject(y.postUser(body));
  *
  * @apiParam {String} email Your email address (valid email address)
  * @apiParam {String} username Your username (Allowed characters a-z, A-Z, 0-9 and a dot, min. length 5 characters, max. length 30 characters)
@@ -172,6 +183,11 @@ y.postUser(parameters, function(statusCode, document) {
  *     console.log('Status: ' + statusCode);
  *     console.log(document);
  *  });
+ *
+ * @apiHeaderExample {java} Java-Example:
+ * Yumpu y = new Yumpu();
+ * String[] body = {"gender=male", "firstname=newName"};
+ * JSONObject json = new JSONObject(y.putUser(body));
  *
  * @apiParam {String} gender Your gender (male or female)
  * @apiParam {String} firstname Your firstname (min. length 2 characters, max. length 100 characters)

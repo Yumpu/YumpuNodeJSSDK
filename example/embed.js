@@ -20,6 +20,11 @@ var y = new yumpu();
  *     console.log(document);
  *  });
  *
+ * @apiHeaderExample {java} Java-Example:
+ * Yumpu y = new Yumpu();
+ * String[] params = {};
+ * String[] returnFields = { "id" };
+ * JSONObject json = new JSONObject(y.getEmbed("rU3W05fqP9kZGnYw", params, returnFields));
  *
  * @apiParam {String} id One of your embed ids
  * @apiParam {String} [return_fields] Customize the responses by setting the return fields (‚id‘, ‚user_id‘, ‚document_id‘, ‚type‘, ‚create_date‘, ‚code‘, ’settings‘).
@@ -112,6 +117,9 @@ y.putEmbed(parameters, function(statusCode, document) {
  *     console.log(document);
  *  });
  *
+ * @apiHeaderExample {java} Java-Example:
+ * Yumpu y = new Yumpu();
+ * JSONObject json = new JSONObject(y.deleteEmbed("lrQUW1EPLz5ey8bO"));
  *
  * @apiParam {String} id One of your embed ids
  * @apiParam {String} [return_fields] Customize the responses by setting the return fields (‚id‘, ‚user_id‘, ‚document_id‘, ‚type‘, ‚create_date‘, ‚code‘, ’settings‘).

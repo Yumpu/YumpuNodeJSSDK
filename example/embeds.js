@@ -24,6 +24,11 @@ var y = new yumpu();
  *     console.log(document);
  *  });
  *
+ * @apiHeaderExample {java} Java-Example:
+ * Yumpu y = new Yumpu();
+ * String[] params = {};
+ * String returnFields[] = { "id" };
+ * y.getEmbeds(params, returnFields);
  *
  * @apiParam {Integer} [offset] Retrieve rows at position X (min. 0)
       <br/><br/><b>Default:</b> 0

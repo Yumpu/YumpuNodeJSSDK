@@ -200,6 +200,10 @@ var parameters = {
  *     console.log(document);
  *  });
  *
+ * @apiHeaderExample {java} Java-Example:
+ * Yumpu y = new Yumpu();
+ * JSONObject json = new JSONObject(y.deleteCollection("49cvPY1uKERtNnyZ"));
+ *
  * @apiParam {String} id One of your collection ids
  *
  * @apiSuccessExample Success-Response:
