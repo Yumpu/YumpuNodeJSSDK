@@ -54,19 +54,88 @@ y.getUser(parameters, function(statusCode, document) {
     console.log(document);
 });
 
-// OR
-// use another token that the one set in config
+
 var parameters = {
-    token: 'anytoken'
+    token: 'a token from an other User'
 };
 y.getUser(parameters, function(statusCode, document) {
     console.log('Status: ' + statusCode)
     console.log(document);
 });
 
-// post/create a new user profile
-// more details on : http://developers.yumpu.com/api/user/post/
-// PLEASE USE A VALID EMAIL & USERNAME!!!
+/**
+ * @api {post} /user.json postUser()
+ * @apiVersion 1.0.0
+ * @apiName User post
+ * @apiGroup User
+ *
+ * @apiHeaderExample {js} Java-Script-Example:
+ *  var yumpu = require('yumpu.js');
+ *  var parameters = {
+ *    email: 'yumpu.api@gmail.com',
+ *    username: 'api.user',
+ *    password: 's3cr3tpassword1',
+ *    gender: 'male',
+ *    firstname: 'API',
+ *    lastname: 'User',
+ *    birth_date: '1986-01-01',
+ *    address: 'Moosackerstr. 17',
+ *    zip_code: '9444',
+ *    city: 'Diepoldsau',
+ *    country: 'CH',
+ *    description: 'I am the default API user.',
+ *    website: 'https://www.yumpu.com',
+ *    blog: 'https://blog.yumpu.com',
+ *    language: 'de'
+ *  };
+ *  yumpu.postUser(parameters, function(statusCode, document){
+ *     console.log('Status: ' + statusCode);
+ *     console.log(document);
+ *  });
+ *
+ * @apiParam {String} email Your email address (valid email address)
+ * @apiParam {String} username Your username (Allowed characters a-z, A-Z, 0-9 and a dot, min. length 5 characters, max. length 30 characters)
+ * @apiParam {String} password Your password (min. length 6 characters)
+ * @apiParam {String} [gender] Your gender (male or female)
+ * @apiParam {String} [firstname] Your firstname (min. length 2 characters, max. length 100 characters)
+ * @apiParam {String} [lastname] Your lastname (min. length 2 characters, max. length 100 characters)
+ * @apiParam {Date} [birth_date] Your birth_date (YYYY-MM-DD)
+ * @apiParam {String} [address] Your address (max. length 255 characters)
+ * @apiParam {String} [zip_code] Your zip code (max. length 10 characters)
+ * @apiParam {String} [city] Your city (max. length 50 characters)
+ * @apiParam {String} [country] Your country (DE, GB, FR, …)
+ * @apiParam {String} [description] Your address (max. length 255 characters)
+ * @apiParam {String} [website] Your website (max. length 255 characters, valid URL)
+ * @apiParam {String} [blog] Your blog (max. length 255 characters, valid URL)
+ * @apiParam {String} [avatar] A valid image URL
+ * @apiParam {String} [language] Your language (de, en, fr, …)
+ *
+ * @apiSuccessExample Success-Response:
+ *     HTTP/1.1 200 OK
+ *     {
+      "user": {
+        "id": "102864144",
+        "create_date": "2013-03-08 17:13:43",
+        "activate_date": "2013-04-25 14:20:04",
+        "username": "Api.User",
+        "email": "yumpu.api@gmail.com",
+        "gender": "male",
+        "name": "Api User",
+        "firstname": "Api",
+        "lastname": "User",
+        "birth_date": "1986-01-01",
+        "address": "Moosackerstr. 17",
+        "zip_code": "9444",
+        "city": "Diepoldsau",
+        "country": "CH",
+        "description": "I am the API user.",
+        "website": "http://www.yumpu.com",
+        "blog": "http://blog.yumpu.com",
+        "language": "de"
+      },
+      "state": "success"
+    }
+ */
 var parameters = {
     email: 'youruser@yumpu.com',
     username: 'newuser123456',
@@ -77,8 +146,73 @@ y.postUser(parameters, function(statusCode, document) {
     console.log(document);
 });
 
-// put/update an existing user
-// more details on : http://developers.yumpu.com/api/user/put/
+/**
+ * @api {put} /user.json putUser()
+ * @apiVersion 1.0.0
+ * @apiName User put
+ * @apiGroup User
+ *
+ * @apiHeaderExample {js} Java-Script-Example:
+ *  var yumpu = require('yumpu.js');
+ *  var parameters = {
+ *    gender: 'male',
+ *    firstname: 'firstnameAPI',
+ *    lastname: 'User',
+ *    birth_date: '1986-01-01',
+ *    address: 'Moosackerstr. 17',
+ *    zip_code: '9444',
+ *    city: 'Diepoldsau',
+ *    country: 'CH',
+ *    description: 'I am the default API user.',
+ *    website: 'https://www.yumpu.com',
+ *    blog: 'https://blog.yumpu.com',
+ *    language: 'de'
+ *  };
+ *  yumpu.postUser(parameters, function(statusCode, document){
+ *     console.log('Status: ' + statusCode);
+ *     console.log(document);
+ *  });
+ *
+ * @apiParam {String} gender Your gender (male or female)
+ * @apiParam {String} firstname Your firstname (min. length 2 characters, max. length 100 characters)
+ * @apiParam {String} lastname Your lastname (min. length 2 characters, max. length 100 characters)
+ * @apiParam {Date} [birth_date] Your birth_date (YYYY-MM-DD)
+ * @apiParam {String} [address] Your address (max. length 255 characters)
+ * @apiParam {String} [zip_code] Your zip code (max. length 10 characters)
+ * @apiParam {String} [city] Your city (max. length 50 characters)
+ * @apiParam {String} [country] Your country (DE, GB, FR, …)
+ * @apiParam {String} [description] Your address (max. length 255 characters)
+ * @apiParam {String} [website] Your website (max. length 255 characters, valid URL)
+ * @apiParam {String} [blog] Your blog (max. length 255 characters, valid URL)
+ * @apiParam {String} [avatar] A valid image URL
+ * @apiParam {String} [language] Your language (de, en, fr, …)
+ *
+ * @apiSuccessExample Success-Response:
+ *     HTTP/1.1 200 OK
+ *     {
+      "user": {
+        "id": "102864144",
+        "create_date": "2013-03-08 17:13:43",
+        "activate_date": "2013-04-25 14:20:04",
+        "username": "Api.User",
+        "email": "yumpu.api@gmail.com",
+        "gender": "male",
+        "name": "",
+        "firstname": "API",
+        "lastname": "User",
+        "birth_date": "1986-01-01",
+        "address": "Moosackerstr. 17",
+        "zip_code": "9444",
+        "city": "Diepoldsau",
+        "country": "CH",
+        "description": "I am the default API user.",
+        "website": "http://www.yumpu.com",
+        "blog": "http://blog.yumpu.com",
+        "language": "de"
+      },
+      "state": "success"
+    }
+ */
 var parameters = {
     gender: 'male',
     firstname: 'Lukas',
