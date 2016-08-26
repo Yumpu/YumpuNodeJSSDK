@@ -27,9 +27,24 @@
         "name": "Yumpu",
         "title": "Yumpu",
         "url": "https://api.yumpu.com/2.0",
+        "description": "This is the description ...",
         "options": {
             "excludeFilters": ["node_modules/"]
-        }
+        },
+        "order": [
+          "Documents",
+          "Document",
+          "Document_hotspots",
+          "Document_hotspot",
+          "Document_progress",
+          "Document_categories",
+          "Document_languages",
+          "Countries",
+          "Collections",
+          "Collection",
+          "Section",
+          "Section_document"
+        ]
     }
 
 }

@@ -140,7 +140,7 @@ y.postDocumentUrl(parameters, function(statusCode, document){
 
 
 /**
- * @api {get} /document.json deleteDocument()
+ * @api {delete} /document.json deleteDocument()
  * @apiVersion 1.0.0
  * @apiName Document delete
  * @apiGroup Document
