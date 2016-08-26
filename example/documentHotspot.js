@@ -20,6 +20,12 @@ var y = new yumpu();
  *     console.log(document);
  *  });
  *
+ * @apiHeaderExample {java} Java-Example:
+ * Yumpu y = new Yumpu();
+ * String[] params = {};
+ * String[] returnFields = { "id" };
+ * JSONObject json = new JSONObject(y.getDocumentHotspot("35936979C40pnPVD", params, returnFields));
+ *
  * @apiParam {String} id One of your document hotspot ids
  * @apiParam {String} [return_fields] Customize the responses by setting the return fields (id, document_id, page, type, settings, create_date, update_date).
       <br/><br/><b>Default:</b> id, document_id, page, type, settings, create_date, update_date

@@ -20,6 +20,12 @@ var y = new yumpu();
  *     console.log(document);
  *  });
  *
+ * @apiHeaderExample {java} Java-Example:
+ * Yumpu y = new Yumpu();
+ * String[] params = {};
+ * String[] returnFields = { "id,name" };
+ * JSONObject json = new JSONObject(y.getCollection("9RDnBITHpkxwc3s7", params, returnFields));
+ *
  * @apiParam {String} id One of your collection ids
  * @apiParam {String} [return_fields]	Customize the responses by setting the return fields (id, create_date, update_date, name, order, sections)
       <br/><br/><b>Default:</b> id, create_date, update_date, name, order, sections
@@ -81,6 +87,10 @@ y.getCollection(parameters, function(statusCode, document) {
  *     console.log(document);
  *  });
  *
+ * @apiHeaderExample {java} Java-Example:
+ * Yumpu y = new Yumpu();
+ * JSONObject json = new JSONObject(y.postCollection("new one"));
+ *
  * @apiParam {String} name A name for your collection
  *
  * @apiSuccessExample Success-Response:
@@ -132,6 +142,10 @@ y.postCollection(parameters, function(statusCode, document) {
  *     console.log('Status: ' + statusCode);
  *     console.log(document);
  *  });
+ *
+ * @apiHeaderExample {java} Java-Example:
+ * Yumpu y = new Yumpu();
+ * JSONObject json = new JSONObject(y.putCollection("49cvPY1uKERtNnyZ", "new name"));
  *
  * @apiParam {String} id 	An id of your collections
  * @apiParam {String} name A name for your collection

@@ -17,6 +17,9 @@ var y = new yumpu();
  *     console.log(document);
  *  });
  *
+ * @apiHeaderExample {java} Java-Example:
+ * Yumpu y = new Yumpu();
+ * JSONObject json = new JSONObject(y.getCountries());
  *
  * @apiSuccessExample Success-Response:
  *     HTTP/1.1 200 OK

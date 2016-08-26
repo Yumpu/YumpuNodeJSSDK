@@ -23,6 +23,12 @@ var y = new yumpu();
  *     console.log(document);
  *  });
  *
+ * @apiHeaderExample {java} Java-Example:
+ * Yumpu y = new Yumpu();
+ * String[] params = {};
+ * String[] returnFields = {};
+ * JSONObject json = new JSONObject(y.getDocumentHotspots("55875413", params, returnFields));
+ *
  * @apiParam {Integer} id One of your document ids
  * @apiParam {Integer} [page] Filter the results by page nr (1 – X)
  * @apiParam {Integer} [offset] Retrieve rows at position X (min. 0)

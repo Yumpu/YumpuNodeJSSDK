@@ -20,7 +20,8 @@ var y = new yumpu();
  *     console.log('Status: ' + statusCode);
  *     console.log(document);
  *  });
- * @apiHeaderExample {js} Java-Example:
+ *
+ * @apiHeaderExample {java} Java-Example:
  * Yumpu y = new Yumpu();
  * String[] params = {"offset=1", "limit=1"};
  * String[] returnFields = { "url" };

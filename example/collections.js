@@ -21,6 +21,12 @@ var y = new yumpu();
  *     console.log(document);
  *  });
  *
+ * @apiHeaderExample {java} Java-Example:
+ * Yumpu y = new Yumpu();
+ * String[] params = {};
+ * String[] returnFields = { "id" };
+ * JSONObject json = new JSONObject(y.getCollections(params, returnFields));
+ *
  * @apiParam {Integer} [offset] Retrieve rows at position X (min. 0)
       <br/><br/><b>Default:</b> 0
  * @apiParam {Integer} [limit] Retrieve X rows (min. 0 and max. 100)

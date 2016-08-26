@@ -20,6 +20,12 @@ var y = new yumpu();
  *     console.log(document);
  *  });
  *
+ * @apiHeaderExample {java} Java-Example:
+ * Yumpu y = new Yumpu();
+ * String[] params = {};
+ * String[] returnFields = {};
+ * JSONObject json = new JSONObject(y.getDocumentProgress("XXXXX-XXXXX-XXXXX-XXXXX-XXXXX-XXXXX-XXXXX-XXXXX", params,returnFields));
+ *
  * @apiParam {Integer} String One of your progress ids. The id you will get when using a create document method (document post file or document post url).
  *
  * @apiSuccessExample Success-Response1:
