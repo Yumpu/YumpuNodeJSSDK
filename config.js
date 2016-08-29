@@ -10,7 +10,7 @@
 // uploadPath - pdfs' path location;
 // yumpuEndpoints - full paths array for the yumpu api methods;
 var c = {
-    token: 'yourToken',
+    token: 'bkIzYsUTS6Eun5ALZwfiD38hN1tlOVKF',
     returnFormat: 'array',
     endpointDomain: 'api.yumpu.com',
     endpointSearchDomain: 'search.yumpu.com',

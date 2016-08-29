@@ -38,13 +38,13 @@ var y = new yumpu();
   *       }
   */
 var parameters = {
-    id: 10672,
+    id: '55886815',
     return_fields: 'id,url,create_date,update_date,url,image_small'
 };
-// y.getDocument(parameters, function(statusCode, document) {
-//     console.log('Status: ' + statusCode)
-//     console.log(document);
-// });
+y.getDocument(parameters, function(statusCode, document) {
+    console.log('Status: ' + statusCode)
+    console.log(document);
+});
 
 
 
@@ -274,10 +274,10 @@ var parameters = {
     'description': 'Thats my description'
         // write optional parameters here
 };
-y.postDocumentUrl(parameters, function(statusCode, document){
-  console.log('Status: ' + statusCode)
-  console.log(document);
-});
+// y.postDocumentUrl(parameters, function(statusCode, document){
+//   console.log('Status: ' + statusCode)
+//   console.log(document);
+// });
 
 /**
  * @api {put} /document.json putDocument()
@@ -389,13 +389,13 @@ y.postDocumentUrl(parameters, function(statusCode, document){
  *
  */
 var parameters = {
-    id: '20582984'
-    title: 'Sieggggggg'
+    id: '20582984',
+    title: 'Sieg'
 };
-y.putDocument(parameters, function(statusCode, document){
-  console.log('Status: ' + statusCode)
-  console.log(document);
-});
+// y.putDocument(parameters, function(statusCode, document){
+//   console.log('Status: ' + statusCode)
+//   console.log(document);
+// });
 
 
 /**
@@ -423,7 +423,7 @@ y.putDocument(parameters, function(statusCode, document){
  *
  */
 var parameters = {
-    id: 10672
+    id: 55886776,
   };
 // y.deleteDocument(parameters, function(statusCode, document) {
 //     console.log('Status: ' + statusCode)

@@ -71,7 +71,7 @@ yumpu.prototype.postDocumentUrl = function(parameters, callback) {
 
 // update a document
 // more details on: http://developers.yumpu.com/api/document/post-url/
-yumpu.prototype.putDocumentUrl = function(parameters, callback) {
+yumpu.prototype.putDocument = function(parameters, callback) {
     var reqData = {
         method: 'PUT',
         host: c.getYumpuConfig().endpointDomain,
@@ -82,7 +82,7 @@ yumpu.prototype.putDocumentUrl = function(parameters, callback) {
     yf.executeRequest(reqData, function(statusCode, data) {
         callback(statusCode, data);
     });
-    yf.log('putDocumetUrl - ' + reqData.host + reqData.path);
+    yf.log('putDocumet - ' + reqData.host + reqData.path);
 }
 
 // delete a document

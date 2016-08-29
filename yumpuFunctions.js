@@ -1,5 +1,5 @@
 var fs = require('fs');
-var http = require("http");
+var request = require("request");
 
 // initialize yumpuFunctions Class
 var yumpuFunctions = function() {}
@@ -8,83 +8,22 @@ var yumpuFunctions = function() {}
 yumpuFunctions.prototype.executeRequest = function(reqData, callbackRequest) {
     var options = {
         method: reqData.method,
-        host: reqData.host,
-        path: reqData.path,
+        url: 'http://' + reqData.host + reqData.path,
         headers: reqData.headers,
     };
 
-    callback = function(res) {
-        var data = [];
-        if (res.statusCode != 200 && res.statusCode != 202 && res.statusCode != 304 && res.statusCode != 400 && res.statusCode != 401 && res.statusCode != 403 && res.statusCode != 404) {
-            return callbackRequest(res.statusCode, options);
-        }
+    if ((reqData.method == 'POST') || (reqData.method == 'PUT') || (reqData.method == 'DELETE')) {
+            options.form = reqData.body;
 
-        // console.log('STATUS: ' + res.statusCode);
-        // console.log('HEADERS: ' + JSON.stringify(res.headers));
-
-        res.on('data', function(chunk) {
-            data.push(chunk);
-        });
-
-        res.on('end', function() {
-            // var body = Buffer.concat(data).toString();
-            var body = JSON.parse(Buffer.concat(data).toString());
-            return callbackRequest(res.statusCode, body);
-        });
-
-    }
-    var req = http.request(options, callback);
-
-    if ((reqData.method == 'POST') || (reqData.method == 'PUT')) {
-        if (reqData.body.file) {
-            // var form = new FormData();
-            // form.append("title", "MyDocument");
-            // form.append("file", fs.createReadStream('./example/media/yumpu.pdf'));
-            // options.data = form;
-            // options.async = true;
-            // options.crossDomain = true;
-            // options.mimeType = 'multipart/form-data';
-            // options.contentType = false;
-            // options.processData = false;
-
-
-
-            // var p = pdf.PdfToJson('/example/media/yumpu.pdf');
-            // console.log(p);
-            // fs.readFile('./example/media/yumpu.pdf', function(error, content) {
-            //     if (error) {
-            //         console.log(error);
-            //     } else {
-            //         console.log('File: ');
-            //         console.log(content);
-            //         reqData.body.file = content;
-            //                             console.log(reqData.body);
-            //         var postData = JSON.stringify(reqData.body);
-            //
-            //         options.headers['Content-Length'] = postData.length;
-            //         // console.log(options);
-            //
-            //
-            //         req.end(postData);
-            //     }
-            // });
-            // var testData = JSON.stringify({
-            //     title: reqData.body.title,
-            //     file: 'This is the File'
-            // });
-
-            console.log(options);
-            req.end();
-        } else {
-            var postData = JSON.stringify(reqData.body);
-            options.headers['Content-Length'] = postData.length;
-            req.end(postData);
-        }
-    } else if (reqData.method == 'GET' || reqData.method == 'DELETE') {
-        req.end();
+    } else if (reqData.method == 'GET') {
+        // console.log(options);
     } else {
         return callbackRequest(405, options);
     };
+
+    request(options, function(error, response, body){
+      callbackRequest(response.statusCode, JSON.parse(body.toString()));
+    });
 
 }
 
