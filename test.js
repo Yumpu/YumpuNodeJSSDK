@@ -2,9 +2,11 @@
 var yumpu = require('./yumpu');
 var y = new yumpu();
 
+y.setToken('bkIzYsUTS6Eun5ALZwfiD38hN1tlOVKF');
+
 // define the input (only small characters, no symbols, no blank spaces)
-var testInput = 'inputfortest';
-var testInputPut = 'inputfortestput'
+var testInput = 'inputfortestx';
+var testInputPut = 'inputfortestputx'
 
 // Test for the getCountries function
 y.getCountries(function(statusCode, documents) {
@@ -35,11 +37,12 @@ y.putUser(parameters, function(statusCode, document) {
     check(statusCode, 'putUser');
 });
 
-
 var successCount = 0;
 var errorCount = 0;
-var documentProgressId;
-var documentId;
+var documentProgressIdUrl;
+var documentProgressIdFile;
+var documentIdUrl;
+var documentIdFile;
 var documentHotspotId;
 var collectionId;
 var sectionId;
@@ -49,15 +52,32 @@ var subscriptionId;
 
 // Test for the postDocumentUrl function
 var parameters = {
-    'title': 'TestDocument',
-    'url': 'http://www.onlinemarketing-praxis.de/uploads/pdf/suchparameter-google-uebersicht.pdf'
+    title: 'TestDocument',
+    url: 'http://www.onlinemarketing-praxis.de/uploads/pdf/suchparameter-google-uebersicht.pdf',
+    page_teaser_image: './example/media/yumpu.png',
+    page_teaser_page_range: '1-1',
+    page_teaser_url: 'http://www.yumpu.com/en'
 };
 y.postDocumentUrl(parameters, function(statusCode, document) {
     if (check(statusCode, 'postDocumentUrl')) {
-        documentProgressId = document.progress_id;
+        documentProgressIdUrl = document.progress_id;
 
         // Test for the getDocumentProgress function
-        documentProgress();
+        documentProgressUrl();
+    }
+});
+
+// Test for the postDocumentFile function
+var parameters = {
+    title: 'MyDocument',
+    file: './example/media/yumpu.pdf',
+};
+y.postDocumentFile(parameters, function(statusCode, document) {
+    if (check(statusCode, 'postDocumentFile')) {
+        documentProgressIdFile = document.progress_id;
+
+        // Test for the getDocumentProgress function
+        documentProgressFile();
     }
 });
 
@@ -98,23 +118,43 @@ y.postSubscription(parameters, function(statusCode, document) {
     }
 });
 
-function documentProgress() {
+function documentProgressUrl() {
     var cnt = 0;
     var parameters = {
-        id: documentProgressId
+        id: documentProgressIdUrl
     };
     y.getDocumentProgress(parameters, function(statusCode, document) {
         if (statusCode == 200) {
-            check(statusCode, 'getDocumentProgress');
-            documentId = document.document[0].id;
+            check(statusCode, 'getDocumentProgressUrl');
+            documentIdUrl = document.document[0].id;
             whenDocumentBuilt();
         } else {
             cnt = cnt + 1;
             if (cnt >= 10) {
-                check(400, 'getDocumentProgress');
+                check(400, 'getDocumentProgressUrl');
             }
             wait(2000);
-            documentProgress();
+            documentProgressUrl();
+        }
+    });
+}
+
+function documentProgressFile() {
+    var cnt = 0;
+    var parameters = {
+        id: documentProgressIdFile
+    };
+    y.getDocumentProgress(parameters, function(statusCode, document) {
+        if (statusCode == 200) {
+            check(statusCode, 'getDocumentProgressFile');
+            documentIdFile = document.document[0].id;
+        } else {
+            cnt = cnt + 1;
+            if (cnt >= 10) {
+                check(400, 'getDocumentProgressFile');
+            }
+            wait(2000);
+            documentProgressFile();
         }
     });
 }
@@ -122,7 +162,7 @@ function documentProgress() {
 function whenDocumentBuilt() {
     // Test for the getDocument function
     var parameters = {
-        id: documentId,
+        id: documentIdUrl,
         return_fields: 'id,create_date,update_date,url,image_small'
     };
     y.getDocument(parameters, function(statusCode, document) {
@@ -137,7 +177,7 @@ function whenDocumentBuilt() {
 
     // Test for the putDocument function
     var parameters = {
-        id: documentId,
+        id: documentIdUrl,
         title: 'TestDocumentPut'
     };
     y.putDocument(parameters, function(statusCode, document) {
@@ -146,7 +186,7 @@ function whenDocumentBuilt() {
 
     // Test for the postDocumentHotspot function
     var parameters = {
-        document_id: documentId,
+        document_id: documentIdUrl,
         page: 2,
         type: 'link',
         settings: {
@@ -182,7 +222,7 @@ function whenDocumentBuilt() {
 
     // Test for the postEmbed function
     var parameters = {
-        document_id: documentId,
+        document_id: documentIdUrl,
         type: 2
     }
     y.postEmbed(parameters, function(statusCode, document) {
@@ -206,7 +246,7 @@ function whenDocumentHotspotBuilt() {
 
     // Test for the getDocumentHotspots function
     var parameters = {
-        id: documentId,
+        id: documentIdUrl,
         limit: 5,
         sort: 'create_date_desc',
         return_fields: 'id,page,type,settings'
@@ -294,7 +334,7 @@ function whenSectionBuilt() {
     // Test for the postSectionDocument function
     var parameters = {
         id: collectionId + '_' + sectionId,
-        documents: documentId
+        documents: documentIdUrl
     };
     y.postSectionDocument(parameters, function(statusCode, document) {
         check(statusCode, 'postSectionDocument');
@@ -320,7 +360,7 @@ function whenEmbedBuilt() {
     // Test for the putEmbed function
     var parameters = {
         id: embedId,
-        document_id: documentId,
+        document_id: documentIdUrl,
         type: 2,
         background_shape: 'square',
     };
@@ -465,7 +505,7 @@ function doDelete() {
     // Test for the deleteSectionDocument function
     var parameters = {
         id: collectionId + '_' + sectionId,
-        documents: documentId
+        documents: documentIdUrl
     };
     y.deleteSectionDocument(parameters, function(statusCode, document) {
         if (check(statusCode, 'deleteSectionDocument')) {
@@ -490,9 +530,9 @@ function whenSectionDocumentDeleted() {
         id: documentHotspotId,
     };
     y.deleteDocumentHotspot(parameters, function(statusCode, document) {
-      if (check(statusCode, 'deleteDocumentHotspot')) {
-          whenDocumentHotspotDeleted();
-      }
+        if (check(statusCode, 'deleteDocumentHotspot')) {
+            whenDocumentHotspotDeleted();
+        }
     });
 }
 
@@ -506,25 +546,29 @@ function whenSectionDeleted() {
     });
 }
 
-function whenDocumentHotspotDeleted(){
-  // Test for the deleteDocument function
-  var parameters = {
-      id: documentId,
+function whenDocumentHotspotDeleted() {
+    // Test for the deleteDocument function
+    var parameters = {
+        id: documentIdUrl,
     };
-  y.deleteDocument(parameters, function(statusCode, document) {
-      check(statusCode, 'deleteDocument');
-  });
+    y.deleteDocument(parameters, function(statusCode, document) {});
+    var parameters = {
+        id: documentIdFile,
+    };
+    y.deleteDocument(parameters, function(statusCode, document) {
+        check(statusCode, 'deleteDocument');
+    });
 }
 
 function check(statusCode, text) {
     status = 200;
-    if (text == 'postDocumentUrl') {
+    if (text == 'postDocumentUrl' || text == 'postDocumentFile') {
         status = 202;
     }
     if (statusCode == status) {
         successCount = successCount + 1;
         console.log('success - ' + text + ' -------- ' + successCount + ' successful tests');
-        if (successCount == 38) {
+        if (successCount == 40) {
             doDelete();
         }
         return true;

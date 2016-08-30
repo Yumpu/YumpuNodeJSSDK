@@ -3,6 +3,7 @@ var yumpu = require('../yumpu');
 
 //make an instance of the Yumpu sdk class;
 var y = new yumpu();
+// set your token ... y.setToken('yourToken');
 
 /**
  * @api {get} http://api.yumpu.com/2.0/documents.json getDocuments()

@@ -10,19 +10,19 @@
  * @apiHeaderExample {java} Install in java:
  * $ java install yumpu
  *
- * @apiSuccessExample {js} How to use in node:
+ * @apiSuccessExample {js} Set token in node:
+ * @apiSuccessExample {java} Set token in java: 
+ *
+ * @apiErrorExample {js} How to use in node:
  *    // initialize the yumpu class
  *    var yumpu = require('yumpu');
- *
- *    // set your token (find your token: https://www.yumpu.com/account/profile/api)
- *    yumpu.setToken('yourToken');
  *
  *    // example to get all your documents
  *    yumpu.getDocuments(parameters, function(statusCode, document) {
  *      console.log('STATUS: ' + statusCode);
  *      console.log(document);
  *    });
- * @apiSuccessExample {java} How to use in java:
+ * @apiErrorExample {java} How to use in java:
  *    var yumpu = require('yumpu');
  *    yumpu.getDocuments(parameters, function(statusCode, document) {
  *      console.log('STATUS: ' + statusCode);

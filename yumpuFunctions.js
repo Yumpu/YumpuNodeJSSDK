@@ -36,8 +36,9 @@ yumpuFunctions.prototype.executeRequest = function(reqData, callbackRequest) {
 
 
     request(options, function(error, response, body) {
-        // console.log(response);
-        if (error) throw new Error(error);
+        if (error) {
+          callbackRequest(500, options);
+        }
         callbackRequest(response.statusCode, JSON.parse(body.toString()));
     });
 }
