@@ -1,5 +1,7 @@
 var fs = require('fs');
 var request = require("request");
+var config = require('./config');
+var c = new config();
 
 // initialize yumpuFunctions Class
 var yumpuFunctions = function() {}
@@ -14,7 +16,6 @@ yumpuFunctions.prototype.executeRequest = function(reqData, callbackRequest) {
 
     if ((reqData.method == 'POST') || (reqData.method == 'PUT') || (reqData.method == 'DELETE')) {
             options.form = reqData.body;
-
     } else if (reqData.method == 'GET') {
         // console.log(options);
     } else {
@@ -24,9 +25,9 @@ yumpuFunctions.prototype.executeRequest = function(reqData, callbackRequest) {
     request(options, function(error, response, body){
       callbackRequest(response.statusCode, JSON.parse(body.toString()));
     });
-
 }
 
+// set the headers to send
 yumpuFunctions.prototype.setHeaders = function(token) {
     var headers = {
         'X-ACCESS-TOKEN': token,
@@ -47,7 +48,7 @@ yumpuFunctions.prototype.buildUrl = function(parameters, yumpuEndpoints) {
 
 // write the yumpu_log.log file
 yumpuFunctions.prototype.log = function(message) {
-    fs.open('./yumpu_log.log', 'a', 666, function(e, id) {
+    fs.open(c.getYumpuConfig().logFilePath, 'a', 666, function(e, id) {
         fs.write(id, '\n' + message, null, 'utf8', function() {
             fs.close(id, function() {});
         });

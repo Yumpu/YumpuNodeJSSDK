@@ -10,14 +10,11 @@
 // uploadPath - pdfs' path location;
 // yumpuEndpoints - full paths array for the yumpu api methods;
 var c = {
-    token: 'bkIzYsUTS6Eun5ALZwfiD38hN1tlOVKF',
-    returnFormat: 'array',
+    token: 'yourToken',
     endpointDomain: 'api.yumpu.com',
     endpointSearchDomain: 'search.yumpu.com',
     version: '/2.0/',
-    debug: 'FALSE',
-    logFilePath: 'yumpu_log.txt',
-    uploadPath: ''
+    logFilePath: './yumpu_log.log'
 };
 var yumpuEndpoints = {
     userGet: c.version + 'user.json',
@@ -83,7 +80,8 @@ config.prototype.getYumpuConfig = function() {
 config.prototype.getYumpuEndpoints = function() {
     return yumpuEndpoints;
 }
-
+config.prototype.setToken = function(token){
+  c.token = token;
+}
 
 module.exports = config;
-// module.exports = ;

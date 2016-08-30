@@ -45,4 +45,4 @@ var document = require('./example/document');
 // include yumpu sdk
 var yumpu = require('./yumpu');
 // make an instance of the Yumpu sdk class;
-module.exports = new yumpu();
+module.exports = yumpu;
