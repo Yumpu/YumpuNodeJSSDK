@@ -8,7 +8,7 @@ var y = new yumpu();
 
 
 /**
- * @api {get} /section.json getSection()
+ * @api {get} http://api.yumpu.com/2.0/section.json getSection()
  * @apiVersion 1.0.0
  * @apiName Section get
  * @apiGroup Section
@@ -86,7 +86,7 @@ y.getSection(parameters, function(statusCode, document) {
 });
 
 /**
- * @api {post} /section.json postSection()
+ * @api {post} http://api.yumpu.com/2.0/section.json postSection()
  * @apiVersion 1.0.0
  * @apiName Section post
  * @apiGroup Section
@@ -144,7 +144,7 @@ var parameters = {
 
 
 /**
- * @api {put} /section.json putSection()
+ * @api {put} http://api.yumpu.com/2.0/section.json putSection()
  * @apiVersion 1.0.0
  * @apiName Section put
  * @apiGroup Section
@@ -201,7 +201,7 @@ var parameters = {
 // });
 
 /**
- * @api {delete} /section.json deleteSection()
+ * @api {delete} http://api.yumpu.com/2.0/section.json deleteSection()
  * @apiVersion 1.0.0
  * @apiName Section delete
  * @apiGroup Section

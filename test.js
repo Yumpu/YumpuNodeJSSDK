@@ -2,6 +2,10 @@
 var yumpu = require('./yumpu');
 var y = new yumpu();
 
+// define the input (only small characters, no symbols, no blank spaces)
+var testInput = 'inputfortest';
+var testInputPut = 'inputfortestput'
+
 // Test for the getCountries function
 y.getCountries(function(statusCode, documents) {
     check(statusCode, 'getCountries');
@@ -59,7 +63,7 @@ y.postDocumentUrl(parameters, function(statusCode, document) {
 
 // Test for the postMember function
 var parameters = {
-    username: 'test.memberxyzxyzlukas',
+    username: testInput,
     password: '9609ff2e7ba4d577161ab075e406b97f'
 };
 y.postMember(parameters, function(statusCode, document) {
@@ -71,7 +75,7 @@ y.postMember(parameters, function(statusCode, document) {
 
 // Test for the postAccessTag function
 var parameters = {
-    name: 'TestAccessTagxyzxyzlukas',
+    name: testInput,
     description: 'new access tag description'
 };
 y.postAccessTag(parameters, function(statusCode, document) {
@@ -83,8 +87,8 @@ y.postAccessTag(parameters, function(statusCode, document) {
 
 // Test for the postSubscription function
 var parameters = {
-    itc_product_id: 'test_itc_product_idxyzxyzlukas',
-    name: 'testnametest',
+    itc_product_id: testInput,
+    name: testInput,
     duration: 365
 };
 y.postSubscription(parameters, function(statusCode, document) {
@@ -343,7 +347,7 @@ function whenMemeberBuilt() {
     // Test for the putMember function
     var parameters = {
         id: memberId,
-        username: 'test.put.memberxyzxyzlukas',
+        username: testInputPut,
         password: '9609ff2e7ba4d577161ab075e406b97f'
     };
     y.putMember(parameters, function(statusCode, document) {
@@ -369,7 +373,7 @@ function whenAccessTagBuilt() {
     // Test for the putAccessTag function
     var parameters = {
         id: 'lycoiU1T4v8YFdGK',
-        name: 'accessTagNewxyzxyzlukas'
+        name: testInputPut
     };
     y.putAccessTag(parameters, function(statusCode, document) {
         check(statusCode, 'putAccessTag');
@@ -397,8 +401,8 @@ function whenSubscriptionBuilt() {
     // Test fot the putSubscription function
     var parameters = {
         id: subscriptionId,
-        itc_product_id: 'test_itc_product_id_updated_testxyzxyzlukas',
-        name: 'test_name_updated_testxyzxyzlukas',
+        itc_product_id: testInputPut,
+        name: testInputPut,
         duration: 7
     };
     y.putSubscription(parameters, function(statusCode, document) {

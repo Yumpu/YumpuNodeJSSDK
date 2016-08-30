@@ -4,7 +4,7 @@ var yumpu = require('../yumpu');
 var y = new yumpu();
 
 /**
- * @api {get} /subscriptions.json getSubscriptions()
+ * @api {get} http://api.yumpu.com/2.0/subscriptions.json getSubscriptions()
  * @apiVersion 1.0.0
  * @apiName Subscriptions get
  * @apiGroup Subscriptions

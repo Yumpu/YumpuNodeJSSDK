@@ -4,7 +4,7 @@ var yumpu = require('../yumpu');
 var y = new yumpu();
 
 /**
- * @api {get} /collection.json getCollection()
+ * @api {get} http://api.yumpu.com/2.0/collection.json getCollection()
  * @apiVersion 1.0.0
  * @apiName Collection get
  * @apiGroup Collection
@@ -72,7 +72,7 @@ y.getCollection(parameters, function(statusCode, document) {
 });
 
 /**
- * @api {post} /collection.json postCollection()
+ * @api {post} http://api.yumpu.com/2.0/collection.json postCollection()
  * @apiVersion 1.0.0
  * @apiName Collection post
  * @apiGroup Collection
@@ -127,7 +127,7 @@ y.postCollection(parameters, function(statusCode, document) {
 });
 
 /**
- * @api {put} /collection.json putCollection()
+ * @api {put} http://api.yumpu.com/2.0/collection.json putCollection()
  * @apiVersion 1.0.0
  * @apiName Collection put
  * @apiGroup Collection
@@ -185,7 +185,7 @@ var parameters = {
 // });
 
 /**
- * @api {delete} /collection.json deleteCollection()
+ * @api {delete} http://api.yumpu.com/2.0/collection.json deleteCollection()
  * @apiVersion 1.0.0
  * @apiName Collection delete
  * @apiGroup Collection

@@ -4,7 +4,7 @@ var yumpu = require('../yumpu');
 var y = new yumpu();
 
 /**
- * @api {get} /members.json getMembers()
+ * @api {get} http://api.yumpu.com/2.0/members.json getMembers()
  * @apiVersion 1.0.0
  * @apiName Members get
  * @apiGroup Members

@@ -4,7 +4,7 @@ var yumpu = require('../yumpu');
 var y = new yumpu();
 
 /**
- * @api {get} /document/progess.json getDocumentProgress()
+ * @api {get} http://api.yumpu.com/2.0/document/progess.json getDocumentProgress()
  * @apiVersion 1.0.0
  * @apiName Document progress get
  * @apiGroup Document progress

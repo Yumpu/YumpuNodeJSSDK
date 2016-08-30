@@ -4,7 +4,7 @@ var yumpu = require('../yumpu');
 var y = new yumpu();
 
 /**
- * @api {get} /search.json search()
+ * @api {get} http://search.yumpu.com/2.0/search.json search()
  * @apiVersion 1.0.0
  * @apiName Search get
  * @apiGroup Search

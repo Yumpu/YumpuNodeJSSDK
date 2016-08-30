@@ -4,7 +4,7 @@ var yumpu = require('../yumpu');
 var y = new yumpu();
 
 /**
- * @api {get} /document/categories.json getDocumentCategories()
+ * @api {get} http://api.yumpu.com/2.0/document/categories.json getDocumentCategories()
  * @apiVersion 1.0.0
  * @apiName Document categories get
  * @apiGroup Document categories

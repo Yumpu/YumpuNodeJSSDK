@@ -5,7 +5,7 @@ var yumpu = require('../yumpu');
 var y = new yumpu();
 
 /**
- * @api {get} /embeds.json getEmbeds()
+ * @api {get} http://api.yumpu.com/2.0/embeds.json getEmbeds()
  * @apiVersion 1.0.0
  * @apiName Embeds get
  * @apiGroup Embeds

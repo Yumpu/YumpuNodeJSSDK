@@ -4,7 +4,7 @@ var yumpu = require('../yumpu');
 var y = new yumpu();
 
 /**
- * @api {get} /document/languages.json getDocumentLanguages()
+ * @api {get} http://api.yumpu.com/2.0/document/languages.json getDocumentLanguages()
  * @apiVersion 1.0.0
  * @apiName Document languages get
  * @apiGroup Document languages

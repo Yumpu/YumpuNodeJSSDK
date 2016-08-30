@@ -4,7 +4,7 @@ var yumpu = require('../yumpu');
 var y = new yumpu();
 
 /**
- * @api {get} /subscription.json getSubscription()
+ * @api {get} http://api.yumpu.com/2.0/subscription.json getSubscription()
  * @apiVersion 1.0.0
  * @apiName Subscription get
  * @apiGroup Subscription
@@ -57,7 +57,7 @@ y.getSubscription(parameters, function(statusCode, document) {
 });
 
 /**
- * @api {post} /subscription.json postSubscription()
+ * @api {post} http://api.yumpu.com/2.0/subscription.json postSubscription()
  * @apiVersion 1.0.0
  * @apiName Subscription post
  * @apiGroup Subscription
@@ -119,7 +119,7 @@ y.postSubscription(parameters, function(statusCode, document) {
 });
 
 /**
- * @api {put} /subscription.json putSubscription()
+ * @api {put} http://api.yumpu.com/2.0/subscription.json putSubscription()
  * @apiVersion 1.0.0
  * @apiName Subscription put
  * @apiGroup Subscription
@@ -188,7 +188,7 @@ y.putSubscription(parameters, function(statusCode, document) {
 });
 
 /**
- * @api {delete} /subscription.json deleteSubscription()
+ * @api {delete} http://api.yumpu.com/2.0/subscription.json deleteSubscription()
  * @apiVersion 1.0.0
  * @apiName Subscription delete
  * @apiGroup Subscription

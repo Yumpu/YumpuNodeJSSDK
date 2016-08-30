@@ -4,7 +4,7 @@ var yumpu = require('../yumpu');
 var y = new yumpu();
 
  /**
-  * @api {get} /document.json getDocument()
+  * @api {get} http://api.yumpu.com/2.0/document.json getDocument()
   * @apiVersion 1.0.0
   * @apiName Document get
   * @apiGroup Document
@@ -49,7 +49,7 @@ y.getDocument(parameters, function(statusCode, document) {
 
 
 /**
- * @api {post} /document/file.json postDocumentFile()
+ * @api {post} http://api.yumpu.com/2.0/document/file.json postDocumentFile()
  * @apiVersion 1.0.0
  * @apiName Document post file
  * @apiGroup Document
@@ -171,7 +171,7 @@ var parameters = {
 // });
 
 /**
- * @api {post} /document/url.json postDocumentUrl()
+ * @api {post} http://api.yumpu.com/2.0/document/url.json postDocumentUrl()
  * @apiVersion 1.0.0
  * @apiName Document post url
  * @apiGroup Document
@@ -280,7 +280,7 @@ var parameters = {
 // });
 
 /**
- * @api {put} /document.json putDocument()
+ * @api {put} http://api.yumpu.com/2.0/document.json putDocument()
  * @apiVersion 1.0.0
  * @apiName Document put
  * @apiGroup Document
@@ -399,7 +399,7 @@ var parameters = {
 
 
 /**
- * @api {delete} /document.json deleteDocument()
+ * @api {delete} http://api.yumpu.com/2.0/document.json deleteDocument()
  * @apiVersion 1.0.0
  * @apiName Document delete
  * @apiGroup Document

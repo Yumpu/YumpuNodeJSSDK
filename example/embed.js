@@ -4,7 +4,7 @@ var yumpu = require('../yumpu');
 var y = new yumpu();
 
 /**
- * @api {get} /embed.json getEmbed()
+ * @api {get} http://api.yumpu.com/2.0/embed.json getEmbed()
  * @apiVersion 1.0.0
  * @apiName Embed get
  * @apiGroup Embed
@@ -70,7 +70,7 @@ y.getEmbed(parameters, function(statusCode, document) {
 });
 
 /**
- * @api {post} /embed.json postEmbed()
+ * @api {post} http://api.yumpu.com/2.0/embed.json postEmbed()
  * @apiVersion 1.0.0
  * @apiName Embed post
  * @apiGroup Embed
@@ -144,7 +144,7 @@ y.postEmbed(parameters, function(statusCode, document) {
 });
 
 /**
- * @api {put} /embed.json putEmbed()
+ * @api {put} http://api.yumpu.com/2.0/embed.json putEmbed()
  * @apiVersion 1.0.0
  * @apiName Embed put
  * @apiGroup Embed
@@ -235,7 +235,7 @@ y.putEmbed(parameters, function(statusCode, document) {
 });
 
 /**
- * @api {delete} /embed.json deleteEmbed()
+ * @api {delete} http://api.yumpu.com/2.0/embed.json deleteEmbed()
  * @apiVersion 1.0.0
  * @apiName Embed delete
  * @apiGroup Embed

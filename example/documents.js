@@ -5,7 +5,7 @@ var yumpu = require('../yumpu');
 var y = new yumpu();
 
 /**
- * @api {get} /documents.json getDocuments()
+ * @api {get} http://api.yumpu.com/2.0/documents.json getDocuments()
  * @apiVersion 1.0.0
  * @apiName Documents get
  * @apiGroup Documents

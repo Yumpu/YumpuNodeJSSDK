@@ -4,7 +4,7 @@ var yumpu = require('../yumpu');
 var y = new yumpu();
 
 /**
- * @api {get} /countries.json getCountries()
+ * @api {get} http://api.yumpu.com/2.0/countries.json getCountries()
  * @apiVersion 1.0.0
  * @apiName Countries get
  * @apiGroup Countries

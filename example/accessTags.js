@@ -4,7 +4,7 @@ var yumpu = require('../yumpu');
 var y = new yumpu();
 
 /**
- * @api {get} /access_tags.json getAccessTags()
+ * @api {get} http://api.yumpu.com/2.0/access_tags.json getAccessTags()
  * @apiVersion 1.0.0
  * @apiName Access tags get
  * @apiGroup Access tags

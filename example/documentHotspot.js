@@ -4,7 +4,7 @@ var yumpu = require('../yumpu');
 var y = new yumpu();
 
 /**
- * @api {get} /document/hotspot.json getDocumentHotspot()
+ * @api {get} http://api.yumpu.com/2.0/document/hotspot.json getDocumentHotspot()
  * @apiVersion 1.0.0
  * @apiName Document hotspot get
  * @apiGroup Document hotspot
@@ -67,7 +67,7 @@ y.getDocumentHotspot(parameters, function(statusCode, document) {
 });
 
 /**
- * @api {post} /document/hotspot.json postDocumentHotspot()
+ * @api {post} http://api.yumpu.com/2.0/document/hotspot.json postDocumentHotspot()
  * @apiVersion 1.0.0
  * @apiName Document hotspot post
  * @apiGroup Document hotspot
@@ -158,7 +158,7 @@ var parameters = {
 // });
 
 /**
- * @api {put} /document/hotspot.json putDocumentHotspot()
+ * @api {put} http://api.yumpu.com/2.0/document/hotspot.json putDocumentHotspot()
  * @apiVersion 1.0.0
  * @apiName Document hotspot put
  * @apiGroup Document hotspot
@@ -245,7 +245,7 @@ var parameters = {
 // });
 
 /**
- * @api {delete} /document/hotspot.json deleteDocumentHotspot()
+ * @api {delete} http://api.yumpu.com/2.0/document/hotspot.json deleteDocumentHotspot()
  * @apiVersion 1.0.0
  * @apiName Document hotspot delete
  * @apiGroup Document hotspot
@@ -262,7 +262,7 @@ var parameters = {
  *  });
  *
  * @apiHeaderExample {java} Java-Example:
- * Yumpu y = new Yumpu();	
+ * Yumpu y = new Yumpu();
  * JSONObject json = new JSONObject(y.deleteDocumentHotspot("35936979C40pnPVD"));
  *
  * @apiParam {String} id One of your document hotspot ids

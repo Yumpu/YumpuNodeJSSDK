@@ -4,7 +4,7 @@ var yumpu = require('../yumpu');
 var y = new yumpu();
 
 /**
- * @api {get} /document/hotspots.json getDocumentHotspots()
+ * @api {get} http://api.yumpu.com/2.0/document/hotspots.json getDocumentHotspots()
  * @apiVersion 1.0.0
  * @apiName Document hotspots get
  * @apiGroup Document hotspots

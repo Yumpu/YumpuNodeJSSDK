@@ -1,8 +1,8 @@
 /**
  * @apiVersion 1.0.0
- * @apiName Getting started
+ * @apiName blabl
  * @apiGroup Getting started
- * @api /installation Installation
+ * @api https://www.yumpu.com Installation
  *
  * @apiHeaderExample {js} Install with npm on node:
  *  npm install yumpu

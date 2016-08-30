@@ -4,7 +4,7 @@ var yumpu = require('../yumpu');
 var y = new yumpu();
 
 /**
- * @api {get} /user.json getUser()
+ * @api {get} http://api.yumpu.com/2.0/user.json getUser()
  * @apiVersion 1.0.0
  * @apiName User get
  * @apiGroup User
@@ -70,7 +70,7 @@ y.getUser(parameters, function(statusCode, document) {
 });
 
 /**
- * @api {post} /user.json postUser()
+ * @api {post} http://api.yumpu.com/2.0/user.json postUser()
  * @apiVersion 1.0.0
  * @apiName User post
  * @apiGroup User
@@ -158,7 +158,7 @@ y.postUser(parameters, function(statusCode, document) {
 });
 
 /**
- * @api {put} /user.json putUser()
+ * @api {put} http://api.yumpu.com/2.0/user.json putUser()
  * @apiVersion 1.0.0
  * @apiName User put
  * @apiGroup User

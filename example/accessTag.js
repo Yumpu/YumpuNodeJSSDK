@@ -4,7 +4,7 @@ var yumpu = require('../yumpu');
 var y = new yumpu();
 
 /**
- * @api {get} /access_tag.json getAccessTag()
+ * @api {get} http://api.yumpu.com/2.0/access_tag.json getAccessTag()
  * @apiVersion 1.0.0
  * @apiName Access tag get
  * @apiGroup Access tag
@@ -63,7 +63,7 @@ y.getAccessTag(parameters, function(statusCode, document) {
 });
 
 /**
- * @api {post} /access_tag.json postAccessTag()
+ * @api {post} http://api.yumpu.com/2.0/access_tag.json postAccessTag()
  * @apiVersion 1.0.0
  * @apiName Access tag post
  * @apiGroup Access tag
@@ -130,7 +130,7 @@ y.postAccessTag(parameters, function(statusCode, document) {
 });
 
 /**
- * @api {put} /access_tag.json putAccessTag()
+ * @api {put} http://api.yumpu.com/2.0/access_tag.json putAccessTag()
  * @apiVersion 1.0.0
  * @apiName Access tag put
  * @apiGroup Access tag
@@ -202,7 +202,7 @@ y.putAccessTag(parameters, function(statusCode, document) {
 });
 
 /**
- * @api {delete} /access_tag.json deleteAccessTag()
+ * @api {delete} http://api.yumpu.com/2.0/access_tag.json deleteAccessTag()
  * @apiVersion 1.0.0
  * @apiName Access tag delete
  * @apiGroup Access tag

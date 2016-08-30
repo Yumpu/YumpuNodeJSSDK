@@ -4,7 +4,7 @@ var yumpu = require('../yumpu');
 var y = new yumpu();
 
 /**
- * @api {post} /section/document.json postSectionDocument()
+ * @api {post} http://api.yumpu.com/2.0/section/document.json postSectionDocument()
  * @apiVersion 1.0.0
  * @apiName Section document post
  * @apiGroup Section document
@@ -83,7 +83,7 @@ y.postSectionDocument(parameters, function(statusCode, document) {
 });
 
 /**
- * @api {delete} /section/document.json deleteSectionDocument()
+ * @api {delete} http://api.yumpu.com/2.0/section/document.json deleteSectionDocument()
  * @apiVersion 1.0.0
  * @apiName Section document delete
  * @apiGroup Section document
