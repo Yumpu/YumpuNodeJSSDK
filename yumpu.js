@@ -7,10 +7,6 @@ var yumpu = function() {
     yf.log('Yumpu class initialized');
 }
 
-yumpu.prototype.setToken = function(token) {
-    c.setToken(token);
-}
-
 // get all documents from one user
 // more details on: http://developers.yumpu.com/api/documents/get/
 yumpu.prototype.getDocuments = function(parameters, callback) {

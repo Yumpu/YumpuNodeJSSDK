@@ -2,7 +2,7 @@
  * @apiVersion 1.0.0
  * @apiName Getting started
  * @apiGroup Getting started
- * @api {create an account on: } https://www.yumpu.com
+ * @api {create an account on: } http://developers.yumpu.com
  *
  * @apiHeaderExample {js} Install with npm on node:
  * $ npm install yumpu

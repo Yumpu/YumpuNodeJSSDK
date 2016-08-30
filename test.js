@@ -2,8 +2,6 @@
 var yumpu = require('./yumpu');
 var y = new yumpu();
 
-y.setToken('yourToken');
-
 // define the input (only small characters, no symbols, no blank spaces)
 var testInput = 'inputfortest';
 var testInputPut = 'inputfortestput'
