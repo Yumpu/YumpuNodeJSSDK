@@ -148,7 +148,10 @@ y.getDocument(parameters, function(statusCode, document) {
  */
 var parameters = {
     title: 'MyDocument',
-    file: './example/media/yumpu.pdf'
+    file: './example/media/yumpu.pdf',
+    page_teaser_image: './example/media/yumpu.png',
+    page_teaser_page_range: '1-1',
+    page_teaser_url: 'http://www.yumpu.com/en'
 };
 // y.postDocumentFile(parameters, function(statusCode, document) {
 //     console.log('Status: ' + statusCode)
@@ -159,11 +162,10 @@ var parameters = {
 // more details on : http://developers.yumpu.com/api/document/post-url/
 var parameters = {
     'title': 'Sieggggggg',
-    'url': 'https://s3-eu-west-1.amazonaws.com/yumpu/api/yumpu_sdk_example_pdf.pdf',
-    'page_teaser_image': __dirname + '/media/yumpu.png',
+    'url': 'http://www.pdf995.com/samples/pdf.pdf',
+    'page_teaser_image': './example/media/yumpu.png',
     'page_teaser_page_range': '1-1',
     'page_teaser_url': 'http://www.yumpu.com/en'
-        // write optional parameters here
 };
 // y.postDocumentUrl(parameters, function(statusCode, document) {
 //     console.log('Status: ' + statusCode)

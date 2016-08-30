@@ -15,15 +15,30 @@ yumpuFunctions.prototype.executeRequest = function(reqData, callbackRequest) {
     };
 
     if ((reqData.method == 'POST') || (reqData.method == 'PUT') || (reqData.method == 'DELETE')) {
+        if (reqData.body.file && reqData.body.page_teaser_image) {
+            reqData.body.file = fs.createReadStream(reqData.body.file);
+            reqData.body.page_teaser_image = fs.createReadStream(reqData.body.page_teaser_image);
+            options.formData = reqData.body;
+        } else if (reqData.body.file) {
+            reqData.body.file = fs.createReadStream(reqData.body.file);
+            options.formData = reqData.body;
+        } else if (reqData.body.page_teaser_image) {
+            reqData.body.page_teaser_image = fs.createReadStream(reqData.body.page_teaser_image);
+            options.formData = reqData.body;
+        } else {
             options.form = reqData.body;
+        }
     } else if (reqData.method == 'GET') {
         // console.log(options);
     } else {
         return callbackRequest(405, options);
     };
 
-    request(options, function(error, response, body){
-      callbackRequest(response.statusCode, JSON.parse(body.toString()));
+
+    request(options, function(error, response, body) {
+        // console.log(response);
+        if (error) throw new Error(error);
+        callbackRequest(response.statusCode, JSON.parse(body.toString()));
     });
 }
 
