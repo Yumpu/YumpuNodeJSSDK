@@ -14,7 +14,7 @@ var c = {
     endpointDomain: 'api.yumpu.com',
     endpointSearchDomain: 'search.yumpu.com',
     version: '/2.0/',
-    logFilePath: './yumpu_log.log'
+    logFilePath: './yumpu-log.log'
 };
 var yumpuEndpoints = {
     userGet: c.version + 'user.json',
