@@ -268,13 +268,7 @@ y.putEmbed(parameters, function(statusCode, document) {
  *
  */
 var parameters = {
-    id: 'viNn5QAeXWDYryt4',
-    document_id: '55865141',
-    type: 2,
-    width: 300,
-    background_shape: 'square',
-    color: 'grey',
-    destination: 'magazinePage'
+    id: 'viNn5QAeXWDYryt4'
 };
 y.deleteEmbed(parameters, function(statusCode, document) {
     console.log('Status: ' + statusCode)

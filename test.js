@@ -41,6 +41,7 @@ var collectionId;
 var sectionId;
 var embedId;
 var accessTagId;
+var subscriptionId;
 
 // Test for the postDocumentUrl function
 var parameters = {
@@ -58,26 +59,39 @@ y.postDocumentUrl(parameters, function(statusCode, document) {
 
 // Test for the postMember function
 var parameters = {
-    username: 'test.member',
+    username: 'test.memberxyzxyzlukas',
     password: '9609ff2e7ba4d577161ab075e406b97f'
 };
 y.postMember(parameters, function(statusCode, document) {
-  if (check(statusCode, 'postMember')) {
-      memberId = document.member.id;
-      whenMemeberBuilt();
-  }
+    if (check(statusCode, 'postMember')) {
+        memberId = document.member.id;
+        whenMemeberBuilt();
+    }
 });
 
 // Test for the postAccessTag function
 var parameters = {
-    name: 'Test1AccessTag',
+    name: 'TestAccessTagxyzxyzlukas',
     description: 'new access tag description'
 };
 y.postAccessTag(parameters, function(statusCode, document) {
-  if (check(statusCode, 'postAccessTag')) {
-      accessTagId = document.access_tag.id;
-      whenAccessTagBuilt();
-  }
+    if (check(statusCode, 'postAccessTag')) {
+        accessTagId = document.access_tag.id;
+        whenAccessTagBuilt();
+    }
+});
+
+// Test for the postSubscription function
+var parameters = {
+    itc_product_id: 'test_itc_product_idxyzxyzlukas',
+    name: 'testnametest',
+    duration: 365
+};
+y.postSubscription(parameters, function(statusCode, document) {
+    if (check(statusCode, 'postSubscription')) {
+        subscriptionId = document.subscription.id;
+        whenSubscriptionBuilt();
+    }
 });
 
 function documentProgress() {
@@ -312,54 +326,84 @@ function whenEmbedBuilt() {
 }
 
 function whenMemeberBuilt() {
-  // Test for the getMembers function
-  var parameters = {};
-  y.getMembers(parameters, function(statusCode, document) {
-      check(statusCode, 'getMembers');
-  });
+    // Test for the getMembers function
+    var parameters = {};
+    y.getMembers(parameters, function(statusCode, document) {
+        check(statusCode, 'getMembers');
+    });
 
-  // Test for the getMember function
-  var parameters = {
-      id: memberId
-  };
-  y.getMember(parameters, function(statusCode, document) {
-      check(statusCode, 'getMember');
-  });
+    // Test for the getMember function
+    var parameters = {
+        id: memberId
+    };
+    y.getMember(parameters, function(statusCode, document) {
+        check(statusCode, 'getMember');
+    });
 
-  // Test for the putMember function
-  var parameters = {
-      id: memberId,
-      username: 'test.member1',
-      password: '9609ff2e7ba4d577161ab075e406b97f'
-  };
-  y.putMember(parameters, function(statusCode, document) {
-      check(statusCode, 'putMember');
-  });
+    // Test for the putMember function
+    var parameters = {
+        id: memberId,
+        username: 'test.put.memberxyzxyzlukas',
+        password: '9609ff2e7ba4d577161ab075e406b97f'
+    };
+    y.putMember(parameters, function(statusCode, document) {
+        check(statusCode, 'putMember');
+    });
 }
 
-function whenAccessTagBuilt(){
-  // Test for the getAccessTags function
-  var parameters = {};
-  y.getAccessTags(parameters, function(statusCode, document) {
-      check(statusCode, 'getAccessTags');
-  });
+function whenAccessTagBuilt() {
+    // Test for the getAccessTags function
+    var parameters = {};
+    y.getAccessTags(parameters, function(statusCode, document) {
+        check(statusCode, 'getAccessTags');
+    });
 
-  // Test for the getAccessTag function
-  var parameters = {
-      id: accessTagId
-  };
-  y.getAccessTag(parameters, function(statusCode, document) {
-      check(statusCode, 'getAccessTag');
-  });
+    // Test for the getAccessTag function
+    var parameters = {
+        id: accessTagId
+    };
+    y.getAccessTag(parameters, function(statusCode, document) {
+        check(statusCode, 'getAccessTag');
+    });
 
-  // Test for the putAccessTag function
-  var parameters = {
-      id: 'lycoiU1T4v8YFdGK',
-      name: 'accessTagNew'
-  };
-  y.putAccessTag(parameters, function(statusCode, document) {
-      check(statusCode, 'putAccessTag');
-  });
+    // Test for the putAccessTag function
+    var parameters = {
+        id: 'lycoiU1T4v8YFdGK',
+        name: 'accessTagNewxyzxyzlukas'
+    };
+    y.putAccessTag(parameters, function(statusCode, document) {
+        check(statusCode, 'putAccessTag');
+    });
+}
+
+function whenSubscriptionBuilt() {
+    // Test for the getSubscriptions function
+    var parameters = {
+        limit: 10,
+        offset: 0
+    };
+    y.getSubscriptions(parameters, function(statusCode, document) {
+        check(statusCode, 'getSubscriptions');
+    });
+
+    // Test for the getSubscription function
+    var parameters = {
+        id: subscriptionId,
+    };
+    y.getSubscription(parameters, function(statusCode, document) {
+        check(statusCode, 'getSubscription');
+    });
+
+    // Test fot the putSubscription function
+    var parameters = {
+        id: subscriptionId,
+        itc_product_id: 'test_itc_product_id_updated_testxyzxyzlukas',
+        name: 'test_name_updated_testxyzxyzlukas',
+        duration: 7
+    };
+    y.putSubscription(parameters, function(statusCode, document) {
+        check(statusCode, 'putSubscription');
+    });
 }
 
 function search() {
@@ -381,6 +425,93 @@ function search() {
     });
 }
 
+function doDelete() {
+    // Test for the deleteSubscription function
+    var parameters = {
+        id: subscriptionId
+    };
+    y.deleteSubscription(parameters, function(statusCode, document) {
+        check(statusCode, 'deleteSubscription');
+    });
+
+    // Test for the deleteAccessTag function
+    var parameters = {
+        id: accessTagId
+    };
+    y.deleteAccessTag(parameters, function(statusCode, document) {
+        check(statusCode, 'deleteAccessTag');
+    });
+
+    // Test for the deleteMember function
+    var parameters = {
+        id: memberId
+    };
+    y.deleteMember(parameters, function(statusCode, document) {
+        check(statusCode, 'deleteMember');
+    });
+
+    // Test for the deleteEmbed function
+    var parameters = {
+        id: embedId
+    };
+    y.deleteEmbed(parameters, function(statusCode, document) {
+        check(statusCode, 'deleteEmbed');
+    });
+
+    // Test for the deleteSectionDocument function
+    var parameters = {
+        id: collectionId + '_' + sectionId,
+        documents: documentId
+    };
+    y.deleteSectionDocument(parameters, function(statusCode, document) {
+        if (check(statusCode, 'deleteSectionDocument')) {
+            whenSectionDocumentDeleted();
+        }
+    });
+}
+
+function whenSectionDocumentDeleted() {
+    // Test for the deleteSection function
+    var parameters = {
+        id: collectionId + '_' + sectionId
+    };
+    y.deleteSection(parameters, function(statusCode, document) {
+        if (check(statusCode, 'deleteSection')) {
+            whenSectionDeleted();
+        }
+    });
+
+    // Test for the deleteDocumentHotspot function
+    var parameters = {
+        id: documentHotspotId,
+    };
+    y.deleteDocumentHotspot(parameters, function(statusCode, document) {
+      if (check(statusCode, 'deleteDocumentHotspot')) {
+          whenDocumentHotspotDeleted();
+      }
+    });
+}
+
+function whenSectionDeleted() {
+    // Test for the deleteCollection function
+    var parameters = {
+        id: collectionId
+    };
+    y.deleteCollection(parameters, function(statusCode, document) {
+        check(statusCode, 'deleteCollection');
+    });
+}
+
+function whenDocumentHotspotDeleted(){
+  // Test for the deleteDocument function
+  var parameters = {
+      id: documentId,
+    };
+  y.deleteDocument(parameters, function(statusCode, document) {
+      check(statusCode, 'deleteDocument');
+  });
+}
+
 function check(statusCode, text) {
     status = 200;
     if (text == 'postDocumentUrl') {
@@ -389,11 +520,13 @@ function check(statusCode, text) {
     if (statusCode == status) {
         successCount = successCount + 1;
         console.log('success - ' + text + ' -------- ' + successCount + ' successful tests');
-
+        if (successCount == 38) {
+            doDelete();
+        }
         return true;
     } else {
         errorCount = errorCount + 1;
-        console.log('fail - ' + text);
+        console.log('fail - ' + text + ' -------- ' + errorCount + ' error tests');
         return false;
     }
 }

@@ -141,7 +141,7 @@ y.postSubscription(parameters, function(statusCode, document) {
  *  });
  *
  *
- * @apiParam {String} id One of your subscription ids	
+ * @apiParam {String} id One of your subscription ids
  * @apiParam {String} itc_product_id min. 5 characters, max. 255 characters
  * @apiParam {String} name min. 5 characters, max. 50 characters
  * @apiParam {Integer} duration 7, 31, 62, 93, 186 or 365 (days)
@@ -216,11 +216,7 @@ y.putSubscription(parameters, function(statusCode, document) {
  *
  */
 var parameters = {
-    id: '1ChSI3vGfouFlzrU',
-    itc_product_id: 'my_subscription_itc_product_id_updated',
-    name: 'my subscription name updated',
-    duration: 7,
-    description: 'my subscription description updated',
+    id: '1ChSI3vGfouFlzrU'
 };
 y.deleteSubscription(parameters, function(statusCode, document) {
     console.log('Status: ' + statusCode)
