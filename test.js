@@ -5,8 +5,8 @@ var y = new yumpu();
 y.setToken('yourToken');
 
 // define the input (only small characters, no symbols, no blank spaces)
-var testInput = 'inputfortestx';
-var testInputPut = 'inputfortestputx'
+var testInput = 'inputfortest';
+var testInputPut = testInput + 'put';
 
 // Test for the getCountries function
 y.getCountries(function(statusCode, documents) {
@@ -52,7 +52,7 @@ var subscriptionId;
 
 // Test for the postDocumentUrl function
 var parameters = {
-    title: 'TestDocument',
+    title: testInput,
     url: 'http://www.onlinemarketing-praxis.de/uploads/pdf/suchparameter-google-uebersicht.pdf',
     page_teaser_image: './example/media/yumpu.png',
     page_teaser_page_range: '1-1',
@@ -69,7 +69,7 @@ y.postDocumentUrl(parameters, function(statusCode, document) {
 
 // Test for the postDocumentFile function
 var parameters = {
-    title: 'MyDocument',
+    title: 'TestSearchDocument',
     file: './example/media/yumpu.pdf',
 };
 y.postDocumentFile(parameters, function(statusCode, document) {
@@ -96,7 +96,7 @@ y.postMember(parameters, function(statusCode, document) {
 // Test for the postAccessTag function
 var parameters = {
     name: testInput,
-    description: 'new access tag description'
+    description: testInput
 };
 y.postAccessTag(parameters, function(statusCode, document) {
     if (check(statusCode, 'postAccessTag')) {
@@ -148,6 +148,7 @@ function documentProgressFile() {
         if (statusCode == 200) {
             check(statusCode, 'getDocumentProgressFile');
             documentIdFile = document.document[0].id;
+            search();
         } else {
             cnt = cnt + 1;
             if (cnt >= 10) {
@@ -178,10 +179,10 @@ function whenDocumentBuilt() {
     // Test for the putDocument function
     var parameters = {
         id: documentIdUrl,
-        title: 'TestDocumentPut'
+        title: testInputPut
     };
     y.putDocument(parameters, function(statusCode, document) {
-        check(statusCode, 'putDocument');
+        check(statusCode, 'putDocument')
     });
 
     // Test for the postDocumentHotspot function
@@ -194,8 +195,8 @@ function whenDocumentBuilt() {
             y: 10,
             w: 10,
             h: 10,
-            name: 'TestHotspot',
-            tooltip: 'TestTooltipForHotspot',
+            name: testInput,
+            tooltip: testInput,
             link: 'https://www.yumpu.com'
         }
     };
@@ -208,7 +209,7 @@ function whenDocumentBuilt() {
 
     // Test for the postCollection function
     var parameters = {
-        name: 'TestCollection'
+        name: 'testInput'
     };
     y.postCollection(parameters, function(statusCode, document) {
         if (check(statusCode, 'postCollection')) {
@@ -216,9 +217,6 @@ function whenDocumentBuilt() {
             whenCollectionBuilt();
         };
     });
-
-    // Test for the search function
-    search();
 
     // Test for the postEmbed function
     var parameters = {
@@ -292,7 +290,7 @@ function whenCollectionBuilt() {
     // Test for the putCollection fucntion
     var parameters = {
         id: collectionId,
-        name: 'TestCollectionPut'
+        name: testInputPut
     };
     y.putCollection(parameters, function(statusCode, document) {
         check(statusCode, 'putCollection');
@@ -301,7 +299,7 @@ function whenCollectionBuilt() {
     // Test for the postSection function
     var parameters = {
         id: collectionId,
-        name: 'TestSection'
+        name: testInput
     };
     y.postSection(parameters, function(statusCode, document) {
         check(statusCode, 'putCollection');
@@ -321,15 +319,14 @@ function whenSectionBuilt() {
     });
 
     // Test for the putSection function
-    // var parameters = {
-    //     id: collectionId + '_' + sectionId,
-    //     name: 'TestDescriptionPut',
-    //     description: 'TestDescription'
-    // };
-    // y.putSection(parameters, function(statusCode, document) {
-    //   console.log(statusCode);
-    //     check(statusCode, 'putSection');
-    // });
+    var parameters = {
+        id: collectionId + '_' + sectionId,
+        name: testInputPut,
+        description: testInputPut
+    };
+    y.putSection(parameters, function(statusCode, document) {
+        check(statusCode, 'putSection');
+    });
 
     // Test for the postSectionDocument function
     var parameters = {
@@ -412,7 +409,7 @@ function whenAccessTagBuilt() {
 
     // Test for the putAccessTag function
     var parameters = {
-        id: 'lycoiU1T4v8YFdGK',
+        id: accessTagId,
         name: testInputPut
     };
     y.putAccessTag(parameters, function(statusCode, document) {
@@ -450,22 +447,26 @@ function whenSubscriptionBuilt() {
     });
 }
 
+var cntSearch = 0;
+
 function search() {
-    var cnt = 0;
+
     var parameters = {
-        q: 'TestDocument',
+        q: 'TestSearchDocument',
         in: 'title'
     };
     y.search(parameters, function(statusCode, document) {
         if (statusCode == 404) {
-            cnt = cnt + 1;
-            if (cnt >= 10) {
+            cntSearch = cntSearch + 1;
+            if (cntSearch > 20) {
                 check(400, 'search');
             }
             wait(2000);
             search();
+        } else {
+            check(statusCode, 'search');
         }
-        check(statusCode, 'search');
+
     });
 }
 
@@ -568,13 +569,13 @@ function check(statusCode, text) {
     if (statusCode == status) {
         successCount = successCount + 1;
         console.log('success - ' + text + ' -------- ' + successCount + ' successful tests');
-        if (successCount == 40) {
+        if (successCount == 41) {
             doDelete();
         }
         return true;
     } else {
         errorCount = errorCount + 1;
-        console.log('fail - ' + text + ' -------- ' + errorCount + ' error tests');
+        console.log('fail - ' + text + ' -------- ' + errorCount + ' error tests' + ' ------- ' + statusCode);
         return false;
     }
 }

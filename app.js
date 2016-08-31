@@ -30,7 +30,7 @@
 
 // var embed = require('./example/embed.js');
 
-var members = require('./example/members.js');
+// var members = require('./example/members.js');
 
 // var member = require('./example/member.js');
 
