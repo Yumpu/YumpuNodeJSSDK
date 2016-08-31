@@ -31,6 +31,7 @@ var yumpu = require('yumpu');
 yumpu.setToken('yourToken');
 
 // example to get all your documents
+var parameters = {};
 yumpu.getDocuments(parameters, function(statusCode, document) {
   console.log('STATUS: ' + statusCode);
   console.log(document);
