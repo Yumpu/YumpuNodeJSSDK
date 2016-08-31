@@ -28,6 +28,7 @@ var y = new yumpu();
  * String returnFields[] = { "id,name" };
  * y.getAccessTags(params, returnFields);
  *
+ * @apiParam {String} [q] A keyword to search for
  * @apiParam {Integer} [offset] Retrieve rows at position X (min. 0)
       <br/><br/><b>Default:</b> 0
  * @apiParam {Integer} [limit]	Retrieve X rows (min. 0 and max. 100)
@@ -89,6 +90,7 @@ var y = new yumpu();
  *
  */
 var parameters = {
+    q: 'TestAccessTag',
     limit: 10,
     offset: 0,
     return_fields: 'id,name,default,iap,kiosks',

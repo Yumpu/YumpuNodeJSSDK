@@ -121,7 +121,7 @@ y.getAccessTag(parameters, function(statusCode, document) {
  *
  */
 var parameters = {
-    name: 'new Access Tag',
+    name: 'TestAccessTag',
     description: 'new access tag description',
     default: 'y'
 };

@@ -99,6 +99,7 @@ var y = new yumpu();
  *
  */
 var parameters = {
+    q: 'test.username',
     limit: 5,
     offset: 0,
     return_fields: 'id,username,access_tags,kiosks',

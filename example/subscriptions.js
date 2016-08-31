@@ -23,6 +23,7 @@ var y = new yumpu();
  *  });
  *
  *
+ * @apiParam {String} [q] A keyword to search for
  * @apiParam {Integer} [offset] Retrieve rows at position X (min. 0)
       <br/><br/><b>Default:</b> 0
  * @apiParam {Integer} [limit]	Retrieve X rows (min. 0 and max. 100)
@@ -80,7 +81,8 @@ var parameters = {
     limit: 10,
     offset: 0,
     return_fields: 'id,itc_product_id,name,description,duration,create_date',
-    sort: 'name_asc'
+    sort: 'name_asc',
+    q: 'TestSubscription'
 };
 y.getSubscriptions(parameters, function(statusCode, document) {
     console.log('Status: ' + statusCode)

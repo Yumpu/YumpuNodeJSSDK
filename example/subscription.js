@@ -110,7 +110,7 @@ y.getSubscription(parameters, function(statusCode, document) {
  */
 var parameters = {
     itc_product_id: 'my_subscription_itc_product_id',
-    name: 'my subscription name',
+    name: 'TestSubscription1',
     duration: 365,
     description: 'my subscription description',
 };
@@ -177,9 +177,9 @@ y.postSubscription(parameters, function(statusCode, document) {
  *
  */
 var parameters = {
-    id: '1ChSI3vGfouFlzrU',
+    id: 'acwWFxQXbpAZCzqP',
     itc_product_id: 'my_subscription_itc_product_id_updated',
-    name: 'my subscription name updated',
+    name: 'TestSubscription',
     duration: 7,
     description: 'my subscription description updated',
 };

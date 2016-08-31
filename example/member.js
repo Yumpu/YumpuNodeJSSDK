@@ -116,7 +116,7 @@ y.getMember(parameters, function(statusCode, document) {
  *
  */
 var parameters = {
-    username: 'my.username',
+    username: 'test.username',
     password: '9609ff2e7ba4d577161ab075e406b97f',
     comment: 'comment for myUsername'
 };
@@ -189,7 +189,7 @@ y.postMember(parameters, function(statusCode, document) {
  */
 var parameters = {
     id: 'qf4sUtS3dCDhPXmT',
-    username: 'my.username1',
+    username: 'test.username',
     password: '9609ff2e7ba4d577161ab075e406b97f',
     comment: 'comment for myUsername'
 };
