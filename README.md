@@ -2,7 +2,7 @@
 
 ## ... under construction
 
-With Node.js SDK you can create effective Node.js tools to publish your pdf documents on your Node. Find out how to get started, publish your first pdf as flip book on the web or use the search function to display content.
+With Node.js SDK you can create effective Node.js tools to publish your pdf documents on your Node application. Find out how to get started, publish your first pdf as flip book on the web or use the search function to display content.
 
 ## Introduction
 
@@ -30,11 +30,15 @@ var yumpu = require('yumpu');
 // set your token (find your token: https://www.yumpu.com/account/profile/api)
 yumpu.setToken('yourToken');
 
-// example to get all your documents
+// example to get all your documents:
+
+// set parameters
 var parameters = {
   limit: 10,
   offset: 0
 };
+
+// function getDocuments()
 yumpu.getDocuments(parameters, function(statusCode, document) {
   console.log('STATUS: ' + statusCode);
   console.log(document);

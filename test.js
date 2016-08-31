@@ -450,7 +450,6 @@ function whenSubscriptionBuilt() {
 var cntSearch = 0;
 
 function search() {
-
     var parameters = {
         q: 'TestSearchDocument',
         in: 'title'
@@ -458,7 +457,7 @@ function search() {
     y.search(parameters, function(statusCode, document) {
         if (statusCode == 404) {
             cntSearch = cntSearch + 1;
-            if (cntSearch > 20) {
+            if (cntSearch > 30) {
                 check(400, 'search');
             }
             wait(2000);
@@ -466,7 +465,6 @@ function search() {
         } else {
             check(statusCode, 'search');
         }
-
     });
 }
 

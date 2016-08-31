@@ -17,8 +17,15 @@
  *    // set your token (find your token: https://www.yumpu.com/account/profile/api)
  *    yumpu.setToken('yourToken');
  *
- *    // example to get all your documents
- *    var parameters = {};
+ *    // example to get all your documents:
+ *
+ *    // set parameters
+ *    var parameters = {
+ *      limit: 10,
+ *      offset: 0
+ *    };
+ *
+ *    // function getDocuments()
  *    yumpu.getDocuments(parameters, function(statusCode, document) {
  *      console.log('STATUS: ' + statusCode);
  *      console.log(document);
