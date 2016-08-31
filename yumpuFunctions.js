@@ -37,7 +37,7 @@ yumpuFunctions.prototype.executeRequest = function(reqData, callbackRequest) {
 
     request(options, function(error, response, body) {
         if (error) {
-          callbackRequest(500, options);
+            callbackRequest(500, options);
         }
         callbackRequest(response.statusCode, JSON.parse(body.toString()));
     });
@@ -55,10 +55,14 @@ yumpuFunctions.prototype.setHeaders = function(token) {
 // build URL for a get request
 yumpuFunctions.prototype.buildUrl = function(parameters, yumpuEndpoints) {
     var build = '';
-    for (var prop in parameters) {
-        build = build + prop + '=' + parameters[prop] + '&';
+    if (parameters) {
+        for (var prop in parameters) {
+            build = build + prop + '=' + parameters[prop] + '&';
+        }
+        var url = yumpuEndpoints + '?' + build;
+    } else {
+        var url = yumpuEndpoints;
     }
-    var url = yumpuEndpoints + '?' + build;
     return url;
 }
 
