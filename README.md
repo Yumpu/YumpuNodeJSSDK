@@ -1,15 +1,12 @@
-Node.js SDK for Yumpu
-=====================
+# Node.js SDK for Yumpu
 
-## ... under construction ##
+## ... under construction
 
-With Yumpu.com API you can create effective tools to publish your pdf documents on your website, tablet or mobile application. Find out how to get started, publish your first pdf as flip book on the web or use the search api to display content.
+With Node.js SDK you can create effective Node.js tools to publish your pdf documents on your Node. Find out how to get started, publish your first pdf as flip book on the web or use the search function to display content.
 
+## Introduction
 
-Introduction
-============
-
-What is REST API? To make it simple, REST API defines a set of functions to which the developers can perform requests and receive responses. The interaction is performed via the HTTP protocol. An advantage of such an approach is the wide usage of HTTP. That is why REST API can be used practically for any programming language.
+What is a Node.js SDK? To make it simple, SDK defines a set of functions which developers can use to perform requests and receive data from the REST API.
 
 Common characteristics of Yumpu REST API resources are as follows:
 
@@ -18,15 +15,29 @@ Common characteristics of Yumpu REST API resources are as follows:
 3. All resources may return different HTTP status codes (e.g., HTTP Status Code 200 for success response or HTTP Status Code 400 for the bad request).
 4. You request a particular resource by adding a particular path to the base URL that specifies the resource.
 
-Get started
-===========
+## Get started
 
-http://developers.yumpu.com/
+Install the yumpu package from npm:
+```
+$ npm install yumpu
+```
 
-http://developers.yumpu.com/api/getting-started/
+Code:
+```
+// initialize the yumpu class
+var yumpu = require('yumpu');
 
-Impressum
-=========
+// set your token (find your token: https://www.yumpu.com/account/profile/api)
+yumpu.setToken('yourToken');
+
+// example to get all your documents
+yumpu.getDocuments(parameters, function(statusCode, document) {
+  console.log('STATUS: ' + statusCode);
+  console.log(document);
+});
+```
+
+## Impressum
 
 [i]-magazine AG<br>
 Web-based, self-service (SaaS) marketing & magazine software
