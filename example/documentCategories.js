@@ -4,49 +4,6 @@ var yumpu = require('../yumpu');
 var y = new yumpu();
 // set your token ... y.setToken('yourToken');
 
-/**
- * @api {get} http://api.yumpu.com/2.0/document/categories.json getDocumentCategories()
- * @apiVersion 1.0.0
- * @apiName Document categories get
- * @apiGroup Document categories
- *
- *
- * @apiHeaderExample {js} Java-Script-Example:
- *  var yumpu = require('yumpu.js');
- *  yumpu.getDocumentCategories(function(statusCode, document){
- *     console.log('Status: ' + statusCode);
- *     console.log(document);
- *  });
- *
- * @apiHeaderExample {java} Java-Example:
- * Yumpu y = new Yumpu();
- * JSONObject json = new JSONObject(y.getCategories());
- *
- * @apiSuccessExample Success-Response:
- *     HTTP/1.1 200 OK
- *     {
- *       "total": 22,
- *       "categories": [
- *         {
- *           "id": "0",
- *           "name": "None"
- *         },
- *         {
- *           "id": "1",
- *           "name": "Auto & Vehicles"
- *         },
- *         {
- *           "id": "2",
- *           "name": "Business & Marketing"
- *         },
- *         {
- *            ...
- *         }
- *       ],
- *       "state": "success"
- *     }
- *
- */
 y.getDocumentCategories(function(statusCode, document) {
     console.log('Status: ' + statusCode)
     console.log(document);
