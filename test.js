@@ -4,7 +4,7 @@ var y = new yumpu();
 
 y.setToken('yourToken');
 
-// define the input (only small characters, no symbols, no blank spaces)
+// define the input (only small characters, no symbols, no blank spaces, min 5 characters)
 var testInput = 'inputfortestxy';
 var testInputPut = testInput + 'put';
 
