@@ -1,5 +1,5 @@
 var config = require("./config");
-var yumpuFunctions = require('./yumpuFunctions')
+var yumpuFunctions = require('./yumpuFunctions');
 var c = new config();
 var yf = new yumpuFunctions();
 

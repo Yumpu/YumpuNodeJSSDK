@@ -1,11 +1,18 @@
 // include yumpu sdk
 var yumpu = require('./yumpu');
 var y = new yumpu();
+var config = require("./config");
+var c = new config();
 
 y.setToken('yourToken');
 
+if(c.getYumpuConfig().token == 'yourToken') {
+  console.log('You have forgotten to set your token');
+  process.exit();
+}
+
 // define the input (only small characters, no symbols, no blank spaces, min 5 characters)
-var testInput = 'inputfortestxy';
+var testInput = 'inputfortest';
 var testInputPut = testInput + 'put';
 
 // Test for the getCountries function
