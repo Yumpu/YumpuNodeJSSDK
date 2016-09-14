@@ -209,7 +209,7 @@ function whenDocumentBuilt() {
 
     // Test for the postCollection function
     var parameters = {
-        name: 'testInput'
+        name: testInput
     };
     y.postCollection(parameters, function(statusCode, document) {
         if (check(statusCode, 'postCollection')) {
