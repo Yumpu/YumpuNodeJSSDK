@@ -4,15 +4,14 @@ var y = new yumpu();
 var config = require("./config");
 var c = new config();
 
-y.setToken('yourToken');
+y.setToken(token);
 
 if(c.getYumpuConfig().token == 'yourToken') {
-  console.log('You have forgotten to set your token');
-  process.exit();
+  throw "You have forgotten to set your token";
 }
 
 // define the input (only small characters, no symbols, no blank spaces, min 5 characters)
-var testInput = 'inputfortest';
+var testInput = 'inputfortestxy';
 var testInputPut = testInput + 'put';
 
 // Test for the getCountries function
@@ -458,8 +457,7 @@ var cntSearch = 0;
 
 function search() {
     var parameters = {
-        q: 'TestSearchDocument',
-        in: 'title'
+        q: 'test'
     };
     y.search(parameters, function(statusCode, document) {
         if (statusCode == 404) {
@@ -563,6 +561,9 @@ function whenDocumentHotspotDeleted() {
     };
     y.deleteDocument(parameters, function(statusCode, document) {
         check(statusCode, 'deleteDocument');
+        if(successCount != 50) {
+          throw "something went wrong";
+        }
     });
 }
 
