@@ -4,7 +4,7 @@ var y = new yumpu();
 var config = require("./config");
 var c = new config();
 
-y.setToken(token);
+y.setToken(process.env.token);
 
 if(c.getYumpuConfig().token == 'yourToken') {
   throw "You have forgotten to set your token";
