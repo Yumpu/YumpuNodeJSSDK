@@ -6,12 +6,12 @@ var c = new config();
 
 y.setToken(process.env.token);
 
-if(c.getYumpuConfig().token == 'yourToken') {
-  throw "You have forgotten to set your token";
+if (c.getYumpuConfig().token == 'yourToken') {
+    throw "You have forgotten to set your token";
 }
 
 // define the input (only small characters, no symbols, no blank spaces, min 5 characters)
-var testInput = 'inputfortestxy';
+var testInput = 'inputfortest';
 var testInputPut = testInput + 'put';
 
 // Test for the getCountries function
@@ -579,7 +579,8 @@ function check(statusCode, text) {
     } else {
         errorCount = errorCount + 1;
         console.log('fail - ' + text + ' -------- ' + errorCount + ' error tests' + ' ------- ' + statusCode);
-        throw "something went wrong";
+        var err = text + " - failing test - " + statusCode;
+        throw err;
         return false;
     }
 }
