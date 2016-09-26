@@ -561,9 +561,6 @@ function whenDocumentHotspotDeleted() {
     };
     y.deleteDocument(parameters, function(statusCode, document) {
         check(statusCode, 'deleteDocument');
-        if(successCount != 50) {
-          throw "something went wrong";
-        }
     });
 }
 
@@ -582,6 +579,7 @@ function check(statusCode, text) {
     } else {
         errorCount = errorCount + 1;
         console.log('fail - ' + text + ' -------- ' + errorCount + ' error tests' + ' ------- ' + statusCode);
+        throw "something went wrong";
         return false;
     }
 }
