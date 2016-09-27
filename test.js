@@ -6,7 +6,7 @@ var c = new config();
 
 y.setToken(process.env.token);
 
-if (c.getYumpuConfig().token == 'yourToken') {
+if (c.getYumpuConfig().token == null) {
     throw "You have forgotten to set your token";
 }
 
