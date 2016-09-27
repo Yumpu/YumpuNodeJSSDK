@@ -4,6 +4,7 @@ var y = new yumpu();
 var config = require("./config");
 var c = new config();
 
+// set the environment variable for travis-ci
 y.setToken(process.env.token);
 
 if (c.getYumpuConfig().token == null) {
