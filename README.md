@@ -1,6 +1,7 @@
 # Node.js SDK for Yumpu
 
 [![Build Status](https://travis-ci.org/Yumpu/YumpuNodeJSSDK.svg?branch=master)](https://travis-ci.org/Yumpu/YumpuNodeJSSDK)
+[![npm version](https://badge.fury.io/js/yumpu.svg)](https://badge.fury.io/js/yumpu)
 
 
 With Node.js SDK you can create effective Node.js tools to publish your pdf documents on your Node application. Find out how to get started, publish your first pdf as flip book on the web or use the search function to display content.
