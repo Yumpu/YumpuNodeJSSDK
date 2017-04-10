@@ -10,7 +10,7 @@ var yumpuFunctions = function() {}
 yumpuFunctions.prototype.executeRequest = function(reqData, callbackRequest) {
     var options = {
         method: reqData.method,
-        url: 'http://' + reqData.host + reqData.path,
+        url: 'https://' + reqData.host + reqData.path,
         headers: reqData.headers,
     };
 
